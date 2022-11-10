@@ -1,0 +1,75 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export EDITOR:nvim
+SETUVAR --export FZF_DEFAULT_OPTS:\x2d\x2dcolor\x3dbg\x2b\x3a\x23302D41\x2cbg\x3a\x231E1E2E\x2cspinner\x3a\x23F8BD96\x2chl\x3a\x23F28FAD\x20\x2d\x2dcolor\x3dfg\x3a\x23D9E0EE\x2cheader\x3a\x23F28FAD\x2cinfo\x3a\x23DDB6F2\x2cpointer\x3a\x23F8BD96\x20\x2d\x2dcolor\x3dmarker\x3a\x23F8BD96\x2cfg\x2b\x3a\x23F2CDCD\x2cprompt\x3a\x23DDB6F2\x2chl\x2b\x3a\x23F28FAD
+SETUVAR --export MANPAGER:nvim\x20\x2bMan\x21
+SETUVAR --export PYTHONUSERBASE:/home/backwardspy/\x2elocal
+SETUVAR __fish_init_2_39_8:\x1d
+SETUVAR __fish_init_2_3_0:\x1d
+SETUVAR __fish_init_3_x:\x1d
+SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_c:wl\x2dcopy
+SETUVAR _fish_abbr_ccrs:cookiecutter\x20gh\x3abackwardspy/ccrs
+SETUVAR _fish_abbr_drun:docker\x20run\x20\x2du\x20501\x3a20\x20\x2dv\x20/Users/chris/\x2edrun\x3a/drun\x20\x2de\x20HOME\x3d/drun\x20\x2dv\x20/Users/chris/src/piccolo\x2dorm/piccolo\x3a/app\x20\x2d\x2dworkdir\x20/app\x20\x2dit\x20\x2d\x2drm\x20\x2d\x2dnetwork\x3dhost
+SETUVAR _fish_abbr_ga:git\x20add
+SETUVAR _fish_abbr_gb:git\x20branch
+SETUVAR _fish_abbr_gc:git\x20commit
+SETUVAR _fish_abbr_gco:git\x20checkout
+SETUVAR _fish_abbr_gd:git\x20diff
+SETUVAR _fish_abbr_gl:git\x20pull
+SETUVAR _fish_abbr_gp:git\x20push
+SETUVAR _fish_abbr_gs:git\x20switch
+SETUVAR _fish_abbr_gsd:git\x20switch\x20develop
+SETUVAR _fish_abbr_gsm:git\x20switch\x20master
+SETUVAR _fish_abbr_gst:git\x20status
+SETUVAR _fish_abbr_kctx:kubectx
+SETUVAR _fish_abbr_kns:kubens
+SETUVAR _fish_abbr_ls:lsd
+SETUVAR _fish_abbr_pa:poetry\x20add
+SETUVAR _fish_abbr_pacdiff:sudo\x20DIFFPROG\x3d\x27sudo\x20\x2de\x27\x20SUDO_EDITOR\x3dmeld\x20pacdiff
+SETUVAR _fish_abbr_pad:poetry\x20add\x20\x2d\x2dgroup\x20dev
+SETUVAR _fish_abbr_pi:poetry\x20install
+SETUVAR _fish_abbr_postgres:brew\x20services\x20start\x20postgresql
+SETUVAR _fish_abbr_pr:poetry\x20run
+SETUVAR _fish_abbr_psh:poetry\x20shell
+SETUVAR _fish_abbr_rabbitmq:brew\x20services\x20start\x20rabbitmq
+SETUVAR _fish_abbr_redis:brew\x20services\x20start\x20redis
+SETUVAR _fish_abbr_sed:gsed
+SETUVAR _fish_abbr_stop_2D_postgres:brew\x20services\x20stop\x20postgresql
+SETUVAR _fish_abbr_stop_2D_redis:brew\x20services\x20stop\x20redis
+SETUVAR _fish_abbr_tools:poetry\x20add\x20\x2d\x2dgroup\x20dev\x20black\x40latest\x20pylint\x40latest\x20mypy\x40latest\x20ward\x40latest\x20ipython\x40latest\x20isort\x40latest
+SETUVAR _fish_abbr_update:sudo\x20apt\x20update\x20\x26\x26\x20sudo\x20apt\x20\x2dy\x20full\x2dupgrade\x20\x26\x26\x20brew\x20update\x20\x26\x26\x20brew\x20upgrade\x20\x26\x26\x20yadm\x20bootstrap
+SETUVAR _fish_abbr_update_2D_yolo:curl\x20\x2dL\x20https\x3a//raw\x2egithubusercontent\x2ecom/ngerakines/commitment/main/commit_messages\x2etxt\x20\x3e\x20\x7e/\x2elocal/share/git/commit\x2dmessages\x2etxt
+SETUVAR _fish_abbr_vim:nvim
+SETUVAR _fish_abbr_watch:viddy
+SETUVAR fish_color_autosuggestion:707A8C
+SETUVAR fish_color_cancel:\x2d\x2dreverse
+SETUVAR fish_color_command:5CCFE6
+SETUVAR fish_color_comment:5C6773
+SETUVAR fish_color_cwd:73D0FF
+SETUVAR fish_color_cwd_root:red
+SETUVAR fish_color_end:F29E74
+SETUVAR fish_color_error:FF3333
+SETUVAR fish_color_escape:95E6CB
+SETUVAR fish_color_history_current:\x2d\x2dbold
+SETUVAR fish_color_host:normal
+SETUVAR fish_color_host_remote:yellow
+SETUVAR fish_color_match:F28779
+SETUVAR fish_color_normal:CBCCC6
+SETUVAR fish_color_operator:FFCC66
+SETUVAR fish_color_param:CBCCC6
+SETUVAR fish_color_quote:BAE67E
+SETUVAR fish_color_redirection:D4BFFF
+SETUVAR fish_color_search_match:\x2d\x2dbackground\x3dFFCC66
+SETUVAR fish_color_selection:\x2d\x2dbackground\x3dFFCC66
+SETUVAR fish_color_status:red
+SETUVAR fish_color_user:brgreen
+SETUVAR fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_greeting:\x1d
+SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_pager_color_completion:normal
+SETUVAR fish_pager_color_description:B3A06D
+SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
+SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dFFCC66
+SETUVAR fish_user_paths:/home/backwardspy/\x2ecargo/bin\x1e/home/backwardspy/\x2elocal/bin

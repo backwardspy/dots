@@ -1,0 +1,24 @@
+[".config/fish/themes/Catppuccin Mocha.theme"]
+type = "file"
+url = "https://raw.githubusercontent.com/catppuccin/fish/main/themes/Catppuccin%20Mocha.theme"
+refreshPeriod = "24h"
+
+[".config/bat/themes/Catppuccin-mocha.tmTheme"]
+type = "file"
+url = "https://raw.githubusercontent.com/catppuccin/bat/main/Catppuccin-mocha.tmTheme"
+refreshPeriod = "24h"
+
+[".config/btop/themes/catppuccin_mocha.theme"]
+type = "file"
+url = "https://raw.githubusercontent.com/catppuccin/btop/main/catppuccin_mocha.theme"
+refreshPeriod = "24h"
+
+[".config/kitty/themes/mocha.conf"]
+type = "file"
+url = "https://raw.githubusercontent.com/catppuccin/kitty/main/mocha.conf"
+refreshPeriod = "24h"
+
+[".config/waybar/mocha.css"]
+type = "file"
+url = "https://raw.githubusercontent.com/catppuccin/waybar/main/themes/mocha.css"
+refreshPeriod = "24h"
