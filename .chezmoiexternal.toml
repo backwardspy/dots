@@ -22,3 +22,10 @@ refreshPeriod = "24h"
 type = "file"
 url = "https://raw.githubusercontent.com/catppuccin/waybar/main/themes/mocha.css"
 refreshPeriod = "24h"
+
+[".icons/Catppuccin-Mocha-Teal-Cursors"]
+type = "archive"
+url = "https://github.com/catppuccin/cursors/raw/main/cursors/Catppuccin-Mocha-Teal-Cursors.zip"
+exact = true
+stripComponents = 1
+refreshPeriod = "24h"
