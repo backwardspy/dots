@@ -1,7 +1,7 @@
 [user]
 	email = backwardspy@gmail.com
 	name = backwardspy
-	signingkey = ~/.ssh/id_ed25519.pub
+	signingKey = ~/.ssh/id_ed25519.pub
 
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
@@ -22,7 +22,10 @@
 	format = ssh
 
 [commit]
-	gpgsign = true
+	gpgSign = true
 
 [tag]
-	gpgsign = true
+	gpgSign = true
+
+[init]
+	defaultBranch = main
