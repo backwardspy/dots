@@ -1,0 +1,22 @@
+[user]
+	email = backwardspy@gmail.com
+	name = backwardspy
+	signingkey = {{ .ssh_public_key }}
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+
+[diff]
+	external = difft
+
+[gpg]
+	format = ssh
