@@ -1,0 +1,11 @@
+blocks:
+  - permission
+  - user
+  - size
+  - date
+  - name
+date: +%d/%m/%y %H:%M
+size: short
+sorting:
+  dir-grouping: first
+hyperlink: auto

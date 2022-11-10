@@ -1,0 +1,294 @@
+/* modified from https://github.com/DN-debug/waybar-examples/blob/main/waybar-examples/sway/sway_style.css */
+@import "mocha.css";
+
+* {
+  border: none;
+  border-radius: 0px;
+  font-family: Noto Sans, Symbols Nerd Font Mono;
+  font-size: 12pt;
+  font-weight: 300;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: transparent;
+  color: #ffffff;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces button {
+  background: @base;
+  color: @text;
+  border-radius: 20px;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+  background: @teal;
+  color: @base;
+}
+
+#workspaces button.focused {
+  background: @crust;
+}
+
+#workspaces button.focused:hover {
+  background: @teal;
+  color: @base;
+}
+
+#workspaces button.urgent {
+  background-color: @red;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#custom-launcher,
+#custom-power,
+#tray,
+#mode,
+#idle_inhibitor,
+#gamemode,
+#mpd {
+  padding: 0 10px;
+  color: @base;
+}
+
+#window,
+#workspaces {
+  margin: 0px 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0px;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0px;
+}
+
+#clock {
+  background-color: @pink;
+  background-image: linear-gradient(-45deg, @pink 0%, @sapphire 52%, @sapphire 90%);
+  color: @base;
+  border-radius: 0px 20px 20px 0px;
+  margin-right: 4px;
+}
+
+#battery {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+#battery.charging, #battery.plugged {
+  color: #ffffff;
+  background-color: @green;
+}
+
+@keyframes blink {
+  to {
+      background-color: #ffffff;
+      color: #000000;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background-color: @red;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#cpu {
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @sapphire 0%, @sapphire 52%, @sapphire 90%);
+  color: black;
+}
+
+#memory {
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @sapphire 0%, @sapphire 52%, @sapphire 90%);
+  color: black;
+}
+
+#disk {
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @sapphire 0%, @sapphire 52%, @sapphire 90%);
+  color: black;
+}
+
+#backlight {
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @sapphire 0%, @sapphire 52%, @sapphire 90%);
+}
+
+#network {
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @sapphire 0%, @sapphire 52%, @sapphire 90%);
+  color: black;
+}
+
+#network.disconnected {
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @sapphire 0%, @sapphire 52%, @sapphire 90%);
+  color: red;
+}
+
+#pulseaudio {
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @sapphire 0%, @sapphire 52%, @sapphire 90%);
+  color: black;
+}
+
+#pulseaudio.muted {
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @sapphire 0%, @sapphire 52%, @sapphire 90%);
+  color: red;
+}
+
+#custom-media {
+  background-color: @sapphire;
+  background-image: linear-gradient(62deg, @sapphire 0%, @pink 100%);
+  color: black;
+  border-radius: 20px;
+  margin-right: 5px;
+}
+
+#custom-media.custom-spotify {
+  background-color: @sapphire;
+  background-image: linear-gradient(62deg, @sapphire 0%, @pink 100%);
+  color: black;
+  border-radius: 20px;
+  margin-right: 5px;
+
+}
+
+#custom-media.custom-vlc {
+  background-color: @sapphire;
+  background-image: linear-gradient(62deg, @sapphire 0%, @pink 100%);
+  color: black;
+  border-radius: 20px;
+  margin-right: 5px;
+}
+
+#custom-power{
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @pink 0%, @sapphire 52%, @sapphire 90%);
+  font-size: 16px;
+  border-radius: 19px;
+}
+#custom-launcher{
+  background-color: @pink;
+  background-image: linear-gradient(-45deg, @pink 0%, @sapphire 52%, @sapphire 90%);
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+#custom-updater {
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @sapphire 0%, @sapphire 52%, @sapphire 90%);
+  color: black;
+}
+
+
+#temperature {
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @sapphire 0%, @sapphire 52%, @sapphire 90%);
+  color: black;
+}
+
+#temperature.critical {
+  background-color: @red;
+}
+
+#tray {
+  background-color: @pink;
+  background-image: linear-gradient(-45deg, @sapphire 0%, @sapphire 52%, @sapphire 90%);
+  color: black;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+  background-color: @pink;
+  background-image: linear-gradient(-45deg, @pink 0%, @sapphire 52%, @sapphire 90%);
+  color: black;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @pink;
+  background-image: linear-gradient(-45deg, @pink 0%, @sapphire 52%, @sapphire 90%);
+  color: black;
+}
+
+#tray menu {
+  background-color: @base;
+  color: @text;
+}
+
+#idle_inhibitor {
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @pink 0%, @sapphire 52%, @sapphire 90%);
+  border-radius: 20px 0px 0px 20px;
+}
+
+#idle_inhibitor.activated {
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @pink 0%, @sapphire 52%, @sapphire 90%);
+  color: @base;
+  border-radius: 20px 0px 0px 20px;
+}
+
+#gamemode {
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @sapphire 0%, @sapphire 52%, @sapphire 90%);
+}
+
+#gamemode.running {
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @sapphire 0%, @sapphire 52%, @sapphire 90%);
+  color: @green;
+}
+
+#language {
+  background-color: @pink;
+  background-image: linear-gradient(45deg, @sapphire 0%, @sapphire 52%, @sapphire 90%);
+  color: black;
+  min-width: 16px;
+}
+
+#keyboard-state {
+  background: #97e1ad;
+  color: #000000;
+  min-width: 16px;
+}
+
+#keyboard-state > label {
+  padding: 0px 5px;
+}
+
+#keyboard-state > label.locked {
+  background: rgba(0, 0, 0, 0.2);
+}

@@ -2,8 +2,9 @@
 command = "nvim"
 
 [diff]
-command = "nvim"
-args = ["-d", "{{`{{ .Destination }}`}}", "{{`{{ .Target }}`}}"]
+command = "difft"
+args = ["{{`{{ .Destination }}`}}", "{{`{{ .Target }}`}}"]
+pager = "bat"
 
 [merge]
 command = "nvim"
