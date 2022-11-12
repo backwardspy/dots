@@ -27,7 +27,6 @@
     "backlight",
     "keyboard-state",
     "battery",
-    "battery#bat2",
     "tray",
     "clock",
     "custom/power"
@@ -95,17 +94,8 @@
     ]
   },
   "battery": {
-    "states": {
-      // "good": 95,
-      "warning": 30,
-      "critical": 15
-    },
+    "interval": 60,
     "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
     "format-icons": [
       "",
       "",
@@ -113,9 +103,6 @@
       "",
       ""
     ]
-  },
-  "battery#bat2": {
-    "bat": "BAT2"
   },
   "network": {
     "format-wifi": "{essid} ({signalStrength}%) ",
