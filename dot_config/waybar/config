@@ -2,7 +2,7 @@
 // expects:
 // yofi
 // playerctl
-// kitty
+// foot
 {
   "layer": "top",
   "position": "top",
@@ -158,6 +158,6 @@
     "exec": "yay -Qu | wc -l",
     "exec-if": "[[ $(yay -Qu | wc -l) != 0 ]]",
     "interval": 15,
-    "on-click": "kitty -e yay -Syu"
+    "on-click": "foot yay"
   }
 }

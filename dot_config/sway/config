@@ -1,14 +1,15 @@
 #! IMPORTANT !#
 # the following commands are expected to be available:
-# kitty
+# foot
 # yofi
 # grim
 # slurp
 # wl-copy (wl-clipboard)
 # jq
 # grimshot (usually comes with sway)
-# mako
 # swaybg
+
+# for autostart, dex is used.
 
 #
 # variables
@@ -24,7 +25,7 @@ set $up k
 set $right l
 
 # your preferred terminal emulator
-set $term kitty
+set $term foot
 
 # your preferred application launcher
 # note: pass the final command to swaymsg so that the resulting window can be opened
@@ -101,14 +102,9 @@ input * {
     for_window [class="Spotify"] move container to workspace $ws4
 
 #
-# Startup apps
+# Startup apps with dex
 #
-    exec mako
-    exec firefox
-    exec discord
-    exec steam
-    exec spotify
-    exec pavucontrol
+    exec dex --autostart
 
 #
 # Inhibit idle while fullscreen

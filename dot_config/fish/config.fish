@@ -45,12 +45,6 @@ if ! type -q _maybe_source
     _maybe_source $HOME/.config/fish/completions/kubernetes-tools.fish
 end
 
-if test "$TERM" = "xterm-kitty"
-    # ssh over kitty is a bit broken if we don't copy its terminfo over. this
-    # abbr is added globally rather than universally so it doesn't persist.
-    abbr -g ssh kitty +kitten ssh
-end
-
 if type -q starship
   starship init fish | source
 end
