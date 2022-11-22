@@ -20,6 +20,8 @@ local packer_bootstrap = ensure_packer()
 
 require("packer").startup(function(use)
     use("wbthomason/packer.nvim")
+
+    -- language server
     use({
         "VonHeikemen/lsp-zero.nvim",
         requires = {
@@ -41,15 +43,56 @@ require("packer").startup(function(use)
             { "rafamadriz/friendly-snippets" },
         },
     })
+
     use({
         "jose-elias-alvarez/null-ls.nvim",
         requires = {
             "nvim-lua/plenary.nvim",
         },
     })
+
+    -- find stuff easier
     use({
         "nvim-telescope/telescope.nvim",
     })
+
+    use({
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+        },
+        config = function()
+            vim.g.neo_tree_remove_legacy_commands = 1
+            require("neo-tree").setup({
+                close_if_last_window = true,
+                window = {
+                    width = 30,
+                }
+            })
+
+            vim.api.nvim_create_augroup("neotree_autoshow", { clear = true })
+            vim.api.nvim_create_autocmd("BufWinEnter", {
+                desc = "Show neo-tree on enter",
+                group = "neotree_autoshow",
+                callback = function()
+                    vim.cmd([[ Neotree show ]])
+                end
+            })
+        end
+    })
+
+    -- escape with jk
+    use({
+        "max397574/better-escape.nvim",
+        config = function()
+            require("better_escape").setup()
+        end
+    })
+
+    -- best theme ever
     use({
         "catppuccin/nvim",
         as = "catppuccin",
@@ -125,6 +168,7 @@ end
 -- ctrl+shift+f -> search
 -- shift+alt+f  -> format file
 -- ctrl+s       -> save
+-- ctrl+b       -> file tree
 local ts = require("telescope.builtin")
 vim.keymap.set("n", "<C-P>", ts.find_files)
 vim.keymap.set("n", "<C-S-O>", ts.lsp_document_symbols)
@@ -133,3 +177,4 @@ vim.keymap.set("n", "<M-F>", vim.lsp.buf.format)
 vim.keymap.set("n", "<C-S>", function()
     vim.api.nvim_command("write")
 end)
+vim.keymap.set("n", "<C-B>", [[ <cmd>Neotree toggle<cr> ]])
