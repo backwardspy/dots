@@ -4,6 +4,7 @@ SETUVAR --export EDITOR:nvim
 SETUVAR --export FZF_DEFAULT_OPTS:\x2d\x2dcolor\x3dbg\x2b\x3a\x23302D41\x2cbg\x3a\x231E1E2E\x2cspinner\x3a\x23F8BD96\x2chl\x3a\x23F28FAD\x20\x2d\x2dcolor\x3dfg\x3a\x23D9E0EE\x2cheader\x3a\x23F28FAD\x2cinfo\x3a\x23DDB6F2\x2cpointer\x3a\x23F8BD96\x20\x2d\x2dcolor\x3dmarker\x3a\x23F8BD96\x2cfg\x2b\x3a\x23F2CDCD\x2cprompt\x3a\x23DDB6F2\x2chl\x2b\x3a\x23F28FAD
 SETUVAR --export MANPAGER:nvim\x20\x2bMan\x21
 SETUVAR --export PYTHONUSERBASE:/home/backwardspy/\x2elocal
+SETUVAR --export QT_QPA_PLATFORMTHEME:qt5ct
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
@@ -26,7 +27,7 @@ SETUVAR _fish_abbr_kctx:kubectx
 SETUVAR _fish_abbr_kns:kubens
 SETUVAR _fish_abbr_ls:lsd
 SETUVAR _fish_abbr_pa:poetry\x20add
-SETUVAR _fish_abbr_pacdiff:sudo\x20DIFFPROG\x3d\x27sudo\x20\x2de\x27\x20SUDO_EDITOR\x3dmeld\x20pacdiff
+SETUVAR _fish_abbr_pacdiff:sudo\x20DIFFPROG\x3d\x27nvim\x20\x2dd\x27\x20pacdiff
 SETUVAR _fish_abbr_pad:poetry\x20add\x20\x2d\x2dgroup\x20dev
 SETUVAR _fish_abbr_pi:poetry\x20install
 SETUVAR _fish_abbr_postgres:brew\x20services\x20start\x20postgresql
@@ -72,4 +73,4 @@ SETUVAR fish_pager_color_description:B3A06D
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dFFCC66
-SETUVAR fish_user_paths:/home/backwardspy/\x2ecargo/bin\x1e/home/backwardspy/\x2elocal/bin
+SETUVAR fish_user_paths:/home/backwardspy/\x2eghcup/bin\x1e/home/backwardspy/\x2ecargo/bin\x1e/home/backwardspy/\x2elocal/bin
