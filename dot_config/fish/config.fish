@@ -1,26 +1,15 @@
-if status --is-login
-    # this cannot be set universally when fish isn't the login shell. it is
-    # shadowed by the global SHELL variable which is inherited from the real
-    # login shell's environment.
-    set --export SHELL fish
-
-    if type -q brew
-        # let brew set up its own environment
-        brew shellenv | source
-    end
-
-    fish_add_path ~/.local/bin
-    fish_add_path ~/.local/go/bin
-    fish_add_path ~/.cargo/bin
-    fish_add_path ~/.spicetify
-
-    if type -q brew
-        fish_add_path $HOMEBREW_PREFIX/opt/llvm/bin
-        fish_add_path $HOMEBREW_PREFIX/opt/python@3.11/libexec/bin
-        fish_add_path $HOMEBREW_PREFIX/opt/openssl@3/bin
-        fish_add_path $HOMEBREW_PREFIX/sbin
-    end
+if set -q WAYLAND_DISPLAY
+    set -gx QT_QPA_PLATFORM WAYLAND
+    set -gx QT_WAYLAND_DISABLE_WINDOWDECORATION 1
+    set -gx _JAVA_AWT_WM_NONREPARENTING 1
 end
+
+
+fish_add_path ~/.local/bin
+fish_add_path ~/.cargo/bin
+fish_add_path ~/.gchup/bin
+fish_add_path ~/.cabal/bin
+fish_add_path ~/.spicetify
 
 if type -q direnv
     # use direnv to autoload project .env files
