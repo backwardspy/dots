@@ -5,11 +5,11 @@ if set -q WAYLAND_DISPLAY
 end
 
 # paths are only added if they exist
-fish_add_path ~/.local/bin
-fish_add_path ~/.cargo/bin
-fish_add_path ~/.gchup/bin
-fish_add_path ~/.cabal/bin
-fish_add_path ~/.spicetify
+fish_add_path -g ~/.local/bin
+fish_add_path -g ~/.cargo/bin
+fish_add_path -g ~/.gchup/bin
+fish_add_path -g ~/.cabal/bin
+fish_add_path -g ~/.spicetify
 
 # source machine-specific config if it's present
 set machineconf "$HOME/.config/fish/.profile."(uname -s)
