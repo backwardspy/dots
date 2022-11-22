@@ -1,0 +1,6 @@
+# global exported var definitions for linux
+set -gx PYTHONUSERBASE /home/backwardspy/.local
+
+# linux-specific abbreviations
+abbr c "wl-copy"
+abbr pacdiff "sudo DIFFPROG='nvim -d' pacdiff"
