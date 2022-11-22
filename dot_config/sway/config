@@ -1,6 +1,6 @@
 #! IMPORTANT !#
 # the following commands are expected to be available:
-# foot
+# wezterm
 # yofi
 # grim
 # slurp
@@ -25,7 +25,7 @@ set $up k
 set $right l
 
 # your preferred terminal emulator
-set $term foot
+set $term wezterm
 
 # your preferred application launcher
 # note: pass the final command to swaymsg so that the resulting window can be opened
