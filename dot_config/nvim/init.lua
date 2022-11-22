@@ -5,6 +5,14 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
+-- gui/neovide stuff
+vim.opt.guifont = "Fantasque Sans Mono:h15"
+
+if vim.g.neovide then
+    vim.g.neovide_cursor_vfx_mode = "pixiedust"
+    vim.g.neovide_cursor_vfx_particle_density = 50
+end
+
 local ensure_packer = function()
     local fn = vim.fn
     local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
