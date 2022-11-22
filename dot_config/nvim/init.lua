@@ -70,9 +70,9 @@ require("packer").startup(function(use)
                 close_if_last_window = true,
                 window = {
                     width = 30,
-                }
+                },
             })
-        end
+        end,
     })
 
     -- escape with jk
@@ -80,7 +80,29 @@ require("packer").startup(function(use)
         "max397574/better-escape.nvim",
         config = function()
             require("better_escape").setup()
-        end
+        end,
+    })
+
+    -- ez terminal splits
+    use({
+        "akinsho/toggleterm.nvim",
+        tag = "*",
+        config = function()
+            require("toggleterm").setup({
+                size = 20,
+                open_mapping = "<C-`>",
+            })
+
+            local Terminal = require("toggleterm.terminal").Terminal
+            local lazygit = Terminal:new({
+                cmd = "lazygit",
+                direction = "float",
+                hidden = true,
+            })
+            vim.api.nvim_create_user_command("Git", function(opts)
+                lazygit:toggle()
+            end, {})
+        end,
     })
 
     -- best theme ever
@@ -160,12 +182,14 @@ end
 -- shift+alt+f  -> format file
 -- ctrl+s       -> save
 -- ctrl+b       -> file tree
+-- ctrl+`       -> terminal
 local ts = require("telescope.builtin")
-vim.keymap.set("n", "<C-P>", ts.find_files)
-vim.keymap.set("n", "<C-S-O>", ts.lsp_document_symbols)
-vim.keymap.set("n", "<C-S-F>", ts.live_grep)
-vim.keymap.set("n", "<M-F>", vim.lsp.buf.format)
-vim.keymap.set("n", "<C-S>", function()
+local m = { "n", "t", "i" }
+vim.keymap.set(m, "<C-P>", ts.find_files)
+vim.keymap.set(m, "<C-S-O>", ts.lsp_document_symbols)
+vim.keymap.set(m, "<C-S-F>", ts.live_grep)
+vim.keymap.set(m, "<M-F>", vim.lsp.buf.format)
+vim.keymap.set(m, "<C-S>", function()
     vim.api.nvim_command("write")
 end)
-vim.keymap.set("n", "<C-B>", [[ <cmd>Neotree toggle<cr> ]])
+vim.keymap.set(m, "<C-B>", [[ <cmd>Neotree toggle<cr> ]])
