@@ -175,7 +175,10 @@ if lsp_ok and null_ok then
     })
 end
 
--- vscode-style bindings
+local ts = require("telescope.builtin")
+local m = { "n", "t", "i" }
+
+-- some vscode-style bindings
 -- ctrl+p       -> find files
 -- ctrl+shift+o -> find symbols
 -- ctrl+shift+f -> search
@@ -183,8 +186,6 @@ end
 -- ctrl+s       -> save
 -- ctrl+b       -> file tree
 -- ctrl+`       -> terminal
-local ts = require("telescope.builtin")
-local m = { "n", "t", "i" }
 vim.keymap.set(m, "<C-P>", ts.find_files)
 vim.keymap.set(m, "<C-S-O>", ts.lsp_document_symbols)
 vim.keymap.set(m, "<C-S-F>", ts.live_grep)
@@ -192,4 +193,13 @@ vim.keymap.set(m, "<M-F>", vim.lsp.buf.format)
 vim.keymap.set(m, "<C-S>", function()
     vim.api.nvim_command("write")
 end)
-vim.keymap.set(m, "<C-B>", [[ <cmd>Neotree toggle<cr> ]])
+vim.keymap.set(m, "<C-B>", [[<cmd>Neotree toggle<cr>]])
+
+-- quicker window movement
+vim.keymap.set(m, "<C-h>", [[<cmd>wincmd h<cr>]])
+vim.keymap.set(m, "<C-j>", [[<cmd>wincmd j<cr>]])
+vim.keymap.set(m, "<C-k>", [[<cmd>wincmd k<cr>]])
+vim.keymap.set(m, "<C-l>", [[<cmd>wincmd l<cr>]])
+
+-- easier terminal escape
+vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
