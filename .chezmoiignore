@@ -1,0 +1,13 @@
+{{- if ne .chezmoi.os "linux" }}
+# exclude linux-specific dots
+.config/mako/
+.config/sway/
+.config/waybar/
+.config/yofi/
+.icons/default/
+{{- end }}
+
+{{- if ne .chezmoi.os "darwin" }}
+# exlude macos-specific dots
+
+{{- end }}
