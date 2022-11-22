@@ -7,7 +7,7 @@ end
 # paths are only added if they exist
 fish_add_path -g ~/.local/bin
 fish_add_path -g ~/.cargo/bin
-fish_add_path -g ~/.gchup/bin
+fish_add_path -g ~/.ghcup/bin
 fish_add_path -g ~/.cabal/bin
 fish_add_path -g ~/.spicetify
 
