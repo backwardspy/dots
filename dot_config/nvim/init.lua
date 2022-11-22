@@ -72,15 +72,6 @@ require("packer").startup(function(use)
                     width = 30,
                 }
             })
-
-            vim.api.nvim_create_augroup("neotree_autoshow", { clear = true })
-            vim.api.nvim_create_autocmd("BufWinEnter", {
-                desc = "Show neo-tree on enter",
-                group = "neotree_autoshow",
-                callback = function()
-                    vim.cmd([[ Neotree show ]])
-                end
-            })
         end
     })
 
