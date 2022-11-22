@@ -1,0 +1,9 @@
+# global exported var definitions for macos
+
+# macos-specific abbreviations
+abbr postgres "brew services start postgresql"
+abbr rabbitmq "brew services start rabbitmq"
+abbr redis "brew services start redis"
+abbr sed "gsed"
+abbr stop-postgres "brew services stop postgresql"
+abbr stop-redis "brew services stop redis"
