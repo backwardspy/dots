@@ -13,6 +13,18 @@ if vim.g.neovide then
     vim.g.neovide_cursor_vfx_particle_density = 50
 end
 
+-- pre-plugin binds
+local m = { "n", "t", "i" }
+
+-- quicker window movement
+vim.keymap.set(m, "<C-h>", [[<cmd>wincmd h<cr>]])
+vim.keymap.set(m, "<C-j>", [[<cmd>wincmd j<cr>]])
+vim.keymap.set(m, "<C-k>", [[<cmd>wincmd k<cr>]])
+vim.keymap.set(m, "<C-l>", [[<cmd>wincmd l<cr>]])
+
+-- easier terminal escape
+vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
+
 local ensure_packer = function()
     local fn = vim.fn
     local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -24,6 +36,7 @@ local ensure_packer = function()
     return false
 end
 
+-- packer setup
 local packer_bootstrap = ensure_packer()
 
 require("packer").startup(function(use)
@@ -184,9 +197,8 @@ if lsp_ok and null_ok then
 end
 
 local ts = require("telescope.builtin")
-local m = { "n", "t", "i" }
 
--- some vscode-style bindings
+-- plugin keybinds
 -- ctrl+p       -> find files
 -- ctrl+shift+o -> find symbols
 -- ctrl+shift+f -> search
@@ -202,12 +214,4 @@ vim.keymap.set(m, "<C-S>", function()
     vim.api.nvim_command("write")
 end)
 vim.keymap.set(m, "<C-B>", [[<cmd>Neotree toggle<cr>]])
-
--- quicker window movement
-vim.keymap.set(m, "<C-h>", [[<cmd>wincmd h<cr>]])
-vim.keymap.set(m, "<C-j>", [[<cmd>wincmd j<cr>]])
-vim.keymap.set(m, "<C-k>", [[<cmd>wincmd k<cr>]])
-vim.keymap.set(m, "<C-l>", [[<cmd>wincmd l<cr>]])
-
--- easier terminal escape
-vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
+vim.keymap.set(m, "<C-`>", function() require("toggleterm").toggle() end)
