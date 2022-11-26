@@ -22,6 +22,19 @@ vim.keymap.set(m, "<C-j>", [[<cmd>wincmd j<cr>]])
 vim.keymap.set(m, "<C-k>", [[<cmd>wincmd k<cr>]])
 vim.keymap.set(m, "<C-l>", [[<cmd>wincmd l<cr>]])
 
+-- highlight yank
+vim.api.nvim_create_augroup("highlight_yank", {})
+vim.api.nvim_create_autocmd({"TextYankPost"}, {
+    group = "highlight_yank",
+    pattern = {"*"},
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = "Visual",
+            timeout = 500,
+        })
+    end
+})
+
 -- easier terminal escape
 vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
 
