@@ -147,6 +147,10 @@ require("packer").startup(function(use)
         "catppuccin/nvim",
         as = "catppuccin",
         config = function()
+            require("catppuccin").setup({
+                transparent_background = not vim.g.neovide,
+                term_colors = true,
+            })
             vim.cmd.colorscheme("catppuccin")
         end,
     })
