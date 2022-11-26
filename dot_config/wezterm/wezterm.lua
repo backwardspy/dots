@@ -9,6 +9,20 @@ return {
     color_scheme = "Catppuccin Mocha",
     use_fancy_tab_bar = false,
     hide_tab_bar_if_only_one_tab = true,
+    window_padding = {
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0,
+    },
+    background = {{
+        source = {
+            File = os.getenv("HOME") .. "/.config/wezterm/space.jpg",
+        },
+        hsb = {
+            brightness = 0.6,
+        },
+    }},
     mouse_bindings = {
         -- only select with lmb, don't open links
         {
