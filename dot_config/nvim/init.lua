@@ -104,6 +104,9 @@ require("packer").startup(function(use)
                 close_if_last_window = true,
                 window = {
                     width = 30,
+                    mappings = {
+                        ["Z"] = "expand_all_nodes",
+                    }
                 },
             })
         end,
