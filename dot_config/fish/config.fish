@@ -5,6 +5,7 @@ if set -q WAYLAND_DISPLAY
 end
 
 # paths are only added if they exist
+fish_add_path -g /usr/local/sbin
 fish_add_path -g ~/.local/bin
 fish_add_path -g ~/.cargo/bin
 fish_add_path -g ~/.ghcup/bin
