@@ -12,5 +12,4 @@
 {{- if ne .chezmoi.os "darwin" }}
 # exlude macos-specific dots
 Brewfile
-Library/Application Support/BetterDiscord/themes/mocha.theme.css
 {{- end }}
