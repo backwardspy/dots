@@ -1,10 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
-    font = wezterm.font_with_fallback({
-        "Fantasque Sans Mono",
-        "Apple Color Emoji",
-    }),
+    font = wezterm.font("Fantasque Sans Mono"),
     font_size = 16,
     color_scheme = "Catppuccin Mocha",
     use_fancy_tab_bar = false,
