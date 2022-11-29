@@ -25,7 +25,9 @@ exact = true
 stripComponents = 1
 refreshPeriod = "24h"
 
+{{- if eq .chezmoi.os "darwin" }}
 ["Library/Application Support/BetterDiscord/themes/mocha.theme.css"]
 type = "file"
 url = "https://raw.githubusercontent.com/catppuccin/discord/main/themes/mocha.theme.css"
 refreshPeriod = "24h"
+{{- end }}
