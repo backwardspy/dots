@@ -14,11 +14,13 @@ return {
     },
     background = {{
         source = {
-            File = os.getenv("HOME") .. "/.config/wezterm/base-leather.jpg",
+            File = os.getenv("HOME") .. "/.config/wezterm/trig.jpg",
         },
-        -- hsb = {
-        --     brightness = 0.6,
-        -- },
+        hsb = {
+            brightness = 0.3,
+        },
+        horizontal_align = "Center",
+        vertical_align = "Middle",
     }},
     mouse_bindings = {
         -- only select with lmb, don't open links
