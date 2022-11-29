@@ -1,4 +1,4 @@
-.config/nvim/plugin/**
+.config/nvim/plugin/packer_compiled.lua
 
 {{- if ne .chezmoi.os "linux" }}
 # exclude linux-specific dots
