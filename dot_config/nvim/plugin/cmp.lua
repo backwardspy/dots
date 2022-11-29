@@ -1,5 +1,9 @@
 local ok, cmp = pcall(require, "cmp")
-if not ok then return end
+if not ok then
+    return
+end
+
+local require_then = require("utils").require_then
 
 local luasnip = require("luasnip")
 
@@ -8,7 +12,7 @@ local has_words_before = function()
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-cmp.setup({
+config = {
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -51,21 +55,48 @@ cmp.setup({
         { name = "luasnip" },
     }, {
         { name = "buffer" },
-    })
-})
+    }),
+}
+
+require_then("cmp-under-comparator", function(cmp_under_comparator)
+    config.sorting = {
+        comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            cmp_under_comparator.under,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+        },
+    }
+end)
+
+require_then("lspkind", function(lspkind)
+    config.formatting = {
+        format = lspkind.cmp_format({
+            mode = "symbol",
+            maxwidth = 30,
+            ellipsis_char = "…",
+        }),
+    }
+end)
+
+cmp.setup(config)
 
 cmp.setup.cmdline({ "/", "?" }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-        { name = "buffer" }
-    }
+        { name = "buffer" },
+    },
 })
 
 cmp.setup.cmdline(":", {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-        { name = "path" }
+        { name = "path" },
     }, {
-        { name = "cmdline" }
-    })
+        { name = "cmdline" },
+    }),
 })

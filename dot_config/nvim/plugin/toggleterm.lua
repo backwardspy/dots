@@ -1,5 +1,7 @@
 local ok, toggleterm = pcall(require, "toggleterm")
-if not ok then return end
+if not ok then
+    return
+end
 
 toggleterm.setup({
     size = 20,
@@ -12,4 +14,6 @@ local lazygit = Terminal:new({
     direction = "float",
     hidden = true,
 })
-vim.api.nvim_create_user_command("Git", function(opts) lazygit:toggle() end, {})
+vim.api.nvim_create_user_command("Git", function(opts)
+    lazygit:toggle()
+end, {})
