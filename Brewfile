@@ -16,6 +16,10 @@ brew "asciinema"
 brew "azure-cli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# GNU compiler collection
+brew "gcc"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
 # Statistics utility to count lines of code
 brew "cloc"
 # Diff that understands syntax
@@ -30,15 +34,12 @@ brew "fd"
 brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# GNU compiler collection
-brew "gcc"
 # Distributed revision control system
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-brew "btop"
 # Command-line benchmarking tool
 brew "hyperfine"
 # Lightweight and flexible command-line JSON processor
@@ -55,6 +56,8 @@ brew "llvm"
 brew "lsd"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# No Nonsense Neovim Client in Rust
+brew "neovide"
 # Platform built on V8 to build network applications
 brew "node"
 # Object-relational database system
@@ -83,6 +86,8 @@ brew "azure/kubelogin/kubelogin"
 brew "jesseduffield/lazygit/lazygit"
 # Chromium based browser
 cask "arc"
+# Desktop password and login vault
+cask "bitwarden"
 cask "font-fantasque-sans-mono"
 # Game development engine
 cask "godot"
@@ -104,4 +109,5 @@ cask "spotify"
 cask "the-unarchiver"
 # Open-source code editor
 cask "visual-studio-code"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
