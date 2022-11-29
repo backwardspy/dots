@@ -24,3 +24,8 @@ url = "https://github.com/catppuccin/cursors/raw/main/cursors/Catppuccin-Mocha-T
 exact = true
 stripComponents = 1
 refreshPeriod = "24h"
+
+["Library/Application Support/BetterDiscord/themes/mocha.theme.css"]
+type = "file"
+url = "https://raw.githubusercontent.com/catppuccin/discord/main/themes/mocha.theme.css"
+refreshPeriod = "24h"
