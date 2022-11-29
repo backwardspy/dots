@@ -5,7 +5,6 @@ end
 
 local navic_ok, navic = pcall(require, "nvim-navic")
 if navic_ok then
-    print("setting navic winbar")
     local winbar = {
         active = {},
         inactive = {},

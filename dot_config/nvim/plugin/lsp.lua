@@ -1,18 +1,22 @@
 local ok, mason = pcall(require, "mason")
-if not ok then return end
+if not ok then
+    return
+end
 
 local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
 local null_ls = require("null-ls")
 local navic = require("nvim-navic")
 
-require('lspconfig.ui.windows').default_options.border = "rounded"
+require("lspconfig.ui.windows").default_options.border = "rounded"
 mason.setup({
     ui = {
-        border = "rounded"
-    }
+        border = "rounded",
+    },
 })
 mason_lspconfig.setup()
+
+navic.setup({ highlight = true })
 
 null_ls.setup({
     sources = {
@@ -62,10 +66,10 @@ mason_lspconfig.setup_handlers({
             settings = {
                 Lua = {
                     runtime = {
-                        version = 'LuaJIT',
+                        version = "LuaJIT",
                     },
                     diagnostics = {
-                        globals = { 'vim' },
+                        globals = { "vim" },
                     },
                     workspace = {
                         library = vim.api.nvim_get_runtime_file("", true),
@@ -80,4 +84,8 @@ mason_lspconfig.setup_handlers({
     end,
 })
 
-require("fidget").setup()
+require("fidget").setup({
+    window = {
+        blend = 0,
+    },
+})
