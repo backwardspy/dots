@@ -119,6 +119,7 @@ require("packer").startup(function(use)
             "feline-nvim/feline.nvim",
             requires = { "nvim-tree/nvim-web-devicons" },
         },
+        "Eandrju/cellular-automaton.nvim",
     })
 
     -- Automatically set up your configuration after cloning packer.nvim
