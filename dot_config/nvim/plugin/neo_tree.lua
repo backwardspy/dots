@@ -1,5 +1,7 @@
 local ok, neo_tree = pcall(require, "neo-tree")
-if not ok then return end
+if not ok then
+    return
+end
 
 vim.g.neo_tree_remove_legacy_commands = 1
 neo_tree.setup({
@@ -8,7 +10,6 @@ neo_tree.setup({
         width = 30,
         mappings = {
             ["Z"] = "expand_all_nodes",
-        }
+        },
     },
 })
-

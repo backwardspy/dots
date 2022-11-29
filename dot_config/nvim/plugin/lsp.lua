@@ -3,6 +3,8 @@ if not ok then
     return
 end
 
+local require_then = require("utils").require_then
+
 local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
 local null_ls = require("null-ls")
@@ -32,7 +34,7 @@ null_ls.setup({
 
 local default_config = {
     on_attach = function(client, bufnr)
-        require("lsp_signature").on_attach({}, bufnr)
+        -- require("lsp_signature").on_attach({}, bufnr)
 
         if client.server_capabilities.documentSymbolProvider then
             navic.attach(client, bufnr)
@@ -82,10 +84,4 @@ mason_lspconfig.setup_handlers({
             },
         }))
     end,
-})
-
-require("fidget").setup({
-    window = {
-        blend = 0,
-    },
 })
