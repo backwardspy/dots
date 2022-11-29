@@ -110,16 +110,15 @@ require("packer").startup(function(use)
     -- ez terminal splits
     use({ "akinsho/toggleterm.nvim", tag = "*" })
 
-    -- fancy ui elements
-    use("stevearc/dressing.nvim")
-
-    -- best theme ever
-    use({ "catppuccin/nvim", as = "catppuccin" })
-
-    -- statusline & winbar
+    -- aesthetics
     use({
-        "feline-nvim/feline.nvim",
-        requires = { "nvim-tree/nvim-web-devicons" },
+        "stevearc/dressing.nvim",
+        "lukas-reineke/indent-blankline.nvim",
+        { "catppuccin/nvim", as = "catppuccin" },
+        {
+            "feline-nvim/feline.nvim",
+            requires = { "nvim-tree/nvim-web-devicons" },
+        },
     })
 
     -- Automatically set up your configuration after cloning packer.nvim
