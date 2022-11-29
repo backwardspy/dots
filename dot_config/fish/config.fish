@@ -11,6 +11,7 @@ fish_add_path -g ~/.cargo/bin
 fish_add_path -g ~/.ghcup/bin
 fish_add_path -g ~/.cabal/bin
 fish_add_path -g ~/.spicetify
+fish_add_path -g /opt/homebrew/bin
 
 # source machine-specific config if it's present
 set machineconf "$HOME/.config/fish/.profile."(uname -s)
