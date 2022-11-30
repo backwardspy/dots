@@ -1,6 +1,7 @@
 # global exported var definitions for macos
 
 # macos-specific abbreviations
+abbr -g c "pbcopy"
 abbr -g postgres "brew services start postgresql"
 abbr -g rabbitmq "brew services start rabbitmq"
 abbr -g redis "brew services start redis"
