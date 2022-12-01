@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
-    font = wezterm.font("Fantasque Sans Mono"),
+    font = wezterm.font("Fantasque Sans Mono", { weight = "Bold" }),
     font_size = string.match(wezterm.target_triple, "darwin") and 18 or 16,
     color_scheme = "Catppuccin Mocha",
     use_fancy_tab_bar = false,
