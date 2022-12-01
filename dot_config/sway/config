@@ -9,6 +9,9 @@
 # grimshot (usually comes with sway)
 # swaybg
 
+# the following are also recommended
+# xdg-dekstop-portal + xdg-desktop-portal-wlr
+
 # for autostart, dex is used.
 
 #
@@ -51,8 +54,7 @@ set $ws5 '5. '
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/backwardspy/Sync/img/backgrounds/ctp/cyberpunk.jpg fill
+output * bg /home/backwardspy/Sync/img/backgrounds/ctp/trinity.jpg fill
 #
 # Example configuration:
 #
@@ -96,10 +98,16 @@ input * {
 #
     assign [class="firefox"] workspace $ws1
     assign [class="discord"] workspace $ws2
+    assign [class="WebCord"] workspace $ws2
     assign [class="Steam"] workspace $ws3
     assign [app_id="pavucontrol"] workspace $ws4
     # spotify is weird, assign doesn't work
     for_window [class="Spotify"] move container to workspace $ws4
+
+#
+# Do the magic XDG desktop portal thing
+#
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 #
 # Startup apps with dex

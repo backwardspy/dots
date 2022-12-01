@@ -1,0 +1,63 @@
+# IMPORTANT!
+# this config expects the following things to be available:
+# - dunst
+# - wezterm
+# - xss-lock
+# - i3lock
+# - nm-applet
+# - rofi
+# - feh (wallpaper)
+# - maim + slop + xclip (screenshots)
+# - fantasque sans mono
+# - symbols nerd font
+
+# logo key
+set $mod Mod4
+
+# home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# your preferred terminal emulator
+set $term wezterm
+
+# your preferred application launcher
+set $menu rofi -show drun
+
+# your preferred screenshot utility
+set $screenshot maim -s | xclip -selection clipboard -target image/png
+
+# workspace names
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Start dunst, the notification daemon
+exec --no-startup-id dunst
+
+# Start picom, the compositor
+exec --no-startup-id picom
+
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+include conf.d/*.conf
+
