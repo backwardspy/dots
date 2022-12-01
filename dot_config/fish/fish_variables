@@ -16,6 +16,7 @@ SETUVAR _fish_abbr_gco:git\x20checkout
 SETUVAR _fish_abbr_gd:git\x20diff
 SETUVAR _fish_abbr_gl:git\x20pull
 SETUVAR _fish_abbr_gp:git\x20push
+SETUVAR _fish_abbr_gr:git\x20rebase
 SETUVAR _fish_abbr_gs:git\x20switch
 SETUVAR _fish_abbr_gsd:git\x20switch\x20develop
 SETUVAR _fish_abbr_gsm:git\x20switch\x20main
