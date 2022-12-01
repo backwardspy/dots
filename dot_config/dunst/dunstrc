@@ -1,0 +1,152 @@
+[global]
+    follow = mouse
+
+    width = 300
+    height = 300
+
+    origin = top-right
+    offset = 3x3
+
+    scale = 0
+
+    notification_limit = 0
+
+    # applies to e.g. dunstify -h int:value:12
+    progress_bar = true
+    progress_bar_height = 10  # must be at least 2x frame width
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+
+    indicate_hidden = yes
+
+    # 0-100, needs compositor
+    transparency = 0
+
+    # use if no compositor
+    separator_height = 1
+    separator_color = frame
+
+    # use if compositor
+    gap_size = 0
+    
+    padding = 3
+
+    horizontal_padding = 3
+
+    text_icon_padding = 0
+
+    frame_width = 1
+    frame_color = "#a6e3a1"
+
+    sort = yes
+
+    font = Fantasque Sans Mono 13
+
+    line_height = 0
+
+    markup = full
+
+    #   %a  appname
+    #   %s  summary
+    #   %b  body
+    #   %i  iconname (including its path)
+    #   %I  iconname (without its path)
+    #   %p  progress value if set ([  0%] to [100%]) or nothing
+    #   %n  progress value if set without any extra characters
+    #   %%  literal %
+    # markup is allowed
+    format = "<b>%s</b>\n%b"
+
+    alignment = left
+    vertical_alignment = center
+
+    show_age_threshold = 60
+
+    ellipsize = middle
+
+    ignore_newline = no
+
+    stack_duplicates = true
+
+    hide_duplicate_count = false
+
+    show_indicators = yes
+
+    icon_theme = Numix-Circle
+    enable_recursive_icon_lookup = true
+
+    icon_position = left
+
+    min_icon_size = 48
+    max_icon_size = 48
+
+    sticky_history = yes
+
+    history_length = 20
+
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/mimeo
+
+    always_run_script = true
+
+    title = Dunst
+    class = Dunst
+
+    corner_radius = 0
+
+    ignore_dbusclose = false
+
+    ### Wayland ###
+    # these settings are wayland-specific. they have no effect when using x11
+
+    # uncomment this if you want to let notications appear under fullscreen
+    # applications (default: overlay)
+    # layer = top
+
+    # set this to true to use x11 output on wayland.
+    force_xwayland = false
+
+    ### mouse
+
+    # defines list of actions for each mouse event
+    # possible values are:
+    # * none: don't do anything.
+    # * do_action: invoke the action determined by the action_name rule. if there is no
+    #              such action, open the context menu.
+    # * open_url: if the notification has exactly one url, open it. if there are multiple
+    #             ones, open the context menu.
+    # * close_current: close current notification.
+    # * close_all: close all notifications.
+    # * context: open context menu for the notification.
+    # * context_all: open context menu for all notifications.
+    # these values can be strung together for each mouse event, and
+    # will be executed in sequence.
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = none
+    mouse_right_click = close_current
+
+[experimental]
+    # calculate the dpi to use on a per-monitor basis.
+    # if this setting is enabled the xft.dpi value will be ignored and instead
+    # dunst will attempt to calculate an appropriate dpi value for each monitor
+    # using the resolution and physical size. this might be useful in setups
+    # where there are multiple screens with very different dpi values.
+    per_monitor_dpi = false
+
+
+[urgency_low]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    timeout = 10
+
+[urgency_normal]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    timeout = 10
+
+[urgency_critical]
+    background = "#1e1e2e"
+    foreground = "#f38ba8"
+    frame_color = "#f32ba8"
+    timeout = 0

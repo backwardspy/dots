@@ -1,0 +1,28 @@
+general {
+    output_format = "i3bar"
+    interval = 1
+    colors = true
+    color_good = "#a6e3a1"
+    color_degraded = "#f9e2af"
+    color_bad = "#f38ba8"
+    color_separator = "#313244"
+}
+
+order += "wireless wlan0"
+order += "ethernet enp9s0"
+order += "tztime local"
+
+wireless wlan0 {
+    format_up = "直%ip"
+    format_down = "睊"
+}
+
+ethernet enp9s0 {
+    format_up = "%ip"
+    format_down = ""
+}
+
+tztime local {
+    format = "%H:%M %A %Y-%m-%d"
+}
+
