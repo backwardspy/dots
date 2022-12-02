@@ -9,7 +9,7 @@ vim.opt.expandtab = true
 vim.opt.completeopt = "menu,menuone,noselect"
 
 -- gui/neovide stuff
-vim.opt.guifont = "Fantasque Sans Mono:h15"
+vim.opt.guifont = "Fantasque Sans Mono:h13"
 
 if vim.g.neovide then
     vim.g.neovide_cursor_vfx_mode = "pixiedust"
