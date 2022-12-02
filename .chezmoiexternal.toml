@@ -18,6 +18,11 @@ type = "file"
 url = "https://raw.githubusercontent.com/catppuccin/waybar/main/themes/mocha.css"
 refreshPeriod = "24h"
 
+[".local/share/rofi/themes/catppuccin-mocha.rasi"]
+type = "file"
+url = "https://raw.githubusercontent.com/catppuccin/rofi/main/basic/.local/share/rofi/themes/catppuccin-mocha.rasi"
+refreshPeriod = "24h"
+
 [".icons/Catppuccin-Mocha-Teal-Cursors"]
 type = "archive"
 url = "https://github.com/catppuccin/cursors/raw/main/cursors/Catppuccin-Mocha-Teal-Cursors.zip"

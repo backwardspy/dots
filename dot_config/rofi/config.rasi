@@ -1,0 +1,11 @@
+configuration {
+    font: "Fantasque Sans Mono 13";
+    show-icons: true;
+    terminal: "wezterm";
+    icon-theme: "Numix-Circle";
+    drun-display-format: "{name}";
+    drun-url-launcher: "mimeo";
+    hover-select: true;
+}
+
+@theme "catppuccin-mocha"
