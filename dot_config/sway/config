@@ -98,7 +98,6 @@ input * {
 #
     assign [class="firefox"] workspace $ws1
     assign [class="discord"] workspace $ws2
-    assign [class="WebCord"] workspace $ws2
     assign [class="Steam"] workspace $ws3
     assign [app_id="pavucontrol"] workspace $ws4
     # spotify is weird, assign doesn't work
