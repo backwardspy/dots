@@ -7,11 +7,13 @@
 # - i3lock
 # - nm-applet
 # - wezterm
-# - rofi
 # - feh (for setting wallpaper)
 # - maim + slop + xclip (for taking screenshots)
 # - fantasque sans mono
 # - symbols nerd font
+
+# no launcher is provided here.
+# i install ulauncher and launch it with dex.
 
 # logo key
 set $mod Mod4
@@ -24,9 +26,6 @@ set $right l
 
 # your preferred terminal emulator
 set $term wezterm
-
-# your preferred application launcher
-set $menu rofi -show drun
 
 # your preferred screenshot utility
 set $screenshot maim -s | xclip -selection clipboard -target image/png
@@ -47,7 +46,6 @@ exec --no-startup-id dunst
 exec --no-startup-id picom
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id nm-applet
 
 include conf.d/*.conf
 
