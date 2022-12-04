@@ -18,14 +18,17 @@ type = "file"
 url = "https://raw.githubusercontent.com/catppuccin/waybar/main/themes/mocha.css"
 refreshPeriod = "24h"
 
-[".local/share/rofi/themes/catppuccin-mocha.rasi"]
-type = "file"
-url = "https://raw.githubusercontent.com/catppuccin/rofi/main/basic/.local/share/rofi/themes/catppuccin-mocha.rasi"
+[".config/ulauncher/user-themes/Catppuccin-Mocha"]
+type = "archive"
+url = "https://github.com/catppuccin/ulauncher/archive/refs/heads/main.zip"
+exact = true
+stripComponents = 3
+include = ["ulauncher-main/src/Catppuccin-Mocha/*"]
 refreshPeriod = "24h"
 
-[".icons/Catppuccin-Mocha-Teal-Cursors"]
+[".local/share/icons/Catppuccin-Mocha-Green-Cursors"]
 type = "archive"
-url = "https://github.com/catppuccin/cursors/raw/main/cursors/Catppuccin-Mocha-Teal-Cursors.zip"
+url = "https://github.com/catppuccin/cursors/raw/main/cursors/Catppuccin-Mocha-Green-Cursors.zip"
 exact = true
 stripComponents = 1
 refreshPeriod = "24h"
