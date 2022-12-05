@@ -1,11 +1,20 @@
 pcall(require, "impatient")
 
+-- puts current line number on current line
+-- relative line numbers on everything else
 vim.opt.number = true
 vim.opt.relativenumber = true
+
+-- default to 4 spaces for indentation
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
+
+-- global statusline
+vim.opt.laststatus = 3
+
+-- apparently this makes cmp work
 vim.opt.completeopt = "menu,menuone,noselect"
 
 -- gui/neovide stuff
@@ -39,7 +48,7 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 -- easier terminal escape
-vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
+vim.keymap.set("t", "<c-esc>", [[<C-\><C-n>]])
 
 local ensure_packer = function()
     local fn = vim.fn
@@ -139,6 +148,8 @@ require("packer").startup(function(use)
         "tamton-aquib/duck.nvim",
     })
 
+    use("andweeb/presence.nvim")
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
@@ -163,7 +174,4 @@ vim.keymap.set(m, "<C-S>", function()
     vim.api.nvim_command("write")
 end)
 vim.keymap.set(m, "<C-B>", [[<cmd>Neotree toggle<cr>]])
-vim.keymap.set(m, "<C-`>", function()
-    require("toggleterm").toggle()
-end)
 vim.keymap.set(m, "<F2>", vim.lsp.buf.rename)
