@@ -12,6 +12,16 @@ return {
         top = 0,
         bottom = 0,
     },
+    keys = {
+        {
+            key = "`",
+            mods = "CTRL",
+            action = wezterm.action.SplitPane({
+                direction = "Down",
+                size = { Percent = 30 },
+            }),
+        },
+    },
     mouse_bindings = {
         -- only select with lmb, don't open links
         {

@@ -28,5 +28,5 @@ treesitter.setup({
             node_decremental = "<s-tab>",
         },
     },
-    indent = { enable = true },
+    indent = { enable = false },
 })
