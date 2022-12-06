@@ -137,6 +137,7 @@ require("packer").startup(function(use)
                 ts_update()
             end,
         },
+        "NvChad/nvim-colorizer.lua",
         {
             "folke/noice.nvim",
             requires = {
