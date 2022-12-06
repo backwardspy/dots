@@ -9,3 +9,5 @@ size: short
 sorting:
   dir-grouping: first
 hyperlink: auto
+color:
+  theme: catppuccin-mocha

@@ -14,6 +14,10 @@ fish_add_path -g ~/.spicetify
 fish_add_path -g /opt/homebrew/bin
 fish_add_path -g /opt/homebrew/Cellar/python@3.11/3.11.0/libexec/bin
 
+if type -q vivid
+    set -gx LS_COLORS (vivid generate catppuccin-mocha)
+end
+
 # source machine-specific config if it's present
 set machineconf "$HOME/.config/fish/.profile."(uname -s)
 if test -f $machineconf
