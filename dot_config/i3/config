@@ -42,10 +42,10 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-exec --no-startup-id dunst
-exec --no-startup-id picom
-exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id dunst
+exec_always --no-startup-id picom
+# exec --no-startup-id dex --autostart --environment i3
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 include conf.d/*.conf
 
