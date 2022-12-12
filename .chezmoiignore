@@ -2,10 +2,11 @@
 
 {{- if ne .chezmoi.os "linux" }}
 # exclude linux-specific dots
-.config/mako/
+.config/i3/
+.config/picom/
+.config/ulauncher/
+.config/systemd/
 .config/sway/
-.config/waybar/
-.config/yofi/
 .icons/default/
 {{- end }}
 

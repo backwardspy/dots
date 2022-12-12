@@ -13,6 +13,9 @@ type = "file"
 url = "https://raw.githubusercontent.com/catppuccin/btop/main/catppuccin_mocha.theme"
 refreshPeriod = "24h"
 
+{{- if ne .chezmoi.os "linux" }}
+# exclude linux-specific externals
+
 [".config/ulauncher/user-themes/Catppuccin-Mocha"]
 type = "archive"
 url = "https://github.com/catppuccin/ulauncher/archive/refs/heads/main.zip"
@@ -27,3 +30,5 @@ url = "https://github.com/catppuccin/cursors/raw/main/cursors/Catppuccin-Mocha-G
 exact = true
 stripComponents = 1
 refreshPeriod = "24h"
+
+{{- end }}
