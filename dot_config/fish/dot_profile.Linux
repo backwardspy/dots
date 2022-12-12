@@ -1,6 +1,6 @@
 # global exported var definitions for linux
 set -gx PYTHONUSERBASE ~/.local
-set -gx XCURSOR_PATH  ~/.local/share/icons
+set -gx XCURSOR_PATH ~/.local/share/icons
 set -gx XCURSOR_SIZE 24
 
 # linux-specific abbreviations
