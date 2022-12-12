@@ -11,6 +11,7 @@ fish_add_path -g ~/.cargo/bin
 fish_add_path -g ~/.ghcup/bin
 fish_add_path -g ~/.cabal/bin
 fish_add_path -g ~/.spicetify
+fish_add_path -g ~/go/bin
 fish_add_path -g /opt/homebrew/bin
 fish_add_path -g /opt/homebrew/Cellar/python@3.11/3.11.0/libexec/bin
 
