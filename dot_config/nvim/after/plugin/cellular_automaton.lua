@@ -1,7 +1,4 @@
-local ok, ca = pcall(require, "cellular-automaton")
-if not ok then
-    return
-end
+local ca = require("cellular-automaton")
 
 vim.api.nvim_create_user_command("Urgh", function()
     ca.start_animation("make_it_rain")

@@ -1,17 +1,8 @@
-local ok, noice = pcall(require, "noice")
-if not ok then
-    return
-end
+require("notify").setup({
+    background_colour = "#000000",
+})
 
-local require_then = require("utils").require_then
-
-require_then("notify", function(notify)
-    notify.setup({
-        background_colour = "#000000",
-    })
-end)
-
-noice.setup({
+require("noice").setup({
     lsp = {
         -- override markdown rendering so that cmp and other plugins use treesitter
         override = {

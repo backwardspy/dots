@@ -1,13 +1,7 @@
-local ok, catppuccin = pcall(require, "catppuccin")
-if not ok then
-    return
-end
-
-catppuccin.setup({
+require("catppuccin").setup({
     transparent_background = true,
     term_colors = true,
     integrations = {
-        fidget = true,
         indent_blankline = {
             enabled = true,
             colored_indent_levels = true,
@@ -32,7 +26,6 @@ catppuccin.setup({
             enabled = true,
             custom_bg = "NONE",
         },
-        neotree = true,
         cmp = true,
         telescope = true,
     },
