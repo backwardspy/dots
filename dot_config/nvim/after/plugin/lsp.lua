@@ -1,17 +1,11 @@
-local ok, mason = pcall(require, "mason")
-if not ok then
-    return
-end
-
-local require_then = require("utils").require_then
-
 local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
 local null_ls = require("null-ls")
 local navic = require("nvim-navic")
 
 require("lspconfig.ui.windows").default_options.border = "rounded"
-mason.setup({
+
+require("mason").setup({
     ui = {
         border = "rounded",
     },
@@ -39,6 +33,15 @@ local default_config = {
         if client.server_capabilities.documentSymbolProvider then
             navic.attach(client, bufnr)
         end
+
+        local opts = { buffer = bufnr, remap = false }
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+        vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "<leader>fs", require("telescope.builtin").lsp_workspace_symbols, opts)
     end,
 }
 

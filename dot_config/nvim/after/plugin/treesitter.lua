@@ -1,9 +1,4 @@
-local ok, treesitter = pcall(require, "nvim-treesitter.configs")
-if not ok then
-    return
-end
-
-treesitter.setup({
+require("nvim-treesitter.configs").setup({
     ensure_installed = {
         -- these are just bare minimum for my workflow & plugins.
         -- i'd recommend running `:TSInstall all` on a decent connection.
