@@ -2,9 +2,11 @@ local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
 local null_ls = require("null-ls")
 local navic = require("nvim-navic")
+local lsp_format = require("lsp-format")
 
 require("lspconfig.ui.windows").default_options.border = "rounded"
 
+-- lsp package management
 require("mason").setup({
     ui = {
         border = "rounded",
@@ -12,8 +14,11 @@ require("mason").setup({
 })
 mason_lspconfig.setup()
 
+-- miscellaneous extra shiny
+lsp_format.setup()
 navic.setup({ highlight = true })
 
+-- additional non-lsp tools to attach
 null_ls.setup({
     sources = {
         null_ls.builtins.formatting.stylua.with({
@@ -26,21 +31,24 @@ null_ls.setup({
     },
 })
 
+-- config for all language servers
 local default_config = {
     on_attach = function(client, bufnr)
-        -- require("lsp_signature").on_attach({}, bufnr)
+        require("lsp-format").on_attach(client)
 
         if client.server_capabilities.documentSymbolProvider then
             navic.attach(client, bufnr)
         end
 
-        local opts = { buffer = bufnr, remap = false }
+        -- add lsp-only keybinds
+        local opts = { buffer = bufnr }
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
         vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
         vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, opts)
         vim.keymap.set("n", "<leader>fs", require("telescope.builtin").lsp_workspace_symbols, opts)
     end,
 }
@@ -53,7 +61,8 @@ end
 
 -- automatic setup
 mason_lspconfig.setup_handlers({
-    function(server_name) -- default handler
+    -- default handler
+    function(server_name)
         lspconfig[server_name].setup(default_config)
     end,
 

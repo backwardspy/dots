@@ -28,6 +28,7 @@ require("packer").startup(function(use)
         "ray-x/lsp_signature.nvim",
         "SmiteshP/nvim-navic",
         "onsails/lspkind.nvim",
+        "lukas-reineke/lsp-format.nvim",
     })
 
     -- completion
