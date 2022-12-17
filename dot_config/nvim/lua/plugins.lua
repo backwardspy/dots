@@ -58,6 +58,14 @@ require("packer").startup(function(use)
     -- ez terminal splits
     use({ "akinsho/toggleterm.nvim", tag = "*" })
 
+    -- background task runner
+    use({
+        "google/executor.nvim",
+        requires = {
+            "MunifTanjim/nui.nvim",
+        },
+    })
+
     -- f o c u s
     use({ "folke/zen-mode.nvim", requires = { "folke/twilight.nvim" } })
 
