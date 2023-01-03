@@ -23,12 +23,6 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 -- hotkey modes
 local m = { "n", "t", "i" }
 
--- quicker window movement
-vim.keymap.set(m, "<C-h>", [[<cmd>wincmd h<cr>]])
-vim.keymap.set(m, "<C-j>", [[<cmd>wincmd j<cr>]])
-vim.keymap.set(m, "<C-k>", [[<cmd>wincmd k<cr>]])
-vim.keymap.set(m, "<C-l>", [[<cmd>wincmd l<cr>]])
-
 -- easier terminal escape
 vim.keymap.set("t", "<C-Esc>", [[<C-\><C-n>]])
 

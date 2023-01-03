@@ -32,6 +32,9 @@ vim.opt.incsearch = true
 -- make cursorhold happen faster
 vim.opt.updatetime = 100
 
+-- make which key show up faster
+vim.opt.timeoutlen = 500
+
 -- netrw nicety
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
@@ -46,4 +49,3 @@ if vim.g.neovide then
     vim.g.neovide_cursor_vfx_mode = "pixiedust"
     vim.g.neovide_cursor_vfx_particle_density = 50
 end
-
