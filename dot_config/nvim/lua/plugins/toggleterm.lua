@@ -1,5 +1,3 @@
--- setting this in `keys` for lazy doesn't work, but this does.
-vim.keymap.set("n", "<C-`>", "<cmd>ToggleTerm<cr>")
 return {
     {
         "akinsho/toggleterm.nvim",
