@@ -1,32 +1,45 @@
--- move stuff around in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+local wk = require("which-key")
 
--- make J keep the cursor where it is
-vim.keymap.set("n", "J", "mzJ`z")
+-- normal binds
+wk.register({
+    ["<C-s>"] = { "<cmd>write<cr>", "Save" },
+    ["<C-d>"] = { "<C-d>zz", "Half page down" },
+    ["<C-u>"] = { "<C-u>zz", "Half page up" },
+    n = { "nzzzv", "Next result (centered)" },
+    N = { "Nzzzv", "Previous result (centered)" },
+    J = { "mzJ`z", "Join lines (stable)" },
+    ["<C-`>"] = { "<cmd>ToggleTerm<cr>", "ToggleTerm" },
+})
 
--- keep cursor in the middle when scrolling and searching
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+-- visual binds
+wk.register({
+    J = { ":m '>+1<CR>gv=gv", "Move line down" },
+    K = { ":m '<-2<CR>gv=gv", "Move line up" },
+}, { mode = "v" })
 
--- put without yank
-vim.keymap.set("x", "<leader>p", [["_dP]])
+-- terminal binds
+wk.register({
+    ["<C-Esc>"] = { [[<C-\><C-n>]], "Normal mode" },
+}, { mode = "t" })
 
--- delete without yank
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+-- leader binds
+wk.register({
+    g = { "<cmd>Git<cr>", "lazygit" },
+    f = {
+        name = "Find",
+        g = { "<cmd>Telescope git_files<cr>", "Git files" },
+        f = { "<cmd>Telescope find_files<cr>", "Find files" },
+        s = { "<cmd>Telescope live_grep<cr>", "Live grep" },
+    },
+}, { prefix = "<leader>" })
 
--- yank to system clipboard
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+-- nv leader binds
+wk.register({
+    d = { [["_d]], "Delete w/o yank" },
+    y = { [["+y]], "Yank to clipboard" },
+}, { prefix = "<leader>", mode = { "n", "v" } })
 
--- hotkey modes
-local m = { "n", "t", "i" }
-
--- easier terminal escape
-vim.keymap.set("t", "<C-Esc>", [[<C-\><C-n>]])
-
--- ctrl+s to save :)
-vim.keymap.set(m, "<C-S>", function()
-    vim.api.nvim_command("write")
-end)
+-- x leader binds
+wk.register({
+    p = { [["_dP"]], "Put w/o yank" },
+}, { prefix = "<leader>", mode = "x" })

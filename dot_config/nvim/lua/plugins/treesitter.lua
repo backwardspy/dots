@@ -14,12 +14,6 @@ return {
                     "rust",
                     "go",
                     "lua",
-                    -- for folke/noice.nvim
-                    "vim",
-                    "regex",
-                    "bash",
-                    "markdown",
-                    "markdown_inline",
                 },
                 highlight = { enable = true },
                 incremental_selection = {

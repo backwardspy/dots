@@ -9,15 +9,43 @@ local default_config = {
         require("lsp_signature").on_attach({}, bufnr)
 
         -- add lsp-only keybinds
-        local opts = { buffer = bufnr }
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-        vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
-        vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, opts)
-        vim.keymap.set("n", "<leader>fs", require("telescope.builtin").lsp_workspace_symbols, opts)
+        local wk = require("which-key")
+        wk.register({
+            g = {
+                name = "Go to",
+                d = { vim.lsp.buf.definition, "Definition" },
+            },
+            K = { vim.lsp.buf.hover, "Hover" },
+            d = {
+                name = "Diagnostic",
+                n = { vim.diagnostic.goto_next, "Next" },
+                N = { vim.diagnostic.goto_prev, "Previous" },
+            },
+        })
+
+        wk.register({
+            c = {
+                name = "Code",
+                a = { vim.lsp.buf.code_action, "Action" },
+                r = { vim.lsp.buf.rename, "Rename" },
+                f = { vim.lsp.buf.format, "Format" },
+            },
+            f = {
+                name = "Find",
+                o = {
+                    function()
+                        require("telescope.builtin").lsp_document_symbols()
+                    end,
+                    "Document symbols",
+                },
+                p = {
+                    function()
+                        require("telescope.builtin").lsp_workspace_symbols()
+                    end,
+                    "Workspace symbols",
+                },
+            },
+        }, { buffer = bufnr, prefix = "<leader>" })
     end,
 }
 
