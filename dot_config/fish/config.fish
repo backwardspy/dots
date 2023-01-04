@@ -13,7 +13,7 @@ fish_add_path -g ~/.cabal/bin
 fish_add_path -g ~/.spicetify
 fish_add_path -g ~/go/bin
 fish_add_path -g /opt/homebrew/bin
-fish_add_path -g /opt/homebrew/Cellar/python@3.11/3.11.0/libexec/bin
+fish_add_path -g /opt/homebrew/opt/python@3.11/libexec/bin
 
 if type -q vivid
     set -gx LS_COLORS (vivid generate catppuccin-mocha)
