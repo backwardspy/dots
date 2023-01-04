@@ -16,17 +16,9 @@ refreshPeriod = "24h"
 {{- if ne .chezmoi.os "linux" }}
 # exclude linux-specific externals
 
-[".config/ulauncher/user-themes/Catppuccin-Mocha"]
+[".local/share/icons/Catppuccin-Mocha-Mauve-Cursors"]
 type = "archive"
-url = "https://github.com/catppuccin/ulauncher/archive/refs/heads/main.zip"
-exact = true
-stripComponents = 3
-include = ["ulauncher-main/src/Catppuccin-Mocha/*"]
-refreshPeriod = "24h"
-
-[".local/share/icons/Catppuccin-Mocha-Green-Cursors"]
-type = "archive"
-url = "https://github.com/catppuccin/cursors/raw/main/cursors/Catppuccin-Mocha-Green-Cursors.zip"
+url = "https://github.com/catppuccin/cursors/raw/main/cursors/Catppuccin-Mocha-Mauve-Cursors.zip"
 exact = true
 stripComponents = 1
 refreshPeriod = "24h"
