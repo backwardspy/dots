@@ -1,0 +1,74 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+add_newline = true
+
+format = """
+$directory\
+[](fg:#F38BA8 bg:#F9E2AF)\
+$git_branch\
+$git_status\
+[](fg:#F9E2AF bg:#A6E3A1)\
+$golang\
+$nodejs\
+$rust\
+$python\
+$lua\
+[](fg:#A6E3A1)\
+$line_break\
+$character
+"""
+
+[character]
+format = "$symbol "
+success_symbol = '[ ](bg:#A6E3A1)[](fg:#A6E3A1)'
+error_symbol = '[ ](bg:red)[](fg:red)'
+vimcmd_symbol = '[ ](bg:#B4BEFE)[](fg:#B4BEFE)'
+vimcmd_replace_one_symbol = '[ ](bg:#EBA0AC)[](fg:bold #EBA0AC)'
+vimcmd_replace_symbol = '[ ](bg:#EBA0AC)[](fg:#EBA0AC)'
+vimcmd_visual_symbol = '[ ](bg:#F2CDCD)[](fg:#F2CDCD)'
+disabled = false
+
+[directory]
+style = "fg:#1E1E2E bg:#F38BA8"
+format = "[ $path ]($style)"
+truncation_length = 0
+truncate_to_repo = true
+
+[directory.substitutions]
+"Downloads" = " "
+"Sync" = " "
+"src" = " "
+".config" = " "
+
+[git_branch]
+style = "fg:#1E1E2E bg:#F9E2AF"
+format = '[ $symbol$branch]($style)'
+
+[git_status]
+style = "fg:#1E1E2E bg:#F9E2AF"
+format = '[ $all_status$ahead_behind]($style)'
+
+[golang]
+symbol = " "
+style = "fg:#1E1E2E bg:#A6E3A1"
+format = '[ $symbol ($version)]($style)'
+
+[nodejs]
+symbol = " "
+style = "fg:#1E1E2E bg:#A6E3A1"
+format = '[ $symbol ($version)]($style)'
+
+[rust]
+symbol = " "
+style = "fg:#1E1E2E bg:#A6E3A1"
+format = '[ $symbol ($version)]($style)'
+
+[python]
+symbol = " "
+style = "fg:#1E1E2E bg:#A6E3A1"
+format = '[ $symbol ($version)]($style)'
+
+[lua]
+symbol = " "
+style = "fg:#1E1E2E bg:#A6E3A1"
+format = '[ $symbol ($version)]($style)'
