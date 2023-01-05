@@ -22,6 +22,14 @@ wk.register({
     ["<C-Esc>"] = { [[<C-\><C-n>]], "Normal mode" },
 }, { mode = "t" })
 
+-- normal + terminal binds
+wk.register({
+    ["<C-h>"] = { "<cmd>wincmd h<cr>", "Go to the left window" },
+    ["<C-j>"] = { "<cmd>wincmd j<cr>", "Go to the down window" },
+    ["<C-k>"] = { "<cmd>wincmd k<cr>", "Go to the up window" },
+    ["<C-l>"] = { "<cmd>wincmd l<cr>", "Go to the right window" },
+}, { mode = { "n", "t" } })
+
 -- leader binds
 wk.register({
     g = { "<cmd>Git<cr>", "lazygit" },
@@ -31,6 +39,7 @@ wk.register({
         f = { "<cmd>Telescope find_files<cr>", "Find files" },
         s = { "<cmd>Telescope live_grep<cr>", "Live grep" },
     },
+    p = { [["+p]], "Put from clipboard" },
 }, { prefix = "<leader>" })
 
 -- nv leader binds
