@@ -76,11 +76,11 @@ return {
 
                         -- specific handlers
                         ["rust_analyzer"] = function()
-                            require("rust-tools").setup({})
+                            require("rust-tools").setup({ server = default_config })
                         end,
 
                         ["pyright"] = function()
-                            require("py_lsp").setup({})
+                            require("py_lsp").setup(default_config)
                         end,
 
                         ["sumneko_lua"] = function()
