@@ -40,6 +40,17 @@ wk.register({
         s = { "<cmd>Telescope live_grep<cr>", "Live grep" },
     },
     p = { [["+p]], "Put from clipboard" },
+    x = {
+        name = "Debug",
+        b = { "<cmd>DapToggleBreakpoint<cr>", "Toggle breakpoint" },
+        x = { "<cmd>DapContinue<cr>", "Run/Continue" },
+        u = { function() require("dapui").toggle({}) end, "UI" },
+    },
+    t = {
+        name = "Tasks",
+        r = { "<cmd>OverseerRun<cr>", "Run" },
+        t = { "<cmd>OverseerToggle<cr>", "Toggle" },
+    },
 }, { prefix = "<leader>" })
 
 -- nv leader binds
