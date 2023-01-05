@@ -30,7 +30,7 @@ SETUVAR _fish_abbr_pad:poetry\x20add\x20\x2d\x2dgroup\x20dev
 SETUVAR _fish_abbr_pi:poetry\x20install
 SETUVAR _fish_abbr_pr:poetry\x20run
 SETUVAR _fish_abbr_psh:poetry\x20shell
-SETUVAR _fish_abbr_tools:poetry\x20add\x20\x2d\x2dgroup\x20dev\x20black\x40latest\x20pylint\x40latest\x20mypy\x40latest\x20ward\x40latest\x20ipython\x40latest\x20isort\x40latest
+SETUVAR _fish_abbr_tools:poetry\x20add\x20\x2d\x2dgroup\x20dev\x20black\x40latest\x20pylint\x40latest\x20mypy\x40latest\x20pytest\x40latest\x20pytest\x2dasyncio\x40latest\x20ipython\x40latest\x20isort\x40latest
 SETUVAR _fish_abbr_vim:nvim
 SETUVAR _fish_abbr_watch:viddy
 SETUVAR fish_color_autosuggestion:707A8C
