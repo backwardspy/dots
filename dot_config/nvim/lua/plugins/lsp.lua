@@ -76,7 +76,20 @@ return {
 
                         -- specific handlers
                         ["rust_analyzer"] = function()
-                            require("rust-tools").setup({ server = default_config })
+                            require("rust-tools").setup({
+                                server = default_config,
+                                dap = {
+                                    adapter = {
+                                        type = "server",
+                                        port = "${port}",
+                                        host = "127.0.0.1",
+                                        executable = {
+                                            command = "codelldb",
+                                            args = { "--port", "${port}" },
+                                        },
+                                    },
+                                },
+                            })
                         end,
 
                         ["pyright"] = function()
@@ -100,10 +113,7 @@ return {
                     })
                 end,
                 dependencies = {
-                    {
-                        "williamboman/mason.nvim",
-                        config = { ui = { border = "rounded" } },
-                    },
+                    "williamboman/mason.nvim",
                     { "folke/neodev.nvim", config = true },
                 },
             },
