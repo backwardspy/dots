@@ -58,7 +58,19 @@ return {
                     }
                 end,
             })
+
+            -- apply suggestions from catppuccin theme
+            local sign = vim.fn.sign_define
+
+            sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+            sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+            sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
         end,
+        keys = {
+            { "<leader>xb", vim.cmd.DapToggleBreakpoint, "Toggle breakpoint" },
+            { "<leader>xu", function() require("dapui").toggle({}) end, "Toggle breakpoint" },
+            { "<leader>xx", vim.cmd.DapContinue, "Toggle breakpoint" },
+        },
         dependencies = { "williamboman/mason.nvim" },
     },
 }

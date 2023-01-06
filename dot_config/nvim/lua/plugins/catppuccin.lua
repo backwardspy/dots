@@ -6,7 +6,8 @@ return {
         priority = 1000,
         config = function()
             require("catppuccin").setup({
-                transparent_background = true,
+                flavour = "mocha",
+                transparent_background = false,
                 term_colors = true,
                 integrations = {
                     indent_blankline = {
@@ -33,8 +34,18 @@ return {
                         enabled = true,
                         custom_bg = "NONE",
                     },
+                    noice = true,
+                    notify = true,
+                    dap = {
+                        enabled = true,
+                        enable_ui = true,
+                    },
                     cmp = true,
+                    treesitter = true,
+                    overseer = true,
                     telescope = true,
+                    lsp_trouble = true,
+                    which_key = true,
                 },
             })
             vim.cmd.colorscheme("catppuccin")

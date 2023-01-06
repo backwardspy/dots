@@ -6,46 +6,25 @@ local default_config = {
             require("nvim-navic").attach(client, bufnr)
         end
 
-        require("lsp_signature").on_attach({}, bufnr)
-
         -- add lsp-only keybinds
-        local wk = require("which-key")
-        wk.register({
-            g = {
-                name = "Go to",
-                d = { vim.lsp.buf.definition, "Definition" },
-            },
-            K = { vim.lsp.buf.hover, "Hover" },
-            d = {
-                name = "Diagnostic",
-                n = { vim.diagnostic.goto_next, "Next" },
-                N = { vim.diagnostic.goto_prev, "Previous" },
-            },
-        })
+        local map = function(sequence, cmd, desc)
+            vim.keymap.set("n", sequence, cmd, { buffer = bufnr, desc = desc })
+        end
 
-        wk.register({
-            c = {
-                name = "Code",
-                a = { vim.lsp.buf.code_action, "Action" },
-                r = { vim.lsp.buf.rename, "Rename" },
-                f = { vim.lsp.buf.format, "Format" },
-            },
-            f = {
-                name = "Find",
-                o = {
-                    function()
-                        require("telescope.builtin").lsp_document_symbols()
-                    end,
-                    "Document symbols",
-                },
-                p = {
-                    function()
-                        require("telescope.builtin").lsp_workspace_symbols()
-                    end,
-                    "Workspace symbols",
-                },
-            },
-        }, { buffer = bufnr, prefix = "<leader>" })
+        map("gd", vim.lsp.buf.definition, "Go to definition")
+        map("K", vim.lsp.buf.hover, "Hover")
+        map("]d", vim.diagnostic.goto_next, "Next diagnostic")
+        map("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
+
+        map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
+        map("<leader>cr", vim.lsp.buf.rename, "Rename")
+        map("<leader>cf", vim.lsp.buf.format, "Format")
+        map("<leader>so", function()
+            require("telescope.builtin").lsp_document_symbols()
+        end, "Document symbols")
+        map("<leader>sp", function()
+            require("telescope.builtin").lsp_workspace_symbols()
+        end, "Workspace symbols")
     end,
 }
 
@@ -119,7 +98,6 @@ return {
             },
             "simrat39/rust-tools.nvim",
             "HallerPatrick/py_lsp.nvim",
-            "ray-x/lsp_signature.nvim",
             { "SmiteshP/nvim-navic", config = { highlight = true } },
             "onsails/lspkind.nvim",
             { "lukas-reineke/lsp-format.nvim", config = true },
