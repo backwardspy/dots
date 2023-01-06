@@ -8,7 +8,6 @@ wk.register({
     n = { "nzzzv", "Next result (centered)" },
     N = { "Nzzzv", "Previous result (centered)" },
     J = { "mzJ`z", "Join lines (stable)" },
-    ["<C-`>"] = { "<cmd>ToggleTerm<cr>", "ToggleTerm" },
 })
 
 -- visual binds
@@ -32,25 +31,7 @@ wk.register({
 
 -- leader binds
 wk.register({
-    g = { "<cmd>Git<cr>", "lazygit" },
-    f = {
-        name = "Find",
-        g = { "<cmd>Telescope git_files<cr>", "Git files" },
-        f = { "<cmd>Telescope find_files<cr>", "Find files" },
-        s = { "<cmd>Telescope live_grep<cr>", "Live grep" },
-    },
     p = { [["+p]], "Put from clipboard" },
-    x = {
-        name = "Debug",
-        b = { "<cmd>DapToggleBreakpoint<cr>", "Toggle breakpoint" },
-        x = { "<cmd>DapContinue<cr>", "Run/Continue" },
-        u = { function() require("dapui").toggle({}) end, "UI" },
-    },
-    t = {
-        name = "Tasks",
-        r = { "<cmd>OverseerRun<cr>", "Run" },
-        t = { "<cmd>OverseerToggle<cr>", "Toggle" },
-    },
 }, { prefix = "<leader>" })
 
 -- nv leader binds

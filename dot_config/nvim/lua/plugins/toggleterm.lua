@@ -19,5 +19,9 @@ return {
             end, {})
         end,
         cmd = { "Git", "ToggleTerm" },
+        keys = {
+            { "<leader>ot", "<cmd>ToggleTerm<cr>", desc = "Terminal" },
+            { "<leader>gg", "<cmd>Git<cr>", desc = "Git" },
+        }
     },
 }
