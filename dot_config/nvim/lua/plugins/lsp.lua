@@ -1,6 +1,7 @@
 local default_config = {
     on_attach = function(client, bufnr)
         require("lsp-format").on_attach(client)
+        require("lsp_signature").on_attach({}, bufnr)
 
         if client.server_capabilities.documentSymbolProvider then
             require("nvim-navic").attach(client, bufnr)
@@ -55,8 +56,16 @@ return {
 
                         -- specific handlers
                         ["rust_analyzer"] = function()
+                            -- https://github.com/simrat39/rust-tools.nvim/issues/300
+                            local config = custom_config({
+                                settings = {
+                                    ["rust-analyzer"] = {
+                                        inlayHints = { locationLinks = false },
+                                    },
+                                },
+                            })
                             require("rust-tools").setup({
-                                server = default_config,
+                                server = config,
                                 dap = {
                                     adapter = {
                                         type = "server",
@@ -79,6 +88,9 @@ return {
                             require("lspconfig")["sumneko_lua"].setup(custom_config({
                                 settings = {
                                     Lua = {
+                                        format = {
+                                            enable = false,
+                                        },
                                         workspace = {
                                             checkThirdParty = false,
                                         },
@@ -102,6 +114,7 @@ return {
             "onsails/lspkind.nvim",
             { "lukas-reineke/lsp-format.nvim", config = true },
             "folke/neodev.nvim",
+            "ray-x/lsp_signature.nvim",
         },
     },
     {
