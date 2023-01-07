@@ -44,7 +44,6 @@ return {
                     treesitter = true,
                     overseer = true,
                     telescope = true,
-                    lsp_trouble = true,
                     which_key = true,
                 },
             })
