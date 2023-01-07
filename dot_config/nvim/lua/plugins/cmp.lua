@@ -51,10 +51,10 @@ return {
                     end, { "i", "s" }),
                 }),
                 sources = cmp.config.sources({
-                    { name = "nvim_lsp" },
-                    { name = "luasnip" },
+                    { name = "nvim_lsp", keyword_length = 2 },
+                    { name = "luasnip", keyword_length = 2 },
                 }, {
-                    { name = "buffer" },
+                    { name = "buffer", keyword_length = 2 },
                 }),
                 sorting = {
                     comparators = {
