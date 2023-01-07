@@ -10,10 +10,6 @@ return {
                 transparent_background = false,
                 term_colors = true,
                 integrations = {
-                    indent_blankline = {
-                        enabled = true,
-                        colored_indent_levels = true,
-                    },
                     mason = true,
                     native_lsp = {
                         enabled = true,
