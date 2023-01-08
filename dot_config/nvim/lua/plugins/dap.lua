@@ -13,11 +13,6 @@ end
 
 return {
     {
-        "rcarriga/nvim-dap-ui",
-        config = true,
-        dependencies = { "mfussenegger/nvim-dap" },
-    },
-    {
         "jayp0521/mason-nvim-dap.nvim",
         config = function()
             local dap = require("dap")
@@ -68,9 +63,20 @@ return {
         end,
         keys = {
             { "<leader>xb", vim.cmd.DapToggleBreakpoint, "Toggle breakpoint" },
-            { "<leader>xu", function() require("dapui").toggle({}) end, "Toggle breakpoint" },
+            {
+                "<leader>xu",
+                function()
+                    require("dapui").toggle({})
+                end,
+                "Toggle breakpoint",
+            },
             { "<leader>xx", vim.cmd.DapContinue, "Toggle breakpoint" },
         },
-        dependencies = { "williamboman/mason.nvim" },
+        dependencies = {
+            "williamboman/mason.nvim",
+            "mfussenegger/nvim-dap",
+        },
     },
+    { "rcarriga/nvim-dap-ui", config = true },
+    { "theHamsta/nvim-dap-virtual-text", config = true },
 }
