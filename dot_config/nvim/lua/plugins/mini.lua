@@ -13,9 +13,6 @@ return {
                 draw = { delay = 0 },
                 symbol = "│",
             })
-
-            -- autopairs
-            require("mini.pairs").setup({})
         end,
     }
 }
