@@ -1,144 +1,129 @@
-local default_config = {
-    on_attach = function(client, bufnr)
-        require("lsp-format").on_attach(client)
-        require("lsp_signature").on_attach({}, bufnr)
-
-        if client.server_capabilities.documentSymbolProvider then
-            require("nvim-navic").attach(client, bufnr)
-        end
-
-        -- add lsp-only keybinds
-        local map = function(sequence, cmd, desc)
-            vim.keymap.set("n", sequence, cmd, { buffer = bufnr, desc = desc })
-        end
-
-        map("gd", vim.lsp.buf.definition, "Go to definition")
-        map("K", vim.lsp.buf.hover, "Hover")
-        map("]d", vim.diagnostic.goto_next, "Next diagnostic")
-        map("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
-
-        map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-        map("<leader>cr", vim.lsp.buf.rename, "Rename")
-        map("<leader>cf", vim.lsp.buf.format, "Format")
-        map("<leader>so", function()
-            require("telescope.builtin").lsp_document_symbols()
-        end, "Document symbols")
-        map("<leader>sp", function()
-            require("telescope.builtin").lsp_workspace_symbols()
-        end, "Workspace symbols")
-    end,
-}
-
-local custom_config = function(config)
-    local merged_config = vim.deepcopy(default_config)
-    merged_config = vim.tbl_extend("force", merged_config, config)
-    return merged_config
-end
-
 return {
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            require("lspconfig.ui.windows").default_options.border = "rounded"
-        end,
-        dependencies = {
-            {
-                "williamboman/mason-lspconfig.nvim",
-                config = function()
-                    require("mason-lspconfig").setup({
-                        ensure_installed = { "rust_analyzer", "pyright", "sumneko_lua" },
-                    })
-                    require("mason-lspconfig").setup_handlers({
-                        -- default handler
-                        function(server_name)
-                            require("lspconfig")[server_name].setup(default_config)
-                        end,
+    "VonHeikemen/lsp-zero.nvim",
+    config = function()
+        local lsp = require("lsp-zero")
+        lsp.preset("recommended")
+        lsp.ensure_installed({ "sumneko_lua", "pyright", "rust_analyzer" })
+        lsp.skip_server_setup({ "rust_analyzer", "pyright" })
 
-                        -- specific handlers
-                        ["rust_analyzer"] = function()
-                            -- https://github.com/simrat39/rust-tools.nvim/issues/300
-                            local config = custom_config({
-                                settings = {
-                                    ["rust-analyzer"] = {
-                                        inlayHints = { locationLinks = false },
-                                    },
-                                },
-                            })
-                            require("rust-tools").setup({
-                                server = config,
-                                dap = {
-                                    adapter = {
-                                        type = "server",
-                                        port = "${port}",
-                                        host = "127.0.0.1",
-                                        executable = {
-                                            command = "codelldb",
-                                            args = { "--port", "${port}" },
-                                        },
-                                    },
-                                },
-                            })
-                        end,
-
-                        ["pyright"] = function()
-                            require("py_lsp").setup(default_config)
-                        end,
-
-                        ["sumneko_lua"] = function()
-                            require("lspconfig")["sumneko_lua"].setup(custom_config({
-                                settings = {
-                                    Lua = {
-                                        format = {
-                                            enable = false,
-                                        },
-                                        workspace = {
-                                            checkThirdParty = false,
-                                        },
-                                        telemetry = {
-                                            enable = false,
-                                        },
-                                    },
-                                },
-                            }))
-                        end,
-                    })
-                end,
-                dependencies = {
-                    "williamboman/mason.nvim",
-                    { "folke/neodev.nvim", config = true },
+        lsp.configure("sumneko_lua", {
+            settings = {
+                Lua = {
+                    format = {
+                        enable = false,
+                    },
+                    workspace = {
+                        checkThirdParty = false,
+                    },
+                    telemetry = {
+                        enable = false,
+                    },
                 },
             },
-            "simrat39/rust-tools.nvim",
-            "HallerPatrick/py_lsp.nvim",
-            { "SmiteshP/nvim-navic", config = { highlight = true } },
-            "onsails/lspkind.nvim",
-            { "lukas-reineke/lsp-format.nvim", config = true },
-            "folke/neodev.nvim",
-            "ray-x/lsp_signature.nvim",
-        },
-    },
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-            local null_ls = require("null-ls")
-            null_ls.setup({
-                sources = {
-                    null_ls.builtins.formatting.stylua.with({
-                        extra_args = { "--indent-type", "spaces" },
-                    }),
-                    null_ls.builtins.formatting.black,
-                    null_ls.builtins.formatting.isort.with({
-                        extra_args = { "--profile", "black" },
-                    }),
+        })
+
+        lsp.on_attach(function(client, bufnr)
+            require("lsp-format").on_attach(client)
+            require("lsp_signature").on_attach({}, bufnr)
+
+            if client.server_capabilities.documentSymbolProvider then
+                require("nvim-navic").attach(client, bufnr)
+            end
+        end)
+
+        lsp.setup_nvim_cmp({
+            formatting = {
+                format = require("lspkind").cmp_format({
+                    mode = "symbol", -- show only symbol annotations
+                    maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+                    ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+
+                    -- The function below will be called before any actual modifications from lspkind
+                    -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+                    before = function(entry, vim_item)
+                        return vim_item
+                    end,
+                }),
+            },
+        })
+
+        lsp.setup()
+
+        local rs_config = lsp.build_options("rust_analyzer", {
+            settings = {
+                ["rust-analyzer"] = {
+                    -- https://github.com/simrat39/rust-tools.nvim/issues/300
+                    inlayHints = { locationLinks = false },
                 },
-            })
-        end,
-        dependencies = { "nvim-lua/plenary.nvim" },
-    },
-    {
-        "jay-babu/mason-null-ls.nvim",
-        config = {
-            ensure_installed = { "stylua", "black", "isort" },
+            },
+        })
+
+        require("rust-tools").setup({
+            server = rs_config,
+            dap = {
+                adapter = {
+                    type = "server",
+                    port = "${port}",
+                    host = "127.0.0.1",
+                    executable = {
+                        command = "codelldb",
+                        args = { "--port", "${port}" },
+                    },
+                },
+            },
+        })
+
+        local py_config = lsp.build_options("pyright", {})
+        require("py_lsp").setup(py_config)
+    end,
+    dependencies = {
+        -- lsp
+        "neovim/nvim-lspconfig",
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        {
+            "jay-babu/mason-null-ls.nvim",
+            config = {
+                ensure_installed = { "stylua", "black", "isort" },
+            },
+            dependencies = {
+                {
+                    "jose-elias-alvarez/null-ls.nvim",
+                    config = function()
+                        local null_ls = require("null-ls")
+                        null_ls.setup({
+                            sources = {
+                                null_ls.builtins.formatting.stylua.with({
+                                    extra_args = { "--indent-type", "spaces" },
+                                }),
+                                null_ls.builtins.formatting.black,
+                                null_ls.builtins.formatting.isort.with({
+                                    extra_args = { "--profile", "black" },
+                                }),
+                            },
+                        })
+                    end,
+                    dependencies = { "nvim-lua/plenary.nvim" },
+                },
+            },
         },
+        "simrat39/rust-tools.nvim",
+        "HallerPatrick/py_lsp.nvim",
+        { "SmiteshP/nvim-navic", config = { highlight = true } },
+        { "lukas-reineke/lsp-format.nvim", config = true },
+        "folke/neodev.nvim",
+        "ray-x/lsp_signature.nvim",
+        { "folke/neodev.nvim", config = true },
+
+        -- completion
+        "hrsh7th/nvim-cmp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "saadparwaiz1/cmp_luasnip",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lua",
+        "L3MON4D3/LuaSnip",
+        "rafamadriz/friendly-snippets",
+        "onsails/lspkind.nvim",
     },
 }
