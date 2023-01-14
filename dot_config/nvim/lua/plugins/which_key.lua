@@ -16,14 +16,14 @@ return {
             })
 
             wk.register({
-                c = { desc = "+Code" },
-                g = { desc = "+Git" },
-                j = { desc = "+Jump" },
-                o = { desc = "+Open" },
-                f = { desc = "+Files" },
-                s = { desc = "+Search" },
-                t = { desc = "+Tasks" },
-                x = { desc = "+Debug" },
+                f = { desc = "Find" },
+                g = { desc = "Git" },
+                j = { desc = "Jump" },
+                l = { desc = "LSP"},
+                o = { desc = "Open" },
+                s = { desc = "Search" },
+                t = { desc = "Tasks" },
+                x = { desc = "Debug" },
             }, { prefix = "<leader>" })
         end,
     },
