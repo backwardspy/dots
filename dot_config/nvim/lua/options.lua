@@ -29,6 +29,9 @@ vim.opt.backup = false
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
+-- it's free real estate
+vim.opt.cmdheight = 0
+
 -- make cursorhold happen faster
 vim.opt.updatetime = 100
 
@@ -38,8 +41,6 @@ vim.opt.timeoutlen = 500
 -- netrw nicety
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
-vim.g.netrw_liststyle = 3 -- tree style
-vim.g.netrw_browse_split = 4 -- open in previous window
 
 -- 24bit tui colours
 vim.opt.termguicolors = true

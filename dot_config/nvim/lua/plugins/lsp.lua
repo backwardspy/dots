@@ -1,3 +1,9 @@
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
+
 local default_config = {
     on_attach = function(client, bufnr)
         require("lsp-format").on_attach(client)
@@ -17,9 +23,9 @@ local default_config = {
         map("]d", vim.diagnostic.goto_next, "Next diagnostic")
         map("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
 
-        map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-        map("<leader>cr", vim.lsp.buf.rename, "Rename")
-        map("<leader>cf", vim.lsp.buf.format, "Format")
+        map("<leader>la", vim.lsp.buf.code_action, "Code Action")
+        map("<leader>lr", vim.lsp.buf.rename, "Rename")
+        map("<leader>lf", vim.lsp.buf.format, "Format")
         map("<leader>so", function()
             require("telescope.builtin").lsp_document_symbols()
         end, "Document symbols")
@@ -115,6 +121,7 @@ return {
             { "lukas-reineke/lsp-format.nvim", config = true },
             "folke/neodev.nvim",
             "ray-x/lsp_signature.nvim",
+            "glepnir/lspsaga.nvim",
         },
     },
     {
