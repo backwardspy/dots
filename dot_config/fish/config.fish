@@ -4,12 +4,12 @@ if set -q WAYLAND_DISPLAY
     set -gx _JAVA_AWT_WM_NONREPARENTING 1
 end
 
+set -gx EDITOR nvim
+
 # paths are only added if they exist
 fish_add_path -g /usr/local/sbin
 fish_add_path -g ~/.local/bin
 fish_add_path -g ~/.cargo/bin
-fish_add_path -g ~/.ghcup/bin
-fish_add_path -g ~/.cabal/bin
 fish_add_path -g ~/.spicetify
 fish_add_path -g ~/go/bin
 fish_add_path -g /opt/homebrew/bin
