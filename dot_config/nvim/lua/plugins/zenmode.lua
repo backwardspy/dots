@@ -6,6 +6,11 @@ return {
     {
         "folke/zen-mode.nvim",
         config = {
+            window = {
+                options = {
+                    statuscolumn = "",
+                },
+            },
             plugins = {
                 twilight = { enabled = false },
             },
