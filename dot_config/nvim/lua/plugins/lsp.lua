@@ -5,13 +5,10 @@ for type, icon in pairs(signs) do
 end
 
 vim.diagnostic.config({ float = { border = "rounded" } })
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
 local default_config = {
     on_attach = function(client, bufnr)
         require("lsp-format").on_attach(client)
-        require("lsp_signature").on_attach({}, bufnr)
 
         if client.server_capabilities.documentSymbolProvider then
             require("nvim-navic").attach(client, bufnr)
@@ -101,7 +98,14 @@ return {
                                         format = {
                                             enable = false,
                                         },
+                                        runtime = {
+                                            version = "LuaJIT",
+                                        },
+                                        diagnostics = {
+                                            globals = { "vim" },
+                                        },
                                         workspace = {
+                                            library = vim.api.nvim_get_runtime_file("", true),
                                             checkThirdParty = false,
                                         },
                                         telemetry = {
@@ -115,7 +119,6 @@ return {
                 end,
                 dependencies = {
                     "williamboman/mason.nvim",
-                    { "folke/neodev.nvim", config = true },
                 },
             },
             "simrat39/rust-tools.nvim",
@@ -123,9 +126,6 @@ return {
             { "SmiteshP/nvim-navic", config = { highlight = true } },
             "onsails/lspkind.nvim",
             { "lukas-reineke/lsp-format.nvim", config = true },
-            "folke/neodev.nvim",
-            "ray-x/lsp_signature.nvim",
-            "glepnir/lspsaga.nvim",
         },
     },
     {
