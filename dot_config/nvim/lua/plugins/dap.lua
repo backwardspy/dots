@@ -75,8 +75,8 @@ return {
         dependencies = {
             "williamboman/mason.nvim",
             "mfussenegger/nvim-dap",
+            { "rcarriga/nvim-dap-ui", config = true },
+            { "theHamsta/nvim-dap-virtual-text", config = true },
         },
     },
-    { "rcarriga/nvim-dap-ui", config = true },
-    { "theHamsta/nvim-dap-virtual-text", config = true },
 }

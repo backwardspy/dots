@@ -144,6 +144,7 @@ return {
                 },
             })
         end,
+        ft = { "python", "lua" },
         dependencies = { "nvim-lua/plenary.nvim" },
     },
     {
@@ -151,5 +152,6 @@ return {
         config = {
             ensure_installed = { "stylua", "black", "isort" },
         },
+        ft = { "python", "lua" },
     },
 }

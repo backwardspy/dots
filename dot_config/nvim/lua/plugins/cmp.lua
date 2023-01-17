@@ -10,14 +10,8 @@ return {
             local cmp = require("cmp")
             local cmp_under_comparator = require("cmp-under-comparator")
             local lspkind = require("lspkind")
-            local luasnip = require("luasnip")
 
             cmp.setup({
-                snippet = {
-                    expand = function(args)
-                        luasnip.lsp_expand(args.body)
-                    end,
-                },
                 window = {
                     completion = cmp.config.window.bordered(),
                     documentation = cmp.config.window.bordered(),
@@ -31,8 +25,6 @@ return {
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
-                        elseif luasnip.expand_or_jumpable() then
-                            luasnip.expand_or_jump()
                         elseif has_words_before() then
                             cmp.complete()
                         else
@@ -43,8 +35,6 @@ return {
                     ["<S-Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()
-                        elseif luasnip.jumpable(-1) then
-                            luasnip.jump(-1)
                         else
                             fallback()
                         end
@@ -54,7 +44,6 @@ return {
                     { name = "path" },
                     { name = "nvim_lsp", keyword_length = 2 },
                     { name = "buffer", keyword_length = 2 },
-                    { name = "luasnip", keyword_length = 2 },
                 }),
                 sorting = {
                     comparators = {
@@ -99,8 +88,6 @@ return {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-nvim-lua",
             "hrsh7th/cmp-cmdline",
-            "saadparwaiz1/cmp_luasnip",
-            "L3MON4D3/LuaSnip",
             "lukas-reineke/cmp-under-comparator",
         },
     },
