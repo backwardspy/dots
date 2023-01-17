@@ -16,10 +16,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
-    dev = {
-        path = "~/src/backwardspy",
-        patterns = { "backwardspy" },
-    },
     install = { colorscheme = { "catppuccin" } },
     change_detection = {
         notify = false,
