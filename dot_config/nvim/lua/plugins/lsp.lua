@@ -123,7 +123,7 @@ return {
             },
             "simrat39/rust-tools.nvim",
             "HallerPatrick/py_lsp.nvim",
-            { "SmiteshP/nvim-navic", config = { highlight = true } },
+            { "SmiteshP/nvim-navic", opts = { highlight = true } },
             "onsails/lspkind.nvim",
             { "lukas-reineke/lsp-format.nvim", config = true },
         },
@@ -149,7 +149,7 @@ return {
     },
     {
         "jay-babu/mason-null-ls.nvim",
-        config = {
+        opts = {
             ensure_installed = { "stylua", "black", "isort" },
         },
         ft = { "python", "lua" },

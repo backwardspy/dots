@@ -5,7 +5,7 @@ end
 return {
     {
         "folke/zen-mode.nvim",
-        config = {
+        opts = {
             window = {
                 options = {
                     statuscolumn = "",
