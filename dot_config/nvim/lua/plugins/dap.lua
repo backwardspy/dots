@@ -62,15 +62,15 @@ return {
             sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
         end,
         keys = {
-            { "<leader>xb", vim.cmd.DapToggleBreakpoint, "Toggle breakpoint" },
+            { "<leader>xb", vim.cmd.DapToggleBreakpoint, desc = "Toggle breakpoint" },
             {
                 "<leader>xu",
                 function()
                     require("dapui").toggle({})
                 end,
-                "Toggle breakpoint",
+                desc = "Toggle UI",
             },
-            { "<leader>xx", vim.cmd.DapContinue, "Toggle breakpoint" },
+            { "<leader>xx", vim.cmd.DapContinue, desc = "Start / Continue" },
         },
         dependencies = {
             "williamboman/mason.nvim",
