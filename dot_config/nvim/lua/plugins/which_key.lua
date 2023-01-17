@@ -10,20 +10,20 @@ return {
             })
 
             wk.register({
-                g = { desc = "Go to" },
-                ["]"] = { desc = "Next" },
-                ["["] = { desc = "Previous" },
+                g = { name = "Go to" },
+                ["]"] = { name = "Next" },
+                ["["] = { name = "Previous" },
             })
 
             wk.register({
-                f = { desc = "Find" },
-                g = { desc = "Git" },
-                j = { desc = "Jump" },
-                l = { desc = "LSP"},
-                o = { desc = "Open" },
-                s = { desc = "Search" },
-                t = { desc = "Tasks" },
-                x = { desc = "Debug" },
+                f = { name = "Find" },
+                g = { name = "Git" },
+                j = { name = "Jump" },
+                l = { name = "LSP"},
+                o = { name = "Open" },
+                s = { name = "Search" },
+                t = { name = "Tasks" },
+                x = { name = "Debug" },
             }, { prefix = "<leader>" })
         end,
     },

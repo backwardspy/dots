@@ -20,6 +20,7 @@ local default_config = {
         end
 
         map("gd", vim.lsp.buf.definition, "Go to definition")
+        map("gr", vim.lsp.buf.references, "Go to references")
         map("K", vim.lsp.buf.hover, "Hover")
         map("]d", vim.diagnostic.goto_next, "Next diagnostic")
         map("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
@@ -27,10 +28,10 @@ local default_config = {
         map("<leader>la", vim.lsp.buf.code_action, "Code Action")
         map("<leader>lr", vim.lsp.buf.rename, "Rename")
         map("<leader>lf", vim.lsp.buf.format, "Format")
-        map("<leader>so", function()
+        map("<leader>ld", function()
             require("telescope.builtin").lsp_document_symbols()
         end, "Document symbols")
-        map("<leader>sp", function()
+        map("<leader>lw", function()
             require("telescope.builtin").lsp_workspace_symbols()
         end, "Workspace symbols")
     end,
