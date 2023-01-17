@@ -1,7 +1,7 @@
 return {
     {
         "folke/noice.nvim",
-        config = {
+        opts = {
             lsp = {
                 progress = { enabled = false },
 
@@ -23,7 +23,7 @@ return {
             "MunifTanjim/nui.nvim",
             {
                 "rcarriga/nvim-notify",
-                config = {
+                opts = {
                     background_colour = require("catppuccin.palettes").get_palette("mocha").base,
                     render = "minimal",
                     top_down = false,

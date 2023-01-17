@@ -1,6 +1,6 @@
 return {
     {
         "williamboman/mason.nvim",
-        config = { ui = { border = "rounded" } },
+        opts = { ui = { border = "rounded" } },
     }
 }
