@@ -45,83 +45,81 @@ end
 
 return {
     {
-        "neovim/nvim-lspconfig",
+        "williamboman/mason-lspconfig.nvim",
         config = function()
-            require("lspconfig.ui.windows").default_options.border = "rounded"
+            require("mason-lspconfig").setup({
+                ensure_installed = { "rust_analyzer", "pyright", "sumneko_lua" },
+            })
+            require("mason-lspconfig").setup_handlers({
+                -- default handler
+                function(server_name)
+                    require("lspconfig")[server_name].setup(default_config)
+                end,
+
+                -- specific handlers
+                ["rust_analyzer"] = function()
+                    -- https://github.com/simrat39/rust-tools.nvim/issues/300
+                    local config = custom_config({
+                        settings = {
+                            ["rust-analyzer"] = {
+                                inlayHints = { locationLinks = false },
+                            },
+                        },
+                    })
+                    require("rust-tools").setup({
+                        server = config,
+                        dap = {
+                            adapter = {
+                                type = "server",
+                                port = "${port}",
+                                host = "127.0.0.1",
+                                executable = {
+                                    command = "codelldb",
+                                    args = { "--port", "${port}" },
+                                },
+                            },
+                        },
+                    })
+                end,
+
+                ["pyright"] = function()
+                    require("py_lsp").setup(default_config)
+                end,
+
+                ["sumneko_lua"] = function()
+                    require("lspconfig")["sumneko_lua"].setup(custom_config({
+                        settings = {
+                            Lua = {
+                                format = {
+                                    enable = false,
+                                },
+                                runtime = {
+                                    version = "LuaJIT",
+                                },
+                                diagnostics = {
+                                    globals = { "vim" },
+                                },
+                                workspace = {
+                                    library = vim.api.nvim_get_runtime_file("", true),
+                                    checkThirdParty = false,
+                                },
+                                telemetry = {
+                                    enable = false,
+                                },
+                            },
+                        },
+                    }))
+                end,
+            })
         end,
         dependencies = {
             {
-                "williamboman/mason-lspconfig.nvim",
+                "neovim/nvim-lspconfig",
                 config = function()
-                    require("mason-lspconfig").setup({
-                        ensure_installed = { "rust_analyzer", "pyright", "sumneko_lua" },
-                    })
-                    require("mason-lspconfig").setup_handlers({
-                        -- default handler
-                        function(server_name)
-                            require("lspconfig")[server_name].setup(default_config)
-                        end,
-
-                        -- specific handlers
-                        ["rust_analyzer"] = function()
-                            -- https://github.com/simrat39/rust-tools.nvim/issues/300
-                            local config = custom_config({
-                                settings = {
-                                    ["rust-analyzer"] = {
-                                        inlayHints = { locationLinks = false },
-                                    },
-                                },
-                            })
-                            require("rust-tools").setup({
-                                server = config,
-                                dap = {
-                                    adapter = {
-                                        type = "server",
-                                        port = "${port}",
-                                        host = "127.0.0.1",
-                                        executable = {
-                                            command = "codelldb",
-                                            args = { "--port", "${port}" },
-                                        },
-                                    },
-                                },
-                            })
-                        end,
-
-                        ["pyright"] = function()
-                            require("py_lsp").setup(default_config)
-                        end,
-
-                        ["sumneko_lua"] = function()
-                            require("lspconfig")["sumneko_lua"].setup(custom_config({
-                                settings = {
-                                    Lua = {
-                                        format = {
-                                            enable = false,
-                                        },
-                                        runtime = {
-                                            version = "LuaJIT",
-                                        },
-                                        diagnostics = {
-                                            globals = { "vim" },
-                                        },
-                                        workspace = {
-                                            library = vim.api.nvim_get_runtime_file("", true),
-                                            checkThirdParty = false,
-                                        },
-                                        telemetry = {
-                                            enable = false,
-                                        },
-                                    },
-                                },
-                            }))
-                        end,
-                    })
+                    require("lspconfig.ui.windows").default_options.border = "rounded"
                 end,
-                dependencies = {
-                    "williamboman/mason.nvim",
-                },
             },
+            "williamboman/mason.nvim",
             "simrat39/rust-tools.nvim",
             "HallerPatrick/py_lsp.nvim",
             { "SmiteshP/nvim-navic", opts = { highlight = true } },
