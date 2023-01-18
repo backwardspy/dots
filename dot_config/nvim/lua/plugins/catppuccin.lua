@@ -26,10 +26,7 @@ return {
                             information = { "underline" },
                         },
                     },
-                    navic = {
-                        enabled = true,
-                        custom_bg = "NONE",
-                    },
+                    lsp_saga = true,
                     noice = true,
                     notify = true,
                     dap = {
