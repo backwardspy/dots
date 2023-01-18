@@ -10,10 +10,6 @@ local default_config = {
     on_attach = function(client, bufnr)
         require("lsp-format").on_attach(client)
 
-        if client.server_capabilities.documentSymbolProvider then
-            require("nvim-navic").attach(client, bufnr)
-        end
-
         -- add lsp-only keybinds
         local map = function(sequence, cmd, desc)
             vim.keymap.set("n", sequence, cmd, { buffer = bufnr, desc = desc })
@@ -35,6 +31,7 @@ local default_config = {
             require("telescope.builtin").lsp_workspace_symbols()
         end, "Workspace symbols")
     end,
+    capabilities = require("cmp_nvim_lsp").default_capabilities(),
 }
 
 local custom_config = function(config)
@@ -90,7 +87,7 @@ return {
                     require("lspconfig")["sumneko_lua"].setup(custom_config({
                         settings = {
                             Lua = {
-                                format = {
+                                forma = {
                                     enable = false,
                                 },
                                 runtime = {
@@ -122,9 +119,20 @@ return {
             "williamboman/mason.nvim",
             "simrat39/rust-tools.nvim",
             "HallerPatrick/py_lsp.nvim",
-            { "SmiteshP/nvim-navic", opts = { highlight = true } },
             "onsails/lspkind.nvim",
             { "lukas-reineke/lsp-format.nvim", config = true },
+            {
+                "glepnir/lspsaga.nvim",
+                event = "BufRead",
+                opts = {
+                    lightbulb = { enable = false },
+                    ui = {
+                        border = "rounded",
+                        colors = require("catppuccin.groups.integrations.lsp_saga").custom_colors(),
+                        kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+                    },
+                },
+            },
         },
     },
     {
