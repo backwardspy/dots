@@ -1,9 +1,3 @@
-if set -q WAYLAND_DISPLAY
-    set -gx QT_QPA_PLATFORM WAYLAND
-    set -gx QT_WAYLAND_DISABLE_WINDOWDECORATION 1
-    set -gx _JAVA_AWT_WM_NONREPARENTING 1
-end
-
 set -gx EDITOR nvim
 
 # paths are only added if they exist
