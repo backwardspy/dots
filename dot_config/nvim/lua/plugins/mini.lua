@@ -18,6 +18,12 @@ return {
                     vim.b.miniindentscope_disable = true
                 end,
             })
+            vim.api.nvim_create_autocmd({ "FileType" }, {
+                pattern = { "help", "alpha", "mason", "lazy" },
+                callback = function()
+                    vim.b.miniindentscope_disable = true
+                end,
+            })
         end,
     },
 }

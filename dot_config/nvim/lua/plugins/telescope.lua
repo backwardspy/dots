@@ -11,6 +11,7 @@ return {
             { "<leader>fd", "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
             { "<leader>ff", "<cmd>Telescope smart_open<cr>", "Find files" },
             { "<leader>fj", "<cmd>Telescope jumplist<cr>", "Jumplist" },
+            { "<leader>fr", "<cmd>Telescope oldfiles<cr>", "Recent Files" },
             { "<leader>fs", "<cmd>Telescope live_grep<cr>", "Live grep" },
         },
         cmd = "Telescope",

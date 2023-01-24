@@ -55,11 +55,10 @@ return {
 
                 -- specific handlers
                 ["rust_analyzer"] = function()
-                    -- https://github.com/simrat39/rust-tools.nvim/issues/300
                     local config = custom_config({
                         settings = {
                             ["rust-analyzer"] = {
-                                inlayHints = { locationLinks = false },
+                                cargo = { features = "all" },
                             },
                         },
                     })
