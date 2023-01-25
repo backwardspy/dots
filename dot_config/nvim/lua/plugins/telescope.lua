@@ -1,6 +1,7 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
+        enabled = not vim.g.vscode,
         config = function()
             require('telescope').load_extension('fzy_native')
             require("telescope").load_extension("catppuccin")

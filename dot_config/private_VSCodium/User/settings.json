@@ -1,0 +1,14 @@
+{
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "catppuccin.accentColor": "yellow",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "editor.cursorSmoothCaretAnimation": true,
+    "workbench.list.smoothScrolling": true,
+    "editor.smoothScrolling": true,
+    "terminal.integrated.smoothScrolling": true,
+    "editor.fontFamily": "'Rec Mono Duotone', 'monospace', monospace",
+    "editor.lineNumbers": "relative",
+    "explorer.confirmDelete": false
+}

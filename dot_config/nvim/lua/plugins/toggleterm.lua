@@ -1,6 +1,7 @@
 return {
     {
         "akinsho/toggleterm.nvim",
+        cond = not vim.g.vscode,
         config = function()
             local toggleterm = require("toggleterm")
 

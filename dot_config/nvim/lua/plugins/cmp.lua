@@ -12,6 +12,7 @@ end
 return {
     {
         "hrsh7th/nvim-cmp",
+        cond = not vim.g.vscode,
         config = function()
             local cmp = require("cmp")
             local cmp_under_comparator = require("cmp-under-comparator")

@@ -1,6 +1,7 @@
 return {
     {
         "folke/noice.nvim",
+        cond = not vim.g.vscode,
         opts = {
             lsp = {
                 progress = { enabled = false },

@@ -1,6 +1,7 @@
 return {
     {
         "feline-nvim/feline.nvim",
+        cond = not vim.g.vscode,
         config = function()
             local feline = require("feline")
             local ctp_feline = require("catppuccin.groups.integrations.feline")

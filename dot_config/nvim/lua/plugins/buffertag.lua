@@ -1,3 +1,7 @@
 return {
-    { "ldelossa/buffertag", config = true },
+    {
+        "ldelossa/buffertag",
+        cond = not vim.g.vscode,
+        config = true,
+    },
 }
