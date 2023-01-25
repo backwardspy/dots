@@ -2,9 +2,11 @@ settings.json
 
 {{- if ne .chezmoi.os "linux" }}
 # exclude linux-specific dots
+.config/Code/
 {{- end }}
 
 {{- if ne .chezmoi.os "darwin" }}
 # exlude macos-specific dots
 Brewfile
+Library/Application Support/Code/
 {{- end }}
