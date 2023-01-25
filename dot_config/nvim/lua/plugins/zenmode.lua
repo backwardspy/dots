@@ -5,12 +5,8 @@ end
 return {
     {
         "folke/zen-mode.nvim",
+        cond = not vim.g.vscode,
         opts = {
-            window = {
-                options = {
-                    statuscolumn = "",
-                },
-            },
             plugins = {
                 twilight = { enabled = false },
             },
