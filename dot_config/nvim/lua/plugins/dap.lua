@@ -14,6 +14,7 @@ end
 return {
     {
         "jayp0521/mason-nvim-dap.nvim",
+        cond = not vim.g.vscode,
         config = function()
             local dap = require("dap")
             local mason_dap = require("mason-nvim-dap")

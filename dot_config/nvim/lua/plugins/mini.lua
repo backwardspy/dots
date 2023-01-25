@@ -4,6 +4,10 @@ return {
         config = function()
             -- add gc/gcc actions, gc textobject
             require("mini.comment").setup({})
+            
+            if vim.g.vscode then
+                return
+            end
 
             -- highlight word under cursor
             require("mini.cursorword").setup({ delay = 0 })

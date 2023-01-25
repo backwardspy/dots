@@ -43,6 +43,7 @@ end
 return {
     {
         "williamboman/mason-lspconfig.nvim",
+        cond = not vim.g.vscode,
         config = function()
             require("mason-lspconfig").setup({
                 ensure_installed = { "rust_analyzer", "pyright", "sumneko_lua" },
@@ -136,6 +137,7 @@ return {
     },
     {
         "jose-elias-alvarez/null-ls.nvim",
+        cond = not vim.g.vscode,
         config = function()
             local null_ls = require("null-ls")
             null_ls.setup({
@@ -155,6 +157,7 @@ return {
     },
     {
         "jay-babu/mason-null-ls.nvim",
+        cond = not vim.g.vscode,
         opts = {
             ensure_installed = { "stylua", "black", "isort" },
         },

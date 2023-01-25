@@ -16,7 +16,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
-    install = { colorscheme = { "catppuccin" } },
+    install = {
+        colorscheme = { "catppuccin" },
+        missing = not vim.g.vscode,
+    },
     change_detection = {
         notify = false,
     },
@@ -29,6 +32,10 @@ require("lazy").setup("plugins", {
 -- load remaining config
 require("options")
 require("binds")
+
+if vim.g.vscode then
+    require("vscode")
+end
 
 -- highlight yank
 vim.api.nvim_create_augroup("highlight_yank", {})

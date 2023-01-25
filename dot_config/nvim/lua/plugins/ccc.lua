@@ -1,3 +1,7 @@
 return {
-    { "uga-rosa/ccc.nvim", opts = { highlighter = { auto_enable = true } } },
+    {
+        "uga-rosa/ccc.nvim",
+        cond = not vim.g.vscode,
+        opts = { highlighter = { auto_enable = true } }
+    },
 }
