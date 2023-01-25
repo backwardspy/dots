@@ -15,7 +15,7 @@ return {
     use_fancy_tab_bar = false,
     hide_tab_bar_if_only_one_tab = true,
     window_padding = { top = 0, bottom = 0, left = 0, right = 0 },
-    window_background_opacity = 0.8,
+    window_background_opacity = string.match(wezterm.target_triple, "linux") and 0.8 or 1,
     keys = {
         {
             key = "f",
