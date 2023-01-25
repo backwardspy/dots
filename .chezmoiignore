@@ -1,13 +1,7 @@
-.config/nvim/plugin/packer_compiled.lua
+settings.json
 
 {{- if ne .chezmoi.os "linux" }}
 # exclude linux-specific dots
-.config/i3/
-.config/picom/
-.config/ulauncher/
-.config/systemd/
-.config/sway/
-.icons/default/
 {{- end }}
 
 {{- if ne .chezmoi.os "darwin" }}
