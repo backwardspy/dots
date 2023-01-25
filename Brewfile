@@ -22,6 +22,10 @@ brew "gcc"
 brew "btop"
 # Statistics utility to count lines of code
 brew "cloc"
+# Cross-platform make
+brew "cmake"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
 # Diff that understands syntax
 brew "difftastic"
 # Load/unload environment variables based on $PWD
@@ -34,6 +38,8 @@ brew "fd"
 brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
+brew "gh"
 # Distributed revision control system
 brew "git"
 # Git extension for versioning large files
@@ -42,22 +48,24 @@ brew "git-lfs"
 brew "go"
 # Command-line benchmarking tool
 brew "hyperfine"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
 # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubectx"
-# Linux virtual machines
-brew "lima"
 # Next-gen compiler infrastructure
 brew "llvm"
 # Clone of ls with colorful output, file type icons, and more
 brew "lsd"
+# Show markdown documents on text terminals
+brew "mdcat"
+# Fast, highly customisable system info script
+brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# No Nonsense Neovim Client in Rust
-brew "neovide"
 # Platform built on V8 to build network applications
 brew "node"
 # Object-relational database system
@@ -72,23 +80,30 @@ brew "ripgrep"
 brew "rustup-init"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Open source continuous file synchronization application
+brew "syncthing"
 # Very fast implementation of tldr in Rust
 brew "tealdeer"
 # Send macOS User Notifications from the command-line
 brew "terminal-notifier"
 # Modern watch command
 brew "viddy"
+# Ncurses-based file manager with vi-like keybindings
+brew "vifm"
 # Internet file retriever
 brew "wget"
 # A Kubernetes credential (exec) plugin implementing azure authentication
 brew "azure/kubelogin/kubelogin"
 # A simple terminal UI for git commands, written in Go
 brew "jesseduffield/lazygit/lazygit"
+# Enable Windows-like alt-tab
+cask "alt-tab"
 # Chromium based browser
 cask "arc"
+# Open-source KVM software
+cask "barrier"
 # Desktop password and login vault
 cask "bitwarden"
-cask "font-fantasque-sans-mono"
 # Game development engine
 cask "godot"
 # Free and open-source media player
@@ -97,6 +112,8 @@ cask "iina"
 cask "insomnia"
 # Smooths scrolling and set mouse scroll directions independently
 cask "mos"
+# Neovim Client
+cask "neovide"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Collaboration platform for API development
@@ -105,6 +122,10 @@ cask "postman"
 cask "rectangle"
 # Music streaming service
 cask "spotify"
+# Video game digital distribution service
+cask "steam"
+# Messaging app with a focus on speed and security
+cask "telegram"
 # Unpacks archive files
 cask "the-unarchiver"
 # Open-source code editor
