@@ -41,6 +41,7 @@ return {
                         r = { act("editor.action.refactor"), "Refactor" },
                         R = { act("editor.action.changeAll"), "Change All Occurrences" },
                     },
+                    ["<leader>"] = { act("workbench.action.toggleZenMode"), "Zen Mode" },
                 }, { prefix = "<leader>" })
             end
         end,
