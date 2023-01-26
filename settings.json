@@ -1,18 +1,22 @@
 {
-  "workbench.colorTheme": "Catppuccin Mocha",
   "catppuccin.accentColor": "yellow",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.fontFamily": "'Rec Mono Duotone', 'monospace', monospace",
+  "editor.fontSize": 14,
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": false,
+  "editor.smoothScrolling": true,
+  "editor.stickyScroll.enabled": true,
+  "explorer.confirmDelete": false,
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  "editor.cursorSmoothCaretAnimation": true,
-  "workbench.list.smoothScrolling": true,
-  "editor.smoothScrolling": true,
+  "files.autoSave": "afterDelay",
   "terminal.integrated.smoothScrolling": true,
-  "editor.fontFamily": "'Rec Mono Duotone', 'monospace', monospace",
-  "editor.lineNumbers": "relative",
-  "explorer.confirmDelete": false,
-  "workbench.iconTheme": "eq-material-theme-icons-palenight",
-  "editor.fontSize": 14,
   "testExplorer.useNativeTesting": true,
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "eq-material-theme-icons-palenight",
+  "workbench.list.smoothScrolling": true,
   "workbench.productIconTheme": "material-product-icons"
 }
