@@ -1,8 +1,18 @@
 {
   "catppuccin.accentColor": "yellow",
+  "conventionalCommits.gitmoji": false,
+  "conventionalCommits.promptBody": false,
+  "conventionalCommits.promptCI": false,
+  "conventionalCommits.promptFooter": false,
+  "conventionalCommits.promptScopes": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
   "editor.cursorSmoothCaretAnimation": true,
-  "editor.fontFamily": "'Rec Mono Duotone', 'monospace', monospace",
+  "editor.fontFamily": "'Rec Mono Duotone', 'Symbols Nerd Font Mono', 'monospace', monospace",
   "editor.fontSize": 14,
+  "editor.formatOnSave": true,
   "editor.inlayHints.enabled": "offUnlessPressed",
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
@@ -13,6 +23,12 @@
     "asvetliakov.vscode-neovim": 1
   },
   "files.autoSave": "afterDelay",
+  "git.allowForcePush": true,
+  "git.autofetch": true,
+  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  "python.formatting.provider": "black",
+  "redhat.telemetry.enabled": false,
+  "terminal.integrated.fontSize": 14,
   "terminal.integrated.smoothScrolling": true,
   "testExplorer.useNativeTesting": true,
   "workbench.colorTheme": "Catppuccin Mocha",
