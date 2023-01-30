@@ -1,7 +1,6 @@
--- set this early so plugins etc can all use it
-vim.g.mapleader = " "
+require("options")
 
--- bootstrap & set up lazy
+-- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -15,37 +14,16 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- setup plugins
 require("lazy").setup("plugins", {
     install = {
-        colorscheme = { "catppuccin" },
         missing = not vim.g.vscode,
-    },
-    change_detection = {
-        notify = false,
+        colorscheme = { "catppuccin" },
     },
     ui = {
         border = "rounded",
-        icons = { list = { "●" } },
     },
-})
-
--- load remaining config
-require("options")
-require("binds")
-
-if vim.g.vscode then
-    require("vscode")
-end
-
--- highlight yank
-vim.api.nvim_create_augroup("highlight_yank", {})
-vim.api.nvim_create_autocmd({ "TextYankPost" }, {
-    group = "highlight_yank",
-    pattern = { "*" },
-    callback = function()
-        vim.highlight.on_yank({
-            higroup = "Visual",
-            timeout = 100,
-        })
-    end,
+    change_detection = {
+        notify = false,
+    }
 })

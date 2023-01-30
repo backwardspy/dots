@@ -1,6 +1,6 @@
 local transform = function(state)
     return function(filename)
-        if filename:find("toggleterm") ~= nil then
+        if filename:find("term") ~= nil then
             return "Hacking"
         elseif filename ~= nil then
             return state .. " " .. filename

@@ -34,5 +34,6 @@
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "eq-material-theme-icons-palenight",
   "workbench.list.smoothScrolling": true,
-  "workbench.productIconTheme": "material-product-icons"
+  "workbench.productIconTheme": "material-product-icons",
+  "explorer.confirmDragAndDrop": false
 }
