@@ -3,6 +3,7 @@
   "catppuccin": { "branch": "main", "commit": "491f0a58ba8901258f84de94d848811a6eaf5b98" },
   "ftFt.nvim": { "branch": "master", "commit": "7b32d03101f6c29454c8396d4a311879dccad27b" },
   "lazy.nvim": { "branch": "main", "commit": "15fe46a728b7473d4cae368838bbc1c79c3a3f48" },
+  "mini.basics": { "branch": "main", "commit": "c5bd091e92836bc4574496c1818d9c910f78180e" },
   "nvim-surround": { "branch": "main", "commit": "ad56e6234bf42fb7f7e4dccc7752e25abd5ec80e" },
   "presence.nvim": { "branch": "main", "commit": "87c857a56b7703f976d3a5ef15967d80508df6e6" },
   "targets.vim": { "branch": "master", "commit": "8d6ff2984cdfaebe5b7a6eee8f226a6dd1226f2d" }
