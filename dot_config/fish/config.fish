@@ -44,5 +44,10 @@ if ! type -q _maybe_source
 end
 
 if type -q starship
-  starship init fish | source
+    starship init fish | source
+end
+
+if string match -q "$TERM_PROGRAM" vscode
+    source (code --locate-shell-integration-path fish)
+    echo "✨ vscode shell integration enabled ✨"
 end
