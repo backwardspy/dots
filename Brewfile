@@ -104,6 +104,8 @@ cask "arc"
 cask "barrier"
 # Desktop password and login vault
 cask "bitwarden"
+# Developer targeted fonts with a high number of glyphs
+cask "font-symbols-only-nerd-font"
 # Game development engine
 cask "godot"
 # Free and open-source media player
