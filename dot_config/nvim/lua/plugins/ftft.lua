@@ -1,6 +1,6 @@
 return {
     {
-        "kylechui/nvim-surround",
+        "gukz/ftFt.nvim",
         config = true,
     }
 }
