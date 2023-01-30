@@ -19,6 +19,7 @@
   "editor.smoothScrolling": true,
   "editor.stickyScroll.enabled": true,
   "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
@@ -29,7 +30,6 @@
   "python.formatting.provider": "black",
   "redhat.telemetry.enabled": false,
   "terminal.integrated.fontSize": 14,
-  "terminal.integrated.smoothScrolling": true,
   "testExplorer.useNativeTesting": true,
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "eq-material-theme-icons-palenight",
