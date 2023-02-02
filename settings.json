@@ -10,7 +10,7 @@
     "source.organizeImports": true
   },
   "editor.cursorSmoothCaretAnimation": true,
-  "editor.fontFamily": "'Rec Mono Duotone', 'Symbols Nerd Font Mono', 'monospace', monospace",
+  "editor.fontFamily": "'Rec Mono Duotone', 'Symbols Nerd Font Mono'",
   "editor.fontSize": 14,
   "editor.formatOnSave": true,
   "editor.inlayHints.enabled": "offUnlessPressed",
@@ -29,11 +29,16 @@
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "python.formatting.provider": "black",
   "redhat.telemetry.enabled": false,
+  "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 14,
   "testExplorer.useNativeTesting": true,
+  "window.autoDetectColorScheme": true,
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "eq-material-theme-icons-palenight",
   "workbench.list.smoothScrolling": true,
-  "workbench.productIconTheme": "material-product-icons",
   "explorer.confirmDragAndDrop": false
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+  "workbench.preferredLightColorTheme": "Catppuccin Latte",
+  "workbench.productIconTheme": "material-product-icons",
+  "editor.inlineSuggest.enabled": true
 }
