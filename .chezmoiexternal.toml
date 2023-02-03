@@ -3,9 +3,9 @@ type = "file"
 url = "https://raw.githubusercontent.com/catppuccin/fish/main/themes/Catppuccin%20Mocha.theme"
 refreshPeriod = "24h"
 
-[".config/bat/themes/Catppuccin-mocha.tmTheme"]
+[".config/fish/themes/Catppuccin Latte.theme"]
 type = "file"
-url = "https://raw.githubusercontent.com/catppuccin/bat/main/Catppuccin-mocha.tmTheme"
+url = "https://raw.githubusercontent.com/catppuccin/fish/main/themes/Catppuccin%20Latte.theme"
 refreshPeriod = "24h"
 
 [".config/btop/themes/catppuccin_mocha.theme"]
@@ -15,12 +15,5 @@ refreshPeriod = "24h"
 
 {{- if ne .chezmoi.os "linux" }}
 # exclude linux-specific externals
-
-[".local/share/icons/Catppuccin-Mocha-Mauve-Cursors"]
-type = "archive"
-url = "https://github.com/catppuccin/cursors/raw/main/cursors/Catppuccin-Mocha-Mauve-Cursors.zip"
-exact = true
-stripComponents = 1
-refreshPeriod = "24h"
 
 {{- end }}
