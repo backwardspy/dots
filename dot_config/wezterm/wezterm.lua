@@ -8,14 +8,24 @@ if string.match(wezterm.target_triple, "linux") then
     end)
 end
 
+local appearance = wezterm.gui.get_appearance():find("Light") and "light" or "dark"
+
+local color_schemes = {
+    light = "Catppuccin Latte",
+    dark = "Catppuccin Mocha",
+}
+
 return {
     font = wezterm.font("Rec Mono Duotone"),
     font_size = string.match(wezterm.target_triple, "darwin") and 15 or 13,
-    color_scheme = "Catppuccin Mocha",
+    color_scheme = color_schemes[appearance],
     use_fancy_tab_bar = false,
     hide_tab_bar_if_only_one_tab = true,
     window_padding = { top = 0, bottom = 0, left = 0, right = 0 },
     window_background_opacity = string.match(wezterm.target_triple, "linux") and 0.8 or 1,
+    set_environment_variables = {
+        appearance = appearance,
+    },
     keys = {
         {
             key = "f",

@@ -14,6 +14,7 @@
   "editor.fontSize": 14,
   "editor.formatOnSave": true,
   "editor.inlayHints.enabled": "offUnlessPressed",
+  "editor.inlineSuggest.enabled": true,
   "editor.lineNumbers": "relative",
   "editor.minimap.enabled": false,
   "editor.smoothScrolling": true,
@@ -24,21 +25,29 @@
     "asvetliakov.vscode-neovim": 1
   },
   "files.autoSave": "afterDelay",
+  "files.exclude": {
+    "**/__pycache__": true,
+    ".coverage": true,
+    ".mypy_cache": true,
+    ".pytest_cache": true,
+    ".venv": true,
+    "coverage.xml": true
+  },
   "git.allowForcePush": true,
   "git.autofetch": true,
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "python.formatting.provider": "black",
   "redhat.telemetry.enabled": false,
+  "rust-analyzer.check.command": "clippy",
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 14,
   "testExplorer.useNativeTesting": true,
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.colorTheme": "Catppuccin Latte",
   "workbench.iconTheme": "eq-material-theme-icons-palenight",
   "workbench.list.smoothScrolling": true,
   "explorer.confirmDragAndDrop": false
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
-  "workbench.productIconTheme": "material-product-icons",
-  "editor.inlineSuggest.enabled": true
+  "workbench.productIconTheme": "material-product-icons"
 }
