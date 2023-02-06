@@ -1,4 +1,5 @@
 settings.json
+keybindings.json
 
 {{- if ne .chezmoi.os "linux" }}
 # exclude linux-specific dots
