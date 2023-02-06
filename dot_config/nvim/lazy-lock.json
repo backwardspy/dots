@@ -1,5 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "eab2c83a0207369900e92783f56990808082eac2" },
+  "better-escape.nvim": { "branch": "master", "commit": "6fed33809cde3b416087fc540ad9eb17ec470193" },
   "catppuccin": { "branch": "main", "commit": "8769e767f12f5bf0b7d1250ee067088e7054809a" },
   "ftFt.nvim": { "branch": "master", "commit": "7b32d03101f6c29454c8396d4a311879dccad27b" },
   "lazy.nvim": { "branch": "main", "commit": "3d2dcb2d5ef99106c5ff412da88c6f59a9f8a693" },

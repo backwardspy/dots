@@ -9,7 +9,7 @@
     "source.fixAll": true,
     "source.organizeImports": true
   },
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.fontFamily": "'Rec Mono Duotone', 'Symbols Nerd Font Mono'",
   "editor.fontSize": 14,
   "editor.formatOnSave": true,
@@ -35,6 +35,7 @@
   },
   "git.allowForcePush": true,
   "git.autofetch": true,
+  "git.openRepositoryInParentFolders": "always",
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "python.formatting.provider": "black",
   "redhat.telemetry.enabled": false,
@@ -43,7 +44,7 @@
   "terminal.integrated.fontSize": 14,
   "testExplorer.useNativeTesting": true,
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "Catppuccin Latte",
+  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "eq-material-theme-icons-palenight",
   "workbench.list.smoothScrolling": true,
   "explorer.confirmDragAndDrop": false
