@@ -32,6 +32,15 @@ return {
             mods = "SHIFT|CTRL",
             action = wezterm.action.ToggleFullScreen,
         },
+        {
+            key = "?",
+            mods = "SHIFT|CTRL",
+            action = wezterm.action.SplitHorizontal({ domain="CurrentPaneDomain" }),
+        }, {
+            key = "_",
+            mods = "SHIFT|CTRL",
+            action = wezterm.action.SplitVertical({ domain="CurrentPaneDomain" }),
+        }
     },
     mouse_bindings = {
         -- only select with lmb, don't open links
