@@ -10,7 +10,7 @@ fish_add_path -g ~/go/bin
 fish_add_path -g /opt/homebrew/bin
 fish_add_path -g /opt/homebrew/opt/python@3.11/libexec/bin
 
-if test $appearance = "light"
+if test "$appearance" = "light"
     yes | fish_config theme save 'Catppuccin Latte'
 else
     yes | fish_config theme save 'Catppuccin Mocha'
