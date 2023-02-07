@@ -16,6 +16,7 @@ return {
                 client_id = "1063527388253798441",
                 neovim_image_text = "Copyright © Electronic Arts 1997",
                 main_image = "file",
+                show_time = false,
                 editing_text = transform("Editing"),
                 reading_text = transform("Reading"),
             })
