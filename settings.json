@@ -33,6 +33,7 @@
     ".venv": true,
     "coverage.xml": true
   },
+  "find-it-faster.general.batTheme": "ansi",
   "git.allowForcePush": true,
   "git.autofetch": true,
   "git.openRepositoryInParentFolders": "always",
@@ -47,7 +48,6 @@
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "eq-material-theme-icons-palenight",
   "workbench.list.smoothScrolling": true,
-  "explorer.confirmDragAndDrop": false
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "workbench.productIconTheme": "material-product-icons"
