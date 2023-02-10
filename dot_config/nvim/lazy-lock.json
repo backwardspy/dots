@@ -1,11 +1,11 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "eab2c83a0207369900e92783f56990808082eac2" },
   "better-escape.nvim": { "branch": "master", "commit": "6fed33809cde3b416087fc540ad9eb17ec470193" },
-  "catppuccin": { "branch": "main", "commit": "c3697149f825ff73665491223b5df1efae28f687" },
-  "lazy.nvim": { "branch": "main", "commit": "c734d941b47312baafe3e0429a5fecd25da95f5f" },
+  "catppuccin": { "branch": "main", "commit": "c5ed88194ae1d581d3083725a0dc7c90dd3446be" },
+  "lazy.nvim": { "branch": "main", "commit": "bab744565e9d8d743b1889c66707aa2e8018ae86" },
   "lightspeed.nvim": { "branch": "main", "commit": "299eefa6a9e2d881f1194587c573dad619fdb96f" },
   "mini.basics": { "branch": "main", "commit": "0bdaa51d305488245ec98c718a5cfa36cfe3d463" },
-  "nvim-surround": { "branch": "main", "commit": "abccb2313b581c920b1117b60f91d00f0f469e17" },
+  "nvim-surround": { "branch": "main", "commit": "90821ad682aac189cd0a38fd83fc96f0cbcc5d29" },
   "presence.nvim": { "branch": "main", "commit": "87c857a56b7703f976d3a5ef15967d80508df6e6" },
   "targets.vim": { "branch": "master", "commit": "8d6ff2984cdfaebe5b7a6eee8f226a6dd1226f2d" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" }
