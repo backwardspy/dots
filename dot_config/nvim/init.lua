@@ -1,5 +1,4 @@
-require("options")
-require("keybinds")
+vim.g.mapleader = " "
 
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -28,3 +27,8 @@ require("lazy").setup("plugins", {
         notify = false,
     }
 })
+
+require("options")
+require("keybinds")
+require("autocmds")
+
