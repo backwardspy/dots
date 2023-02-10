@@ -1,5 +1,6 @@
 {
   "catppuccin.accentColor": "yellow",
+  "catppuccin.italicKeywords": false,
   "conventionalCommits.gitmoji": false,
   "conventionalCommits.promptBody": false,
   "conventionalCommits.promptCI": false,
