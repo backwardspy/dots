@@ -30,5 +30,4 @@ require("lazy").setup("plugins", {
 
 require("options")
 require("keybinds")
-require("autocmds")
 
