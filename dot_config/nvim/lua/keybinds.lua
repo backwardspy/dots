@@ -1,5 +1,4 @@
 -- standard neovim binds go here
-vim.keymap.set("n", ":", "q:")
 
 if not vim.g.vscode then
     return
