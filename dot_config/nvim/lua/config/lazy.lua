@@ -13,6 +13,7 @@ require("lazy").setup({
   },
   install = { colorscheme = { "catppuccin", "tokyonight", "habamax" } },
   checker = { enabled = true },
+  change_detection = { notify = false },
   performance = {
     rtp = {
       disabled_plugins = {
