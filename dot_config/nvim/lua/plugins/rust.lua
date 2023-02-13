@@ -3,7 +3,7 @@ local partial = require("functional").partial
 return {
   -- treesitter grammars
   {
-    "nvim-treesitter/nvim-treesitter",
+    "nvim-treesitter",
     opts = function(_, opts)
       if type(opts.ensure_installed) == "table" then
         vim.list_extend(opts.ensure_installed, { "rust", "toml" })
@@ -13,7 +13,7 @@ return {
 
   -- language servers
   {
-    "neovim/nvim-lspconfig",
+    "nvim-lspconfig",
     dependencies = { "simrat39/rust-tools.nvim" },
     opts = {
       servers = {
