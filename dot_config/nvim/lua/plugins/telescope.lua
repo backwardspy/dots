@@ -1,6 +1,10 @@
 return {
   {
     "telescope.nvim",
+    opts = function(_, opts)
+      -- allow c-t to open a tab rather than trouble
+      opts.defaults.mappings.i["<c-t>"] = nil
+    end,
     dependencies = {
       {
         "nvim-telescope/telescope-fzf-native.nvim",

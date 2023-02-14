@@ -3,7 +3,7 @@ local partial = require("functional").partial
 return {
   -- treesitter grammars
   {
-    "nvim-treesitter/nvim-treesitter",
+    "nvim-treesitter",
     opts = function(_, opts)
       if type(opts.ensure_installed) == "table" then
         vim.list_extend(opts.ensure_installed, { "python", "toml" })
@@ -13,7 +13,7 @@ return {
 
   -- language servers
   {
-    "neovim/nvim-lspconfig",
+    "nvim-lspconfig",
     dependencies = { "HallerPatrick/py_lsp.nvim" },
     opts = {
       servers = {
@@ -29,4 +29,24 @@ return {
       },
     },
   },
+  {
+    "null-ls.nvim",
+    opts = {
+      sources = {
+        require("null-ls").builtins.diagnostics.mypy,
+        require("null-ls").builtins.formatting.isort,
+        require("null-ls").builtins.formatting.black,
+      },
+    },
+  },
+  {
+    "mason.nvim",
+    opts = {
+      ensure_installed = {
+        "black",
+        "isort",
+        "mypy",
+      }
+    }
+  }
 }
