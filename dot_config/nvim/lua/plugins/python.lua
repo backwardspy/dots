@@ -1,5 +1,3 @@
-local partial = require("functional").partial
-
 return {
   -- treesitter grammars
   {
@@ -33,7 +31,7 @@ return {
     "null-ls.nvim",
     opts = {
       sources = {
-        require("null-ls").builtins.diagnostics.mypy,
+        require("null-ls").builtins.diagnostics.mypy.with({ prefer_local = ".venv/bin" }),
         require("null-ls").builtins.formatting.isort,
         require("null-ls").builtins.formatting.black,
       },
