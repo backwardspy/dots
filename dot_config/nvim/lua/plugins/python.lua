@@ -3,9 +3,7 @@ return {
   {
     "nvim-treesitter",
     opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "python", "toml" })
-      end
+      vim.list_extend(opts.ensure_installed, { "python", "toml" })
     end,
   },
 
@@ -29,22 +27,22 @@ return {
   },
   {
     "null-ls.nvim",
-    opts = {
-      sources = {
+    opts = function(_, opts)
+      vim.list_extend(opts.sources, {
         require("null-ls").builtins.diagnostics.mypy.with({ prefer_local = ".venv/bin" }),
         require("null-ls").builtins.formatting.isort,
         require("null-ls").builtins.formatting.black,
-      },
-    },
+      })
+    end,
   },
   {
     "mason.nvim",
-    opts = {
-      ensure_installed = {
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
         "black",
         "isort",
         "mypy",
-      }
-    }
-  }
+      })
+    end,
+  },
 }
