@@ -31,8 +31,6 @@ return {
     },
   },
   opts = function(_, opts)
-    require("which-key").register({ "<leader>t", group = "testing" })
-
     opts.adapters = {
       require("neotest-python")({
         dap = { justMyCode = false },
