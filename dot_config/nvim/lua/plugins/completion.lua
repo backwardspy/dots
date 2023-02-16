@@ -1,6 +1,10 @@
 return {
   {
     "nvim-cmp",
+    dependencies = { {
+      "https://github.com/petertriho/cmp-git",
+      config = true,
+    } },
     opts = function(_, opts)
       local cmp = require("cmp")
       opts.mapping = cmp.mapping.preset.insert({
@@ -15,6 +19,9 @@ return {
           select = true,
         }),
       })
+      opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
+        { name = "git" },
+      }))
     end,
   },
   {
