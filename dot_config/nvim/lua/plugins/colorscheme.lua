@@ -8,6 +8,7 @@ return {
   {
     "catppuccin",
     opts = {
+      transparent_background = true,
       integrations = {
         native_lsp = {
           enabled = true,
@@ -21,6 +22,10 @@ return {
       },
       custom_highlights = function(colors)
         return {
+          --
+          -- notify
+          --
+          NotifyBackground = { bg = colors.mantle },
           --
           -- telescope
           --
