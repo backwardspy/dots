@@ -1,4 +1,5 @@
 set -gx EDITOR nvim
+set -gx TERM wezterm
 set -gx npm_config_prefix ~/.local
 
 # paths are only added if they exist
