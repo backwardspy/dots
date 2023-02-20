@@ -66,6 +66,11 @@ return {
 			mods = "SHIFT|CTRL",
 			action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
 		},
+		{
+			key = "w",
+			mods = "SHIFT|CTRL",
+			action = wezterm.action.PaneSelect,
+		},
 	},
 	mouse_bindings = {
 		-- only select with lmb, don't open links
