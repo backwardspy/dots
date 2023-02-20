@@ -8,10 +8,25 @@ return {
   {
     "catppuccin",
     opts = {
-      transparent_background = true,
       integrations = {
+        gitsigns = true,
+        indent_blankline = { enabled = true },
+        leap = true,
+        mason = true,
+        mini = true,
+        neotree = true,
+        neogit = true,
+        neotest = true,
+        noice = true,
+        cmp = true,
         native_lsp = {
           enabled = true,
+          virtual_text = {
+            errors = { "italic" },
+            hints = { "italic" },
+            warnings = { "italic" },
+            information = { "italic" },
+          },
           underlines = {
             errors = { "undercurl" },
             hints = { "undercurl" },
@@ -19,6 +34,11 @@ return {
             information = { "undercurl" },
           },
         },
+        notify = true,
+        treesitter = true,
+        telescope = true,
+        lsp_trouble = true,
+        which_key = true,
       },
       custom_highlights = function(colors)
         return {
@@ -47,7 +67,8 @@ return {
           --
           -- neotree
           --
-          NeotreeNormal = { bg = colors.mantle },
+          NeoTreeNormal = { bg = colors.mantle },
+          NeoTreeNormalNC = { bg = colors.mantle },
           --
           -- alpha
           --
@@ -61,6 +82,22 @@ return {
           DashboardHeader8 = { fg = "#F5C2E7" },
         }
       end,
+    },
+  },
+  {
+    "bufferline.nvim",
+    dependencies = { "catppuccin" },
+    opts = function(_, opts)
+      opts.highlights = require("catppuccin.groups.integrations.bufferline").get()
+    end,
+  },
+  {
+    "lualine.nvim",
+    dependencies = { "catppuccin" },
+    opts = {
+      options = {
+        section_separators = { left = "▓▒░", right = "░▒▓" },
+      },
     },
   },
 }
