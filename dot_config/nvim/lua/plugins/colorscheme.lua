@@ -47,6 +47,11 @@ return {
           --
           NotifyBackground = { bg = colors.mantle },
           --
+          -- noice
+          --
+          NoiceCmdlinePopup = { bg = colors.mantle },
+          NoiceCmdlinePopupBorder = { bg = colors.mantle, fg = colors.mantle },
+          --
           -- telescope
           --
           TelescopeMatching = { fg = colors.yellow },
