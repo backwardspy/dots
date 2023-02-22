@@ -24,8 +24,4 @@ return {
       }))
     end,
   },
-  {
-    "mini.pairs",
-    enabled = false,
-  },
 }
