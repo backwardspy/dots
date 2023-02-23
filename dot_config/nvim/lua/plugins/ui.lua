@@ -8,4 +8,14 @@ return {
       },
     },
   },
-#94E2D5}
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    opts = function()
+      local ctp = require("catppuccin.palettes").get_palette()
+      return {
+        highlight = { fg = ctp.yellow },
+        symbols = { "─", "│", "┌", "┐", "└", "┘" },
+      }
+    end,
+  },
+}
