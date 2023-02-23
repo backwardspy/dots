@@ -74,7 +74,16 @@ symbol = " "
 style = "fg:base bg:green"
 format = '[ $symbol ($version)]($style)'
 
-{{ include (print .chezmoi.homeDir "/.local/share/starship/mocha.toml") }}
-{{ include (print .chezmoi.homeDir "/.local/share/starship/macchiato.toml") }}
-{{ include (print .chezmoi.homeDir "/.local/share/starship/frappe.toml") }}
-{{ include (print .chezmoi.homeDir "/.local/share/starship/latte.toml") }}
+{{ $starpath := ".local/share/starship" }}
+{{ if stat (joinPath .chezmoi.homeDir $starpath "mocha.toml" ) }}
+  {{ include (joinPath .chezmoi.homeDir $starpath "mocha.toml") }}
+{{ end }}
+{{ if stat (joinPath .chezmoi.homeDir $starpath "macchiato.toml" ) }}
+  {{ include (joinPath .chezmoi.homeDir $starpath "macchiato.toml") }}
+{{ end }}
+{{ if stat (joinPath .chezmoi.homeDir $starpath "frappe.toml" ) }}
+  {{ include (joinPath .chezmoi.homeDir $starpath "frappe.toml") }}
+{{ end }}
+{{ if stat (joinPath .chezmoi.homeDir $starpath "latte.toml" ) }}
+  {{ include (joinPath .chezmoi.homeDir $starpath "latte.toml") }}
+{{ end }}
