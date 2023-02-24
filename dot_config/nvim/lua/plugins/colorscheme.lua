@@ -40,7 +40,19 @@ return {
         lsp_trouble = true,
         which_key = true,
       },
+      color_overrides = {
+        all = {
+          base = "#171717",
+          mantle = "#101010",
+          crust = "#0C0C0C",
+        },
+      },
       custom_highlights = function(colors)
+        local utils = require("catppuccin.utils.colors")
+        local tint = function(tint)
+          return utils.blend(tint, colors.base, 0.2)
+        end
+
         return {
           --
           -- notify
@@ -75,6 +87,51 @@ return {
           NeoTreeNormal = { bg = colors.mantle },
           NeoTreeNormalNC = { bg = colors.mantle },
           --
+          -- cmp
+          --
+          PmenuSel = { bg = colors.mantle, fg = "NONE" },
+          Pmenu = { fg = colors.text, bg = colors.crust },
+
+          CmpItemAbbrDeprecated = { fg = colors.overlay0, bg = "NONE", style = { "strikethrough" } },
+          CmpItemAbbrMatch = { fg = colors.yellow, bg = "NONE", style = { "bold" } },
+          CmpItemAbbrMatchFuzzy = { fg = colors.yellow, bg = "NONE", style = { "bold" } },
+          CmpItemMenu = { fg = colors.lavender, bg = "NONE", style = { "italic" } },
+
+          CmpItemKindField = { fg = colors.rosewater, bg = tint(colors.rosewater) },
+          CmpItemKindProperty = { fg = colors.rosewater, bg = tint(colors.rosewater) },
+          CmpItemKindEvent = { fg = colors.rosewater, bg = tint(colors.rosewater) },
+
+          CmpItemKindText = { fg = colors.text, bg = tint(colors.text) },
+          CmpItemKindModule = { fg = colors.text, bg = tint(colors.text) },
+          CmpItemKindVariable = { fg = colors.text, bg = tint(colors.text) },
+          CmpItemKindFile = { fg = colors.text, bg = tint(colors.text) },
+          CmpItemKindUnit = { fg = colors.text, bg = tint(colors.text) },
+          CmpItemKindValue = { fg = colors.text, bg = tint(colors.text) },
+
+          CmpItemKindEnum = { fg = colors.yellow, bg = tint(colors.yellow) },
+          CmpItemKindReference = { fg = colors.yellow, bg = tint(colors.yellow) },
+          CmpItemKindClass = { fg = colors.yellow, bg = tint(colors.yellow) },
+          CmpItemKindFolder = { fg = colors.yellow, bg = tint(colors.yellow) },
+          CmpItemKindEnumMember = { fg = colors.yellow, bg = tint(colors.yellow) },
+          CmpItemKindInterface = { fg = colors.yellow, bg = tint(colors.yellow) },
+
+          CmpItemKindKeyword = { fg = colors.mauve, bg = tint(colors.mauve) },
+
+          CmpItemKindConstant = { fg = colors.peach, bg = tint(colors.peach) },
+
+          CmpItemKindConstructor = { fg = colors.lavender, bg = tint(colors.lavender) },
+
+          CmpItemKindFunction = { fg = colors.blue, bg = tint(colors.blue) },
+          CmpItemKindMethod = { fg = colors.blue, bg = tint(colors.blue) },
+
+          CmpItemKindStruct = { fg = colors.teal, bg = tint(colors.teal) },
+          CmpItemKindOperator = { fg = colors.teal, bg = tint(colors.teal) },
+
+          CmpItemKindSnippet = { fg = colors.flamingo, bg = tint(colors.flamingo) },
+
+          CmpItemKindColor = { fg = colors.pink, bg = tint(colors.pink) },
+          CmpItemKindTypeParameter = { fg = colors.maroon, bg = tint(colors.maroon) },
+          --
           -- alpha
           --
           DashboardHeader1 = { fg = "#94E2D5" },
@@ -105,4 +162,5 @@ return {
       },
     },
   },
+  "nyoom-engineering/oxocarbon.nvim",
 }
