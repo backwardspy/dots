@@ -8,6 +8,7 @@ return {
   {
     "catppuccin",
     opts = {
+      flavour = os.getenv("appearance") == "light" and "latte" or "mocha",
       integrations = {
         gitsigns = true,
         indent_blankline = { enabled = true },
@@ -41,7 +42,7 @@ return {
         which_key = true,
       },
       color_overrides = {
-        all = {
+        mocha = {
           base = "#171717",
           mantle = "#101010",
           crust = "#0C0C0C",
