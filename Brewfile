@@ -6,6 +6,11 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "jesseduffield/lazygit"
+tap "koekeishiya/formulae"
+# New file format for still image compression
+brew "jpeg-xl"
+# Codec library for encoding and decoding AV1 video streams
+brew "aom"
 # Command-line interface for SQLite
 brew "sqlite"
 # Interpreted, interactive, object-oriented programming language
@@ -48,6 +53,8 @@ brew "git-lfs"
 brew "go"
 # Command-line benchmarking tool
 brew "hyperfine"
+# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
+brew "libheif"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
@@ -72,12 +79,18 @@ brew "node"
 brew "postgresql@14"
 # Python interface to Tcl/Tk
 brew "python-tk@3.11"
+# Messaging broker
+brew "rabbitmq"
 # Persistent key-value database, with built-in net interface
 brew "redis"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Rust toolchain installer
 brew "rustup-init"
+# Fast and accurate code counter with complexity and COCOMO estimates
+brew "scc"
+# Used as a compiler wrapper and avoids compilation when possible
+brew "sccache"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Open source continuous file synchronization application
@@ -104,6 +117,8 @@ cask "arc"
 cask "barrier"
 # Desktop password and login vault
 cask "bitwarden"
+# Web browser
+cask "firefox"
 # Developer targeted fonts with a high number of glyphs
 cask "font-symbols-only-nerd-font"
 # Game development engine
@@ -114,8 +129,6 @@ cask "iina"
 cask "insomnia"
 # Smooths scrolling and set mouse scroll directions independently
 cask "mos"
-# Neovim Client
-cask "neovide"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Collaboration platform for API development
