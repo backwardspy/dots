@@ -1,6 +1,6 @@
 return {
   {
-    "which-key.nvim",
+    "folke/which-key.nvim",
     opts = function()
       local wk = require("which-key")
       wk.register({

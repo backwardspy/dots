@@ -2,8 +2,6 @@ require("bootstrap").bootstrap_lazy()
 require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.lang.json" },
     { import = "plugins" },
     { import = "shared" },
   },
@@ -11,7 +9,7 @@ require("lazy").setup({
     lazy = false,
     version = false,
   },
-  install = { colorscheme = { "catppuccin", "tokyonight", "habamax" } },
+  install = { colorscheme = { "catppuccin", "habamax" } },
   checker = { enabled = true },
   change_detection = { notify = false },
   performance = {
