@@ -6,7 +6,6 @@ return {
         "https://github.com/petertriho/cmp-git",
         config = true,
       },
-      "onsails/lspkind.nvim",
     },
     opts = function(_, opts)
       local cmp = require("cmp")
@@ -34,21 +33,6 @@ return {
           col_offset = -3,
           side_padding = 0,
         },
-      }
-
-      opts.formatting = {
-        fields = { "kind", "abbr", "menu" },
-        format = function(entry, vim_item)
-          local fmt = require("lspkind").cmp_format({
-            mode = "symbol",
-            maxwidth = 50,
-          })(entry, vim_item)
-
-          -- room to breathe
-          fmt.kind = fmt.kind .. " "
-
-          return fmt
-        end,
       }
     end,
   },
