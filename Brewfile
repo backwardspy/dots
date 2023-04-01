@@ -13,8 +13,6 @@ brew "jpeg-xl"
 brew "aom"
 # Command-line interface for SQLite
 brew "sqlite"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.11"
 # Record and share terminal sessions
 brew "asciinema"
 # Microsoft Azure CLI 2.0
@@ -79,6 +77,14 @@ brew "node"
 brew "postgresql@14"
 # Python interface to Tcl/Tk
 brew "python-tk@3.11"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.8"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
 # Messaging broker
 brew "rabbitmq"
 # Persistent key-value database, with built-in net interface
