@@ -1,7 +1,6 @@
 require("bootstrap").bootstrap_lazy()
 require("lazy").setup({
   spec = {
-    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "plugins" },
     { import = "shared" },
   },
