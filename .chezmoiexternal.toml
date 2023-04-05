@@ -10,7 +10,7 @@ refreshPeriod = "24h"
 
 [".config/btop/themes/catppuccin_mocha.theme"]
 type = "file"
-url = "https://raw.githubusercontent.com/catppuccin/btop/main/catppuccin_mocha.theme"
+url = "https://raw.githubusercontent.com/catppuccin/btop/main/themes/catppuccin_mocha.theme"
 refreshPeriod = "24h"
 
 [".local/share/starship/"]
