@@ -21,3 +21,11 @@ require("lazy").setup({
     },
   },
 })
+
+local map = function(keys, action)
+  local opts = { noremap = true, silent = true }
+  vim.keymap.set("n", keys, function() vim.fn.VSCodeNotify(action) end, opts)
+end
+
+map("]d", "editor.action.marker.next")
+map("[d", "editor.action.marker.prev")
