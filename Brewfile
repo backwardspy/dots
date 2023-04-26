@@ -7,12 +7,10 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "jesseduffield/lazygit"
 tap "koekeishiya/formulae"
-# New file format for still image compression
-brew "jpeg-xl"
-# Codec library for encoding and decoding AV1 video streams
-brew "aom"
 # Command-line interface for SQLite
 brew "sqlite"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
 # Record and share terminal sessions
 brew "asciinema"
 # Microsoft Azure CLI 2.0
@@ -23,16 +21,20 @@ brew "bat"
 brew "gcc"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
-# Statistics utility to count lines of code
-brew "cloc"
 # Cross-platform make
 brew "cmake"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Diff that understands syntax
 brew "difftastic"
 # Load/unload environment variables based on $PWD
 brew "direnv"
+# Tool for exploring each layer in a docker image
+brew "dive"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
 # Run arbitrary commands when files change
 brew "entr"
 # Simple, fast and user-friendly alternative to find
@@ -49,10 +51,10 @@ brew "git"
 brew "git-lfs"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Post-modern modal text editor
+brew "helix"
 # Command-line benchmarking tool
 brew "hyperfine"
-# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
-brew "libheif"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
@@ -81,10 +83,6 @@ brew "python-tk@3.11"
 brew "python@3.8"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.9"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.11"
 # Messaging broker
 brew "rabbitmq"
 # Persistent key-value database, with built-in net interface
@@ -107,10 +105,6 @@ brew "tealdeer"
 brew "terminal-notifier"
 # Modern watch command
 brew "viddy"
-# Ncurses-based file manager with vi-like keybindings
-brew "vifm"
-# Internet file retriever
-brew "wget"
 # A Kubernetes credential (exec) plugin implementing azure authentication
 brew "azure/kubelogin/kubelogin"
 # A simple terminal UI for git commands, written in Go
@@ -119,8 +113,6 @@ brew "jesseduffield/lazygit/lazygit"
 cask "alt-tab"
 # Chromium based browser
 cask "arc"
-# Open-source KVM software
-cask "barrier"
 # Desktop password and login vault
 cask "bitwarden"
 # Web browser
@@ -143,8 +135,6 @@ cask "postman"
 cask "rectangle"
 # Music streaming service
 cask "spotify"
-# Video game digital distribution service
-cask "steam"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # Unpacks archive files
