@@ -1,13 +1,5 @@
 local wezterm = require("wezterm")
 
-if string.match(wezterm.target_triple, "linux") then
-	wezterm.on("window-focus-changed", function()
-		os.execute(
-			"xdotool search -classname org.wezfurlong.wezterm | xargs -I{} xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id {}"
-		)
-	end)
-end
-
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	-- limit text to max_width-2
 	local title = tab.active_pane.title
@@ -15,15 +7,17 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 		title = string.sub(title, 1, max_width - 4)
 	end
 
-	local bg = "#1E1E2E"
-	local fg = config.resolved_palette.ansi[tab.is_active and 4 or 1]
+	local palette = config.resolved_palette
+	local bg = palette.tab_bar.background
+	local fg = tab.is_active and palette.background or palette.tab_bar.inactive_tab.bg_color
+	local text = palette.foreground
 
 	return {
 		{ Background = { Color = bg } },
 		{ Foreground = { Color = fg } },
 		{ Text = "" },
 		{ Background = { Color = fg } },
-		{ Foreground = { Color = bg } },
+		{ Foreground = { Color = text } },
 		{ Text = " " .. title .. " " },
 		{ Background = { Color = bg } },
 		{ Foreground = { Color = fg } },
@@ -31,17 +25,30 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	}
 end)
 
-local appearance = wezterm.gui.get_appearance():find("Light") and "light" or "dark"
+local americano = function()
+	local americano = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+	americano.background = "#000000"
+	americano.tab_bar.background = "#040404"
+	americano.tab_bar.inactive_tab.bg_color = "#0f0f0f"
+	americano.tab_bar.new_tab.bg_color = "#080808"
+	return americano
+end
 
-local color_schemes = {
-	light = "Catppuccin Latte",
-	dark = "Catppuccin Mocha",
-}
+local colours = function(appearance)
+	if appearance:find("Dark") then
+		return "Catppuccin Americano"
+	else
+		return "Catppuccin Latte"
+	end
+end
 
 return {
 	font = wezterm.font("Rec Mono Duotone"),
-	font_size = string.match(wezterm.target_triple, "darwin") and 17 or 13,
-	color_scheme = color_schemes[appearance],
+	font_size = string.match(wezterm.target_triple, "darwin") and 15 or 13,
+	color_schemes = {
+		["Catppuccin Americano"] = americano(),
+	},
+	color_scheme = colours(wezterm.gui.get_appearance()),
 	use_fancy_tab_bar = false,
 	hide_tab_bar_if_only_one_tab = true,
 	tab_bar_at_bottom = true,
@@ -50,9 +57,6 @@ return {
 	initial_cols = 120,
 	use_resize_increments = true,
 	window_background_opacity = string.match(wezterm.target_triple, "linux") and 0.8 or 1,
-	set_environment_variables = {
-		appearance = appearance,
-	},
 	keys = {
 		{
 			key = "f",
