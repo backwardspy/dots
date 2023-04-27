@@ -7,6 +7,10 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "jesseduffield/lazygit"
 tap "koekeishiya/formulae"
+# New file format for still image compression
+brew "jpeg-xl"
+# Codec library for encoding and decoding AV1 video streams
+brew "aom"
 # Command-line interface for SQLite
 brew "sqlite"
 # Interpreted, interactive, object-oriented programming language
@@ -55,6 +59,8 @@ brew "go"
 brew "helix"
 # Command-line benchmarking tool
 brew "hyperfine"
+# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
+brew "libheif"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
@@ -105,6 +111,8 @@ brew "tealdeer"
 brew "terminal-notifier"
 # Modern watch command
 brew "viddy"
+# Generator for LS_COLORS with support for multiple color themes
+brew "vivid"
 # A Kubernetes credential (exec) plugin implementing azure authentication
 brew "azure/kubelogin/kubelogin"
 # A simple terminal UI for git commands, written in Go

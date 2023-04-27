@@ -11,20 +11,24 @@ fish_add_path -g ~/go/bin
 fish_add_path -g /opt/homebrew/bin
 fish_add_path -g /opt/homebrew/opt/python@3.11/libexec/bin
 
-if test "$appearance" = "light"
+# source machine-specific config if it's present
+set machineconf "$HOME/.config/fish/.profile."(uname -s)
+if test -f $machineconf
+    source $machineconf
+end
+
+if test "$APPEARANCE" = light
     yes | fish_config theme save 'Catppuccin Latte'
 else
     yes | fish_config theme save 'Catppuccin Mocha'
 end
 
 if type -q vivid
-    set -gx LS_COLORS (vivid generate catppuccin-mocha)
-end
-
-# source machine-specific config if it's present
-set machineconf "$HOME/.config/fish/.profile."(uname -s)
-if test -f $machineconf
-    source $machineconf
+    if test "$APPEARANCE" = light
+        set -gx LS_COLORS (vivid generate catppuccin-latte)
+    else
+        set -gx LS_COLORS (vivid generate catppuccin-mocha)
+    end
 end
 
 if type -q direnv
