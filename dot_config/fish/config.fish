@@ -36,11 +36,16 @@ if type -q direnv
     direnv hook fish | source
 end
 
+# use lsd for ls
+function ls
+    lsd --config-file="~/.config/lsd/$APPEARANCE.yaml"
+end
+
 # automatically ls on cd
 if ! type -q _standard_cd
     functions --copy cd _standard_cd
     function cd
-        _standard_cd $argv && lsd
+        _standard_cd $argv && ls
     end
 end
 

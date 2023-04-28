@@ -22,7 +22,6 @@ SETUVAR _fish_abbr_gsm:git\x20switch\x20main
 SETUVAR _fish_abbr_gst:git\x20status
 SETUVAR _fish_abbr_kctx:kubectx
 SETUVAR _fish_abbr_kns:kubens
-SETUVAR _fish_abbr_ls:lsd
 SETUVAR _fish_abbr_pa:poetry\x20add
 SETUVAR _fish_abbr_pacdiff:sudo\x20DIFFPROG\x3d\x27nvim\x20\x2dd\x27\x20pacdiff
 SETUVAR _fish_abbr_pad:poetry\x20add\x20\x2d\x2dgroup\x20dev

@@ -44,7 +44,7 @@ end
 
 return {
 	font = wezterm.font("Rec Mono Duotone"),
-	font_size = string.match(wezterm.target_triple, "darwin") and 15 or 13,
+	font_size = string.match(wezterm.target_triple, "darwin") and 15 or 11,
 	color_schemes = {
 		["Catppuccin Americano"] = americano(),
 	},
