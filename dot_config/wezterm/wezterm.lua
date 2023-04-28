@@ -28,9 +28,9 @@ end)
 local americano = function()
 	local americano = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
 	americano.background = "#000000"
-	americano.tab_bar.background = "#040404"
-	americano.tab_bar.inactive_tab.bg_color = "#0f0f0f"
-	americano.tab_bar.new_tab.bg_color = "#080808"
+	americano.tab_bar.background = "#101010"
+	americano.tab_bar.inactive_tab.bg_color = "#202020"
+	americano.tab_bar.new_tab.bg_color = "#202020"
 	return americano
 end
 
@@ -42,7 +42,7 @@ local colours = function(appearance)
 	end
 end
 
-return {
+local config = {
 	font = wezterm.font("Rec Mono Duotone"),
 	font_size = string.match(wezterm.target_triple, "darwin") and 15 or 11,
 	color_schemes = {
@@ -53,8 +53,6 @@ return {
 	hide_tab_bar_if_only_one_tab = true,
 	tab_bar_at_bottom = true,
 	window_padding = { top = 0, bottom = 0, left = 0, right = 0 },
-	initial_rows = 40,
-	initial_cols = 120,
 	use_resize_increments = true,
 	window_background_opacity = string.match(wezterm.target_triple, "linux") and 0.8 or 1,
 	keys = {
@@ -78,6 +76,11 @@ return {
 			mods = "SHIFT|CTRL",
 			action = wezterm.action.PaneSelect,
 		},
+		{
+			key = "p",
+			mods = "SHIFT|CTRL",
+			action = wezterm.action.ActivateCommandPalette,
+		}
 	},
 	mouse_bindings = {
 		-- only select with lmb, don't open links
@@ -95,3 +98,9 @@ return {
 		},
 	},
 }
+
+if string.match(wezterm.target_triple, "windows") then
+	config.default_prog = { "powershell.exe" }
+end
+
+return config
