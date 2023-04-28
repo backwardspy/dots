@@ -10,4 +10,4 @@ sorting:
   dir-grouping: first
 hyperlink: auto
 color:
-  when: auto
+  theme: catppuccin-mocha
