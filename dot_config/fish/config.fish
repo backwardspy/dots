@@ -17,6 +17,8 @@ if test -f $machineconf
     source $machineconf
 end
 
+set -q APPEARANCE; or set -gx APPEARANCE dark
+
 if test "$APPEARANCE" = light
     yes | fish_config theme save 'Catppuccin Latte'
 else
@@ -38,7 +40,7 @@ end
 
 # use lsd for ls
 function ls
-    lsd --config-file="~/.config/lsd/$APPEARANCE.yaml"
+    lsd --config-file="$HOME/.config/lsd/$APPEARANCE.yaml" $argv
 end
 
 # automatically ls on cd

@@ -4,75 +4,85 @@ add_newline = true
 palette = "catppuccin_mocha"
 
 format = """
+[](base bg:pink)\
 $directory\
-[](fg:red bg:yellow)\
+[](pink bg:#DABFEC)\
 $git_branch\
+[](#DABFEC bg:#BFBBF1)\
 $git_status\
-[](fg:yellow bg:green)\
+[](#BFBBF1 bg:#A4B8F5)\
 $golang\
 $nodejs\
+$nim\
 $rust\
 $python\
 $lua\
-[](fg:green)\
+[](#A4B8F5 bg:blue)\
+$time\
+[](blue bg:base)\
 $line_break\
 $character
 """
 
 [character]
 format = "$symbol "
-success_symbol = '[ ](bg:green)[](fg:green)'
-error_symbol = '[ ](bg:red)[](fg:red)'
-vimcmd_symbol = '[ ](bg:lavender)[](fg:lavender)'
-vimcmd_replace_one_symbol = '[ ](bg:maroon)[](fg:bold maroon)'
-vimcmd_replace_symbol = '[ ](bg:maroon)[](fg:maroon)'
-vimcmd_visual_symbol = '[ ](bg:flamingo)[](fg:flamingo)'
-disabled = false
+success_symbol = '[\$](bold green)'
+error_symbol = '[\$](bold red)'
+vimcmd_symbol = '[\$](bold blue)'
+vimcmd_replace_one_symbol = '[\$](bold maroon)'
+vimcmd_replace_symbol = '[\$](fg:maroon)'
+vimcmd_visual_symbol = '[\$](fg:flamingo)'
 
 [directory]
-style = "fg:base bg:red"
+style = "base bg:pink"
 format = "[ $path ]($style)"
-truncation_length = 0
-truncate_to_repo = true
-
-[directory.substitutions]
-"Downloads" = " "
-"Sync" = " "
-"src" = " "
-".config" = " "
+truncation_length = 3
+truncation_symbol = "…/"
 
 [git_branch]
-style = "fg:base bg:yellow"
-format = '[ $symbol$branch]($style)'
+symbol = ""
+style = "base bg:#DABFEC"
+format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "fg:base bg:yellow"
-format = '[ $all_status$ahead_behind]($style)'
+style = "base bg:#BFBBF1"
+format = '[ $all_status$ahead_behind ]($style)'
+
+[time]
+disabled = false
+style = "base bg:blue"
+time_format = "%H:%M"
+format = "[ $time ♥]($style)"
 
 [golang]
 symbol = " "
-style = "fg:base bg:green"
-format = '[ $symbol ($version)]($style)'
+style = "base bg:#A4B8F5"
+format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
-symbol = " "
-style = "fg:base bg:green"
-format = '[ $symbol ($version)]($style)'
+symbol = ""
+style = "base bg:#A4B8F5"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = " "
+style = "base bg:#A4B8F5"
+format = '[ $symbol ($version) ]($style)'
 
 [rust]
-symbol = " "
-style = "fg:base bg:green"
-format = '[ $symbol ($version)]($style)'
+symbol = ""
+style = "base bg:#A4B8F5"
+format = '[ $symbol ($version) ]($style)'
 
 [python]
 symbol = " "
-style = "fg:base bg:green"
-format = '[ $symbol ($version)]($style)'
+style = "base bg:#A4B8F5"
+format = '[ $symbol ($version) ]($style)'
 
 [lua]
 symbol = " "
-style = "fg:base bg:green"
-format = '[ $symbol ($version)]($style)'
+style = "base bg:#A4B8F5"
+format = '[ $symbol ($version) ]($style)'
 
 {{ $starpath := ".local/share/starship" }}
 {{ if stat (joinPath .chezmoi.homeDir $starpath "mocha.toml" ) }}
