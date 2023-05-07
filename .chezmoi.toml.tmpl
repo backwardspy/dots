@@ -1,11 +1,6 @@
 [edit]
 command = "nvim"
 
-[diff]
-command = "difft"
-args = ["{{`{{ .Destination }}`}}", "{{`{{ .Target }}`}}"]
-pager = "bat"
-
 [merge]
 command = "nvim"
 args = ["-d", "{{`{{ .Destination }}`}}", "{{`{{ .Source }}", "{{ .Target }}`}}"]

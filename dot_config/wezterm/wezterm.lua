@@ -101,6 +101,7 @@ local config = {
 
 if string.match(wezterm.target_triple, "windows") then
 	config.default_prog = { "powershell.exe" }
+	config.default_domain = "WSL:Ubuntu"
 end
 
 return config
