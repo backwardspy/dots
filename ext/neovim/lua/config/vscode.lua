@@ -31,3 +31,15 @@ map("]d", "editor.action.marker.next")
 map("[d", "editor.action.marker.prev")
 map("]s", "search.action.focusNextSearchResult")
 map("[s", "search.action.focusPreviousSearchResult")
+
+-- wsl clipboard support
+if vim.fn.has("wsl") then
+  vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+    group = vim.api.nvim_create_augroup("wslyank", { clear = true }),
+    callback = function()
+      if vim.v.event.regname == '+' then
+        vim.fn.system("clip.exe", vim.fn.getreg("+"))
+      end
+    end,
+  })
+end
