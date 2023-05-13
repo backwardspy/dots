@@ -1,6 +1,0 @@
-# global exported var definitions for linux
-set -gx PYTHONUSERBASE ~/.local
-
-# linux-specific abbreviations
-abbr -g c "xclip -sel c"
-abbr -g pacdiff "sudo DIFFPROG='nvim -d' pacdiff"
