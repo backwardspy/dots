@@ -10,7 +10,7 @@
 # appearance_* functions return 0 if light mode is enabled
 
 function appearance_darwin
-    defaults read -g AppleInterfaceStyle 2>/dev/null
+    not defaults read -g AppleInterfaceStyle &>/dev/null
 end
 
 function appearance_wsl
