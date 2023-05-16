@@ -9,7 +9,7 @@
     ];
 in {
   home.packages = [
-    (pkgs.python3.withPackages pip-packages)
+    (pkgs.python311.withPackages pip-packages)
     pkgs.poetry
   ];
 
