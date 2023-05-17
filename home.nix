@@ -19,6 +19,7 @@
       configs/python.nix
       configs/rust.nix
       configs/starship.nix
+      configs/viddy.nix
       configs/wezterm.nix
     ]
     ++ lib.optionals isMacos [
