@@ -37,10 +37,13 @@ in {
 
   home.packages = [
     pkgs.alejandra
+    pkgs.azure-cli
     pkgs.docker-client
     pkgs.entr
     pkgs.gh
     pkgs.just
+    pkgs.kubectx
+    pkgs.kubelogin
     pkgs.mdcat
     pkgs.nil
     pkgs.postgresql
