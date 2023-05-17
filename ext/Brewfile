@@ -9,6 +9,8 @@ cask "alt-tab"
 cask "arc"
 # Desktop password and login vault
 cask "bitwarden"
+# App to build and share containerized applications and microservices
+cask "docker"
 # Web browser
 cask "firefox"
 # Recursive's prebuilt text-editor-friendly files, including powerline glyphs
@@ -37,6 +39,6 @@ cask "telegram"
 # Unpacks archive files
 cask "the-unarchiver"
 # Open-source code editor
-cask "visual-studio-code"
+cask "visual-studio-code-insiders"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
