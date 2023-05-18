@@ -21,6 +21,7 @@
       configs/starship.nix
       configs/viddy.nix
       configs/wezterm.nix
+      configs/zs.nix
     ]
     ++ lib.optionals isMacos [
       configs/brew.nix
