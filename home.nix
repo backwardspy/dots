@@ -42,6 +42,7 @@ in {
     pkgs.azure-cli
     pkgs.docker-client
     pkgs.entr
+    pkgs.fd
     pkgs.gh
     pkgs.just
     pkgs.kubectx
