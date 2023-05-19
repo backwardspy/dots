@@ -1,6 +1,2 @@
-vim.g.mapleader = " "
-if vim.g.vscode then
-  require("config.vscode")
-else
-  require("config.standalone")
-end
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
