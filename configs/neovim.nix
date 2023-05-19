@@ -6,7 +6,7 @@
     viAlias = true;
     vimdiffAlias = true;
 
-    extraLuaPackages = ps: with ps; [ jsregexp ];
+    extraLuaPackages = ps: with ps; [jsregexp];
   };
 
   xdg.configFile."nvim" = {

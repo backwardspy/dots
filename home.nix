@@ -16,6 +16,7 @@
       configs/go.nix
       configs/lsd.nix
       configs/neovim.nix
+      configs/node.nix
       configs/python.nix
       configs/rust.nix
       configs/starship.nix
@@ -50,6 +51,7 @@ in {
     pkgs.postgresql
     pkgs.ripgrep
     pkgs.scc
+    pkgs.unzip
 
     (import ./scripts/is-lightmode)
   ];
