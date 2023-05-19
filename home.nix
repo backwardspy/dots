@@ -16,6 +16,7 @@
       configs/go.nix
       configs/lsd.nix
       configs/neovim.nix
+      configs/nix-index.nix
       configs/node.nix
       configs/python.nix
       configs/rust.nix
