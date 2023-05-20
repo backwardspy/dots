@@ -27,6 +27,7 @@ require("lazy").setup({
     "backwardspy/lazyvim-pigeon-configs",
     { import = "pigeon_conf.lang.rust" },
     { import = "pigeon_conf.lang.python" },
+    { import = "pigeon_conf.lang.nix" },
 
     { import = "plugins" },
   },

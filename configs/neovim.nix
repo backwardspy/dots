@@ -6,21 +6,44 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
     extraLuaPackages = ps: with ps; [jsregexp];
+    # 🫡 winston
+    extraPackages = with pkgs; [
+      # generic
+      fd
+      ripgrep
+      tree-sitter
+      gcc
+      gnumake
+      unzip
+      # python
+      black
+      isort
+      nodePackages.pyright
+      # lua
+      stylua
+      lua-language-server
+      # rust
+      cargo
+      rust-analyzer
+      rustc
+      taplo
+      # go
+      go
+      delve
+      gofumpt
+      gopls
+      # nix
+      alejandra
+      nil
+    ];
   };
 
   xdg.configFile."nvim" = {
     source = config.lib.file.mkOutOfStoreSymlink ../ext/neovim;
     recursive = true;
-  };
-
-  # lots of treesitter parsers need the C++ stdlib
-  programs.fish.functions = {nvim = "env LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib ${pkgs.neovim}/bin/nvim $argv";};
-
-  # the above means we have to set up our own vim/vi/vimdiff aliases
-  programs.fish.shellAbbrs = {
-    vi = "nvim";
-    vim = "nvim";
-    vimdiff = "nvim -d";
   };
 }
