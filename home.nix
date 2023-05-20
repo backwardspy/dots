@@ -61,5 +61,7 @@ in {
   programs.home-manager.enable = true;
   targets.genericLinux.enable = isLinux;
 
+  xdg.configFile."nix/nix.conf".text = "experimental-features = nix-command flakes";
+
   inherit imports;
 }
