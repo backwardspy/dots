@@ -48,6 +48,15 @@
       gs = "git switch";
       gst = "git status";
 
+      dcdu = "docker-compose down && docker-compose up -d";
+
+      kctx = "kubectx";
+      ke = "kubectl exec -it";
+      kgd = "kubectl get deployments";
+      kgp = "kubectl get pods";
+      kl = "kubectl logs -f";
+      kns = "kubens";
+
       pa = "poetry add";
       pad = "poetry add --group dev";
       pi = "poetry install";
