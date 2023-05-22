@@ -46,6 +46,7 @@ in {
     pkgs.fd
     pkgs.gh
     pkgs.just
+    pkgs.jq
     pkgs.kubectx
     pkgs.kubelogin
     pkgs.mdcat
