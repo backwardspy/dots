@@ -9,6 +9,17 @@
       {
         fish_greeting = "";
         lsd = "lsd --color-theme first";
+
+        download_nixpkgs_cache_index = ''
+          # thanks @nekowinston
+          set arch (uname -m | sed 's/^arm64$/aarch64/')
+          set platform (uname | tr A-Z a-z)
+          set filename index-$arch-$platform
+
+          mkdir -p ~/.cache/nix-index && cd ~/.cache/nix-index
+          wget -qN https://github.com/Mic92/nix-index-database/releases/latest/download/$filename
+          ln -f $filename files
+        '';
       }
       // (let
         functions = [
