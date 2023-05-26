@@ -45,8 +45,8 @@ in {
     pkgs.entr
     pkgs.fd
     pkgs.gh
-    pkgs.just
     pkgs.jq
+    pkgs.just
     pkgs.kubectx
     pkgs.kubelogin
     pkgs.mdcat
@@ -55,6 +55,7 @@ in {
     pkgs.ripgrep
     pkgs.scc
     pkgs.unzip
+    pkgs.wget
 
     (import ./scripts/is-lightmode)
   ];
