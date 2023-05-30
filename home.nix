@@ -56,6 +56,7 @@ in {
     pkgs.scc
     pkgs.unzip
     pkgs.wget
+    pkgs.wslu
 
     (import ./scripts/is-lightmode)
   ];
