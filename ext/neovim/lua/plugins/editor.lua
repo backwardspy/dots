@@ -11,4 +11,27 @@ return {
     },
     ft = "gitcommit",
   },
+  {
+    "chrisgrieser/nvim-spider",
+    keys = {
+      {
+        "w",
+        function()
+          require("spider").motion("w")
+        end,
+      },
+      {
+        "e",
+        function()
+          require("spider").motion("e")
+        end,
+      },
+      {
+        "b",
+        function()
+          require("spider").motion("b")
+        end,
+      },
+    },
+  },
 }
