@@ -102,6 +102,15 @@
           sha256 = "sha256-RG/0rfhgq6aEKNZ0XwIqOaZ6K5S4+/Y5EEMnIdtfPhk=";
         };
       }
+      {
+        "name" = "envy";
+        src = pkgs.fetchFromGitHub {
+          owner = "backwardspy";
+          repo = "envy.fish";
+          rev = "170d189a3233c8a55d433073e257b4f5a5e377db";
+          sha256 = "sha256-/uOjHENh6EV0AUtBwsSw3N0OEUnU/YnmM+kbdY1GK5I=";
+        };
+      }
     ];
   };
 
