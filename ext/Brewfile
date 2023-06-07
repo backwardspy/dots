@@ -13,9 +13,8 @@ cask "bitwarden"
 cask "docker"
 # Web browser
 cask "firefox"
-# Recursive's prebuilt text-editor-friendly files, including powerline glyphs
-cask "font-recursive-code"
-cask "font-space-mono"
+# Code font with monospaced ligatures
+cask "font-hasklig"
 # Developer targeted fonts with a high number of glyphs
 cask "font-symbols-only-nerd-font"
 # Game development engine
@@ -34,11 +33,15 @@ cask "postman"
 cask "rectangle"
 # Music streaming service
 cask "spotify"
+# Real time file synchronization software
+cask "syncthing"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # Unpacks archive files
 cask "the-unarchiver"
-# Open-source code editor
+# Code editor
 cask "visual-studio-code-insiders"
+# Resources for Wacom tablets
+cask "wacom-tablet"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
