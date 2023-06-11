@@ -38,31 +38,27 @@ in {
     "$HOME/.local/bin"
   ];
 
-  home.packages =
-    [
-      pkgs.alejandra
-      pkgs.azure-cli
-      pkgs.docker-client
-      pkgs.entr
-      pkgs.fd
-      pkgs.gh
-      pkgs.jq
-      pkgs.just
-      pkgs.kubectx
-      pkgs.kubelogin
-      pkgs.mdcat
-      pkgs.nil
-      pkgs.postgresql
-      pkgs.ripgrep
-      pkgs.scc
-      pkgs.unzip
-      pkgs.wget
+  home.packages = [
+    pkgs.alejandra
+    pkgs.azure-cli
+    pkgs.docker-client
+    pkgs.entr
+    pkgs.fd
+    pkgs.gh
+    pkgs.jq
+    pkgs.just
+    pkgs.kubectx
+    pkgs.kubelogin
+    pkgs.mdcat
+    pkgs.nil
+    pkgs.postgresql
+    pkgs.ripgrep
+    pkgs.scc
+    pkgs.unzip
+    pkgs.wget
 
-      (import ./scripts/is-lightmode)
-    ]
-    ++ lib.optionals isLinux [
-      pkgs.wslu
-    ];
+    (import ./scripts/is-lightmode)
+  ];
 
   programs.home-manager.enable = true;
   targets.genericLinux.enable = isLinux;
