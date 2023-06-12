@@ -19,6 +19,9 @@
     ];
 
     extraLuaConfig = ''
+      vim.opt.number = true
+      vim.opt.relativenumber = true
+
       if vim.fn.has("wsl") ~= 0 then
         vim.g.clipboard = {
           name = "WslClipboard",
@@ -37,9 +40,9 @@
       require("catppuccin").setup({
         color_overrides = {
           mocha = {
-            base = "#000000",
-            mantle = "#080808",
-            crust = "#0B0B0B",
+            base = "#1D0D2D",
+            mantle = "#210F32",
+            crust = "#241138",
           }
         }
       })
