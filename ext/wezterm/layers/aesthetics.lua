@@ -31,13 +31,13 @@ local setup_tab_bar = function(config, wez)
     config.tab_bar_at_bottom = true
 end
 
-local americano = function()
-    local americano = require("wezterm").color.get_builtin_schemes()["Catppuccin Mocha"]
-    americano.background = "#000000"
-    americano.tab_bar.background = "#101010"
-    americano.tab_bar.inactive_tab.bg_color = "#202020"
-    americano.tab_bar.new_tab.bg_color = "#202020"
-    return americano
+local catppigeon = function()
+    local catppigeon = require("wezterm").color.get_builtin_schemes()["Catppuccin Mocha"]
+    catppigeon.background = "#1D0D2D"
+    catppigeon.tab_bar.background = "#210F32"
+    catppigeon.tab_bar.inactive_tab.bg_color = "#241138"
+    catppigeon.tab_bar.new_tab.bg_color = "#241138"
+    return catppigeon
 end
 
 M.apply = function(config, wez)
@@ -45,14 +45,14 @@ M.apply = function(config, wez)
 
     local colours = function(appearance)
         if appearance:find("Dark") then
-            return "Catppuccin Americano"
+            return "Catppigeon Mocha"
         else
             return "Catppuccin Latte"
         end
     end
 
     config.color_schemes = {
-        ["Catppuccin Americano"] = americano(),
+        ["Catppigeon Mocha"] = catppigeon(),
     }
     config.color_scheme = colours(wez.gui.get_appearance())
 
