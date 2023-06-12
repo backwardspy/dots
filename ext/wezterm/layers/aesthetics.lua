@@ -57,7 +57,7 @@ M.apply = function(config, wez)
     config.color_scheme = colours(wez.gui.get_appearance())
 
     config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
-    config.font = wez.font("Hasklig")
+    config.font = wez.font("JetBrains Mono")
     config.font_size = string.match(wez.target_triple, "darwin") and 17 or 11
 
     config.window_padding = { top = 0, bottom = 0, left = 0, right = 0 }

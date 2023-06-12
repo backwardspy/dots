@@ -13,8 +13,8 @@ cask "bitwarden"
 cask "docker"
 # Web browser
 cask "firefox"
-# Code font with monospaced ligatures
-cask "font-hasklig"
+# Typeface made for developers
+cask "font-jetbrains-mono"
 # Developer targeted fonts with a high number of glyphs
 cask "font-symbols-only-nerd-font"
 # Game development engine
