@@ -1,6 +1,6 @@
 {lib, ...}:
-with import ../lib/numbers.nix {inherit lib;}; let
-  catppuccin = import ../lib/catppuccin.nix;
+with import ../../lib/numbers.nix {inherit lib;}; let
+  catppuccin = import ../../lib/catppuccin.nix;
 in {
   programs.starship = {
     enable = true;

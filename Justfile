@@ -5,7 +5,7 @@ switch:
     home-manager switch
 
 update:
-    nix-channel --update
+    nix flake update
     @just switch
     fish -c download_nixpkgs_cache_index
 

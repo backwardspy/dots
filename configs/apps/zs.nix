@@ -5,10 +5,10 @@
 }: let
   version = "0.4.0";
 
-  src = builtins.fetchGit {
+  src = pkgs.fetchgit {
     url = "https://git.mills.io/prologic/zs.git";
-    name = "zs-${version}";
-    ref = "refs/tags/${version}";
+    rev = "refs/tags/${version}";
+    sha256 = "sha256-rCtPtreF0tMWngSPy6dnRA1iwPnZ4iu/Rk9oQdKN1M8=";
   };
 
   package = pkgs.buildGoModule {

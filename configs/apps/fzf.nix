@@ -1,5 +1,5 @@
 {lib, ...}: let
-  colours = (import ../lib/colours.nix {inherit lib;}).darkColours;
+  colours = (import ../../lib/colours.nix {inherit lib;}).darkColours;
 in {
   programs.fzf = {
     enable = true;

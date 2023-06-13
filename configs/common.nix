@@ -1,0 +1,18 @@
+[
+  apps/bat.nix
+  apps/direnv.nix
+  apps/fish.nix
+  apps/fzf.nix
+  apps/git.nix
+  apps/go.nix
+  apps/lsd.nix
+  apps/neovim.nix
+  apps/nix-index.nix
+  apps/node.nix
+  apps/python.nix
+  apps/rust.nix
+  apps/starship.nix
+  apps/viddy.nix
+  apps/wezterm.nix
+  apps/zs.nix
+]

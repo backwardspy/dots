@@ -1,38 +1,17 @@
 {
-  lib,
   pkgs,
+  machine,
   ...
 }: let
-  isMacos = (builtins.match ".*darwin" builtins.currentSystem) != null;
-  isLinux = (builtins.match ".*linux" builtins.currentSystem) != null;
-  imports =
-    [
-      ./machine.nix
-      configs/bat.nix
-      configs/direnv.nix
-      configs/fish.nix
-      configs/fzf.nix
-      configs/git.nix
-      configs/go.nix
-      configs/lsd.nix
-      configs/neovim.nix
-      configs/nix-index.nix
-      configs/node.nix
-      configs/python.nix
-      configs/rust.nix
-      configs/starship.nix
-      configs/viddy.nix
-      configs/wezterm.nix
-      configs/zs.nix
-    ]
-    ++ lib.optionals isMacos [
-      configs/brew.nix
-    ]
-    ++ lib.optionals isLinux [
-      configs/gdb.nix
-    ];
+  homeRoot =
+    if pkgs.stdenv.isDarwin
+    then "/Users"
+    else "/home";
 in {
-  home.stateVersion = "22.11";
+  home.username = machine.username;
+  home.homeDirectory = "${homeRoot}/${machine.username}";
+
+  home.stateVersion = "23.11";
 
   home.sessionPath = [
     "$HOME/.local/bin"
@@ -45,25 +24,25 @@ in {
     pkgs.entr
     pkgs.fd
     pkgs.gh
+    pkgs.is-lightmode
     pkgs.jq
     pkgs.just
     pkgs.kubectx
     pkgs.kubelogin
     pkgs.mdcat
     pkgs.nil
+    pkgs.openssh
     pkgs.postgresql
     pkgs.ripgrep
     pkgs.scc
     pkgs.unzip
     pkgs.wget
-
-    (import ./scripts/is-lightmode)
   ];
 
   programs.home-manager.enable = true;
-  targets.genericLinux.enable = isLinux;
+  targets.genericLinux.enable = pkgs.stdenv.isLinux;
 
   xdg.configFile."nix/nix.conf".text = "experimental-features = nix-command flakes";
 
-  inherit imports;
+  imports = import machine.configs;
 }

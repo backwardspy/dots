@@ -94,7 +94,7 @@
     '';
     plugins = [
       {
-        "name" = "nix-env";
+        name = "nix-env";
         src = pkgs.fetchFromGitHub {
           owner = "lilyball";
           repo = "nix-env.fish";
@@ -103,7 +103,7 @@
         };
       }
       {
-        "name" = "envy";
+        name = "envy";
         src = pkgs.fetchFromGitHub {
           owner = "backwardspy";
           repo = "envy.fish";

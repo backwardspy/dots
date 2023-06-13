@@ -1,5 +1,5 @@
 {lib, ...}: let
-  colours = import ../lib/colours.nix {inherit lib;};
+  colours = import ../../lib/colours.nix {inherit lib;};
   rgb = {
     r,
     g,
