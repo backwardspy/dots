@@ -1,1 +1,1 @@
-import ./common.nix ++ [apps/gdb.nix]
+import ./common.nix ++ [apps/brew.nix]
