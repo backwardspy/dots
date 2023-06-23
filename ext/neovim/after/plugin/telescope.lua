@@ -1,9 +1,10 @@
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
-vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>")
+vim.keymap.set("n", "<leader><leader>", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>")
-vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>")
-vim.keymap.set("n", "<leader>fk", ":Telescope keymaps<CR>")
 vim.keymap.set("n", "<leader>fr", ":Telescope resume<CR>")
+vim.keymap.set("n", "<leader>sg", ":Telescope live_grep<CR>")
+vim.keymap.set("n", "<leader>sk", ":Telescope keymaps<CR>")
+vim.keymap.set("n", "<leader>sh", ":Telescope help_tags<CR>")
 
 vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>")
 vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>")

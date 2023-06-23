@@ -1,12 +1,12 @@
 require("mini.ai").setup()
-require("mini.basics").setup()
+require("mini.basics").setup({
+    mappings = { windows = true },
+})
 require("mini.bracketed").setup()
 require("mini.comment").setup()
 require("mini.completion").setup()
 require("mini.cursorword").setup()
-require("mini.indentscope").setup({
-    symbol = "│",
-})
+require("mini.indentscope").setup({ symbol = "│" })
 require("mini.jump").setup({ delay = { idle_stop = 3000 } })
 require("mini.pairs").setup()
 require("mini.sessions").setup()

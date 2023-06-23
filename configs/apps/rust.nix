@@ -1,5 +1,11 @@
 {pkgs, ...}: {
-  home.packages = [pkgs.rustup pkgs.sccache pkgs.cargo-nextest];
+  home.packages = [
+    pkgs.cargo
+    pkgs.cargo-nextest
+    pkgs.gcc
+    # pkgs.rustc
+    pkgs.sccache
+  ];
   home.sessionVariables = {
     RUSTC_WRAPPER = "sccache";
   };

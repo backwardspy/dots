@@ -12,19 +12,25 @@
     vimdiffAlias = true;
 
     extraPackages = with pkgs; [
-      tree-sitter
-      nodejs
-      git
+      # generic
       gcc
+      git
+
+      # language servers
+      lua-language-server
+      nodePackages.pyright
+      python311Packages.ruff-lsp
+      rust-analyzer
     ];
 
     plugins = with pkgs.vimPlugins; [
-      nvim-treesitter.withAllGrammars
       catppuccin-nvim
       mini-nvim
+      nvim-lspconfig
+      nvim-treesitter.withAllGrammars
       nvim-web-devicons
-      telescope-nvim
       telescope-fzf-native-nvim
+      telescope-nvim
     ];
   };
 
