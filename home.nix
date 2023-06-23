@@ -42,7 +42,12 @@ in {
   programs.home-manager.enable = true;
   targets.genericLinux.enable = pkgs.stdenv.isLinux;
 
-  xdg.configFile."nix/nix.conf".text = "experimental-features = nix-command flakes";
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
 
   imports = import machine.configs;
 }
