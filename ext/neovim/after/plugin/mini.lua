@@ -1,0 +1,17 @@
+require("mini.ai").setup()
+require("mini.basics").setup()
+require("mini.bracketed").setup()
+require("mini.comment").setup()
+require("mini.completion").setup()
+require("mini.cursorword").setup()
+require("mini.indentscope").setup({
+    symbol = "│",
+})
+require("mini.jump").setup({ delay = { idle_stop = 3000 } })
+require("mini.pairs").setup()
+require("mini.sessions").setup()
+require("mini.starter").setup()
+require("mini.statusline").setup()
+require("mini.surround").setup()
+require("mini.tabline").setup()
+require("mini.trailspace").setup()

@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  flakePath,
+  ...
+}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -16,37 +21,15 @@
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
       catppuccin-nvim
+      mini-nvim
+      nvim-web-devicons
+      telescope-nvim
+      telescope-fzf-native-nvim
     ];
+  };
 
-    extraLuaConfig = ''
-      vim.opt.number = true
-      vim.opt.relativenumber = true
-
-      if vim.fn.has("wsl") ~= 0 then
-        vim.g.clipboard = {
-          name = "WslClipboard",
-          copy = {
-            ["+"] = "clip.exe",
-            ["*"] = "clip.exe",
-          },
-          paste = {
-            ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-            ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-          },
-          cache_enabled = 0,
-        }
-      end
-
-      require("catppuccin").setup({
-        color_overrides = {
-          mocha = {
-            base = "#1D0D2D",
-            mantle = "#210F32",
-            crust = "#241138",
-          }
-        }
-      })
-      vim.cmd.colorscheme("catppuccin")
-    '';
+  xdg.configFile."nvim" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/ext/neovim";
+    recursive = true;
   };
 }

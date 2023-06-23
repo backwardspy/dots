@@ -6,7 +6,7 @@ M.apply = function(config, wez)
     end
 
     config.default_prog = { "powershell.exe" }
-    config.default_domain = "WSL:Ubuntu"
+    config.default_domain = "WSL:Debian"
 end
 
 return M

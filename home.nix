@@ -1,15 +1,12 @@
 {
   pkgs,
-  machine,
+  username,
+  homeDirectory,
+  configs,
   ...
-}: let
-  homeRoot =
-    if pkgs.stdenv.isDarwin
-    then "/Users"
-    else "/home";
-in {
-  home.username = machine.username;
-  home.homeDirectory = "${homeRoot}/${machine.username}";
+}: {
+  home.username = username;
+  home.homeDirectory = homeDirectory;
 
   home.stateVersion = "23.11";
 
@@ -49,5 +46,5 @@ in {
     '';
   };
 
-  imports = import machine.configs;
+  imports = import configs;
 }

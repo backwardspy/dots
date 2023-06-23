@@ -30,8 +30,15 @@
     homeConfigurations.${machine.username} = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [./home.nix];
-      extraSpecialArgs = {
-        inherit machine;
+      extraSpecialArgs = rec {
+        username = machine.username;
+        homeDirectory = "${
+          if pkgs.stdenv.isDarwin
+          then "/Users"
+          else "/home"
+        }/${username}";
+        flakePath = "${homeDirectory}/.config/home-manager/";
+        configs = machine.configs;
       };
     };
   };
