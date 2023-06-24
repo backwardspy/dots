@@ -36,6 +36,7 @@
       telescope-fzf-native-nvim
       telescope-nvim
       telescope-ui-select-nvim
+      legendary-nvim
     ];
   };
 

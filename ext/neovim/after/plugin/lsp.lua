@@ -2,7 +2,7 @@ local lsp = require("lspconfig")
 
 local setup = function(server, opts)
     opts = opts or {}
-    opts.on_attach = function(client, bufnr) end
+    -- opts.on_attach = function(client, bufnr) end
     server.setup(opts)
 end
 
@@ -18,11 +18,6 @@ setup(lsp.lua_ls, {
         }
     }
 })
-
-vim.keymap.set("n", "K", vim.lsp.buf.hover)
-vim.keymap.set("n", "gh", vim.diagnostic.open_float)
-vim.keymap.set("n", "<leader>la", function() vim.lsp.buf.code_action() end)
-vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format() end)
 
 -- lsp symbol icons
 require("lspkind").init()
