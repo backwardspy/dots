@@ -1,9 +1,15 @@
 local lsp = require("lspconfig")
 
-lsp.pyright.setup({})
-lsp.ruff_lsp.setup({})
-lsp.rust_analyzer.setup({})
-lsp.lua_ls.setup({
+local setup = function(server, opts)
+    opts = opts or {}
+    opts.on_attach = function(client, bufnr) end
+    server.setup(opts)
+end
+
+setup(lsp.pyright)
+setup(lsp.ruff_lsp)
+setup(lsp.rust_analyzer)
+setup(lsp.lua_ls, {
     settings = {
         Lua = {
             runtime = { version = "LuaJIT" },
@@ -18,4 +24,9 @@ vim.keymap.set("n", "gh", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>la", function() vim.lsp.buf.code_action() end)
 vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format() end)
 
+-- lsp symbol icons
 require("lspkind").init()
+
+-- multiline diagnostics
+require("lsp_lines").setup()
+vim.diagnostic.config({virtual_text = false})

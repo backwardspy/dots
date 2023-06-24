@@ -25,9 +25,12 @@
 
     plugins = with pkgs.vimPlugins; [
       catppuccin-nvim
+      copilot-lua
+      lsp_lines-nvim
       lspkind-nvim
       mini-nvim
       nvim-lspconfig
+      nvim-treesitter-textobjects
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
       telescope-fzf-native-nvim
