@@ -1,9 +1,21 @@
 {
   pkgs,
+  lib,
   config,
   flakePath,
   ...
-}: {
+}: let
+  buildVimPluginFromGithub = {
+    owner,
+    repo,
+    rev,
+    sha256,
+  }: (pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = lib.strings.sanitizeDerivationName "${owner}-${repo}";
+    version = rev;
+    src = pkgs.fetchFromGitHub {inherit owner repo rev sha256;};
+  });
+in {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -16,16 +28,22 @@
       gcc
       git
 
+      # formatters
+      alejandra
+      stylua
+
       # language servers
       lua-language-server
       nodePackages.pyright
       python311Packages.ruff-lsp
       rust-analyzer
+      nil
     ];
 
     plugins = with pkgs.vimPlugins; [
       catppuccin-nvim
       copilot-lua
+      legendary-nvim
       lsp_lines-nvim
       lspkind-nvim
       mini-nvim
@@ -36,7 +54,12 @@
       telescope-fzf-native-nvim
       telescope-nvim
       telescope-ui-select-nvim
-      legendary-nvim
+      (buildVimPluginFromGithub {
+        owner = "m4xshen";
+        repo = "hardtime.nvim";
+        rev = "HEAD";
+        sha256 = "sha256-8jvHNltq2WS9o0/N3+kyxUAENkj1LT506i3fNLKODAk=";
+      })
     ];
   };
 
