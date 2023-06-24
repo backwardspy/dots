@@ -25,12 +25,14 @@
 
     plugins = with pkgs.vimPlugins; [
       catppuccin-nvim
+      lspkind-nvim
       mini-nvim
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
       telescope-fzf-native-nvim
       telescope-nvim
+      telescope-ui-select-nvim
     ];
   };
 

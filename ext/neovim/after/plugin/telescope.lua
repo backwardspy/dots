@@ -12,4 +12,13 @@ vim.keymap.set("n", "<leader>ls", ":Telescope lsp_document_symbols<CR>")
 vim.keymap.set("n", "<leader>lS", ":Telescope lsp_workspace_symbols<CR>")
 vim.keymap.set("n", "<leader>ld", ":Telescope diagnostics<CR>")
 
-require("telescope").load_extension("fzf")
+require("telescope").setup({
+    extensions = {
+        ["ui-select"] = {
+            require("telescope.themes").get_dropdown()
+        }
+    }
+})
+
+require("telescope").load_extension("fzf")       -- native sorter
+require("telescope").load_extension("ui-select") -- use telescope for code actions etc
