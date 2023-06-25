@@ -41,7 +41,6 @@ in {
     ];
 
     plugins = with pkgs.vimPlugins; [
-      catppuccin-nvim
       copilot-lua
       legendary-nvim
       lsp_lines-nvim

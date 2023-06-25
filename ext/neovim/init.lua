@@ -1,6 +1,6 @@
-vim.g.mapleader = " "
-vim.o.shiftwidth = 4
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.expandtab = true
-vim.o.relativenumber = true
+require("mini.basics").setup({ mappings = { windows = true } })
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+vim.opt.relativenumber = true

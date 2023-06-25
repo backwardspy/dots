@@ -49,7 +49,6 @@ require("mini.basics").setup({
 require("mini.bracketed").setup()
 require("mini.comment").setup()
 require("mini.completion").setup()
-require("mini.cursorword").setup()
 require("mini.indentscope").setup({ symbol = "│" })
 require("mini.jump").setup({ delay = { idle_stop = 3000 } })
 require("mini.pairs").setup()
