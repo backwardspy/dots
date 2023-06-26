@@ -33,10 +33,10 @@ end
 
 local catppigeon = function()
 	local catppigeon = require("wezterm").color.get_builtin_schemes()["Catppuccin Mocha"]
-	catppigeon.background = "#1D0D2D"
-	catppigeon.tab_bar.background = "#210F32"
-	catppigeon.tab_bar.inactive_tab.bg_color = "#241138"
-	catppigeon.tab_bar.new_tab.bg_color = "#241138"
+	catppigeon.background = "#200F2F"
+	catppigeon.tab_bar.background = "#0B0510"
+	catppigeon.tab_bar.inactive_tab.bg_color = "#150A1F"
+	catppigeon.tab_bar.new_tab.bg_color = "#150A1F"
 	return catppigeon
 end
 
@@ -60,7 +60,7 @@ M.apply = function(config, wez)
 	config.font = wez.font("JetBrains Mono")
 	config.font_size = string.match(wez.target_triple, "darwin") and 17 or 11
 
-	config.window_padding = { top = 0, bottom = 0, left = 0, right = 0 }
+	config.window_padding = { top = 32, bottom = 32, left = 32, right = 32 }
 	config.use_resize_increments = true
 end
 
