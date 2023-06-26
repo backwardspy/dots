@@ -35,7 +35,7 @@ in {
       # language servers
       lua-language-server
       nodePackages.pyright
-      python311Packages.ruff-lsp
+      # python311Packages.ruff-lsp  # handled in python.nix to maintain a single nixpkgs evaluation
       rust-analyzer
       nil
     ];
