@@ -15,6 +15,7 @@ local passive = "#9AF2E9"
 local active = "#EEB683"
 local error = "#E57D8B"
 
+-- highlights
 local hl = {
     -- ui
     Normal = { bg = base, fg = text0 },
@@ -27,10 +28,10 @@ local hl = {
     CursorColumn = { bg = up1 },
     CursorLine = { bg = up1 },
     Visual = { bg = up2 },
-    StatusLine = { bg = down1 },
-    StatusLineNC = { bg = down2 },
-    WinBar = { bg = down1 },
-    WinBarNC = { bg = down2 },
+    StatusLine = { link = "Normal" },
+    StatusLineNC = { bg = base, fg = text4 },
+    WinBar = { link = "Normal" },
+    WinBarNC = { link = "Normal" },
     Pmenu = { bg = down1 },
     PmenuSel = { bg = up1 },
     PmenuKind = { bg = down1 },
@@ -71,3 +72,16 @@ local hl = {
 for group, args in pairs(hl) do
     vim.api.nvim_set_hl(0, group, args)
 end
+
+-- statusline
+local set_statusline = function()
+    vim.opt.statusline = "%#StatusLineNC#%f%#StatusLine# %= %n %= %l,%c   %#StatusLineNC#%{mode()}   %y"
+end
+set_statusline()
+vim.api.nvim_create_autocmd(
+    { "BufEnter", "WinEnter" },
+    {
+        group = vim.api.nvim_create_augroup("pigeon_statusline", {}),
+        callback = set_statusline
+    }
+)
