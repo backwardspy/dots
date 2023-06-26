@@ -45,6 +45,7 @@ in {
       legendary-nvim
       lsp_lines-nvim
       lspkind-nvim
+      lualine-nvim
       mini-nvim
       nvim-lspconfig
       nvim-treesitter-textobjects

@@ -44,6 +44,9 @@ local hl = {
     DiagnosticInfo = { fg = passive },
     DiagnosticHint = { fg = text0 },
     DiagnosticOk = { link = "DiagnosticHint" },
+    DiffAdd = { fg = passive },
+    DiffChange = { fg = active },
+    DiffDelete = { fg = error },
 
     -- names
     Identifier = { fg = text0 },
@@ -74,14 +77,40 @@ for group, args in pairs(hl) do
 end
 
 -- statusline
-local set_statusline = function()
-    vim.opt.statusline = "%#StatusLineNC#%f%#StatusLine# %= %n %= %l,%c   %#StatusLineNC#%{mode()}   %y"
-end
-set_statusline()
-vim.api.nvim_create_autocmd(
-    { "BufEnter", "WinEnter" },
-    {
-        group = vim.api.nvim_create_augroup("pigeon_statusline", {}),
-        callback = set_statusline
+local lualine_pigeon_theme = function()
+    local tinted = function(c)
+        return {
+            a = { bg = base, fg = c },
+            b = { bg = base, fg = c },
+            c = { bg = base, fg = c },
+        }
+    end
+    return {
+        normal = tinted(text4),
+        insert = tinted(active),
+        visual = tinted(passive),
+        replace = tinted(error),
+        command = tinted(text0),
+        inactive = tinted(text4),
     }
-)
+end
+
+
+require("lualine").setup({
+    options = {
+        theme = lualine_pigeon_theme(),
+        icons_enabled = false,
+        fmt = string.lower,
+        section_separators = { "   ", "   " },
+        component_separators = { " ", " " },
+        globalstatus = true,
+    },
+    sections = {
+        lualine_a = { { "filename", symbols = { modified = "⬤" } } },
+        lualine_b = { "branch", { "diff", colored = true } },
+        lualine_c = { "searchcount", { "diagostics", sources = { "nvim_lsp" } } },
+        lualine_x = {},
+        lualine_y = { "filetype", "location" },
+        lualine_z = { "mode" },
+    },
+})

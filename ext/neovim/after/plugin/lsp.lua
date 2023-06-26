@@ -6,9 +6,14 @@ local setup = function(server, opts)
 	server.setup(opts)
 end
 
+-- python
 setup(lsp.pyright)
 setup(lsp.ruff_lsp)
+
+-- rust
 setup(lsp.rust_analyzer)
+
+-- lua
 setup(lsp.lua_ls, {
 	settings = {
 		Lua = {
@@ -18,6 +23,8 @@ setup(lsp.lua_ls, {
 		},
 	},
 })
+
+-- nix
 setup(lsp.nil_ls, { settings = { ["nil"] = { formatting = { command = { "alejandra" } } } } })
 
 -- lsp symbol icons
