@@ -54,6 +54,7 @@ in {
       telescope-fzf-native-nvim
       telescope-nvim
       telescope-ui-select-nvim
+      vim-fugitive
       (buildVimPluginFromGithub {
         owner = "m4xshen";
         repo = "hardtime.nvim";
