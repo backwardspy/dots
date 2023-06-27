@@ -6,7 +6,6 @@
       ipython
       requests
       rich
-      ruff-lsp
     ];
 in {
   home.packages = [
