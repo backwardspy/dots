@@ -48,6 +48,7 @@ in {
       lualine-nvim
       mini-nvim
       nvim-lspconfig
+      nvim-treesitter-context
       nvim-treesitter-textobjects
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
@@ -59,7 +60,7 @@ in {
         owner = "m4xshen";
         repo = "hardtime.nvim";
         rev = "HEAD";
-        sha256 = "sha256-8jvHNltq2WS9o0/N3+kyxUAENkj1LT506i3fNLKODAk=";
+        sha256 = "sha256-AVHXVXUGTpxieqeURnTv8mN+SQAhjyro9WwwnhF5dI4=";
       })
     ];
   };
