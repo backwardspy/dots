@@ -1,5 +1,6 @@
 [
   apps/bat.nix
+  apps/bitwarden.nix
   apps/direnv.nix
   apps/fish.nix
   apps/fzf.nix

@@ -1,4 +1,4 @@
-{...}: {
+{email, username, ...}: {
   programs.git = {
     enable = true;
     difftastic = {
@@ -6,8 +6,8 @@
       background = "dark";
     };
     lfs.enable = true;
-    userEmail = "backwardspy@pigeon.life";
-    userName = "backwardspy";
+    userEmail = email;
+    userName = username;
     extraConfig = {
       user.signingKey = "~/.ssh/id_ed25519";
       commit.gpgSign = true;

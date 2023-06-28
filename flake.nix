@@ -32,6 +32,7 @@
       modules = [./home.nix];
       extraSpecialArgs = rec {
         username = machine.username;
+        email = machine.email;
         homeDirectory = "${
           if pkgs.stdenv.isDarwin
           then "/Users"
