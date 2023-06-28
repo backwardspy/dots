@@ -12,6 +12,7 @@
   apps/node.nix
   apps/python.nix
   apps/rust.nix
+  apps/ssh.nix
   apps/starship.nix
   apps/viddy.nix
   apps/wezterm.nix
