@@ -42,7 +42,6 @@ in {
 
     plugins = with pkgs.vimPlugins; [
       copilot-lua
-      legendary-nvim
       lsp_lines-nvim
       lspkind-nvim
       lualine-nvim
@@ -57,6 +56,7 @@ in {
       telescope-ui-select-nvim
       telescope-undo-nvim
       vim-fugitive
+      which-key-nvim
       (buildVimPluginFromGithub {
         owner = "m4xshen";
         repo = "hardtime.nvim";
