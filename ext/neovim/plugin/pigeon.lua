@@ -81,8 +81,8 @@ local hl = {
   WarningMsg = { fg = active },
 
   -- telescope
-  TelescopeNormal = { bg = down1 },
-  TelescopeBorder = { link = "TelescopeNormal" },
+  TelescopeBorder = { fg = down1, bg = down1 },
+  TelescopeNormal = { fg = text0, bg = down1 },
 }
 
 for group, args in pairs(hl) do

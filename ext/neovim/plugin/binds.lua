@@ -1,5 +1,14 @@
 local wk = require("which-key")
 
+local project_files = function()
+  vim.fn.system("git rev-parse --is-inside-work-tree")
+  if vim.v.shell_error == 0 then
+    require("telescope.builtin").git_files()
+  else
+    require("telescope.builtin").find_files()
+  end
+end
+
 wk.setup()
 
 wk.register({
@@ -14,7 +23,7 @@ wk.register({
 })
 
 wk.register({
-  ["<leader>"] = { ":Telescope find_files<CR>", "Find files" },
+  ["<leader>"] = { project_files, "Find project files" },
   f = {
     name = "Find",
     b = { ":Telescope buffers<CR>", "Find buffers" },
