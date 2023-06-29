@@ -11,8 +11,10 @@
     enable = true;
     extraConfig = ''
       AddKeysToAgent yes
-      UseKeychain yes
       IdentityFile ${homeDirectory}/.ssh/id_ed25519
+
+      IgnoreUnknown UseKeychain
+      UseKeychain yes
     '';
   };
 }
