@@ -31,7 +31,6 @@ in {
 
       # formatters
       alejandra
-      stylua
 
       # language servers
       lua-language-server
