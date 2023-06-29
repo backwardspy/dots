@@ -45,8 +45,11 @@ local hl = {
     DiagnosticHint = { fg = text0 },
     DiagnosticOk = { link = "DiagnosticHint" },
     DiffAdd = { fg = passive },
+    diffAdded = { link = "DiffAdd" },
     DiffChange = { fg = active },
+    diffChanged = { link = "DiffChange" },
     DiffDelete = { fg = error },
+    diffRemoved = { link = "DiffDelete" },
 
     -- names
     Identifier = { fg = text0 },
