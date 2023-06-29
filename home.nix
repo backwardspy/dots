@@ -14,6 +14,10 @@
     "$HOME/.local/bin"
   ];
 
+  home.sessionVariables = {
+      BROWSER = "$BROWSER:wsl-open";
+  };
+
   home.packages = [
     pkgs.alejandra
     pkgs.azure-cli
@@ -35,6 +39,8 @@
     pkgs.scc
     pkgs.unzip
     pkgs.wget
+    pkgs.wsl-open
+    pkgs.xdg-utils
   ];
 
   programs.home-manager.enable = true;
