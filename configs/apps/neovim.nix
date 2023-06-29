@@ -48,6 +48,7 @@ in {
       mini-nvim
       nvim-lspconfig
       nvim-treesitter-context
+      nvim-treesitter-endwise
       nvim-treesitter-textobjects
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
