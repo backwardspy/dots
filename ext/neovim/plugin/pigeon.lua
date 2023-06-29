@@ -99,7 +99,6 @@ local lualine_pigeon_theme = function()
     }
 end
 
-
 require("lualine").setup({
     options = {
         theme = lualine_pigeon_theme(),

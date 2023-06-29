@@ -1,9 +1,9 @@
 local lsp = require("lspconfig")
 
 local setup = function(server, opts)
-	opts = opts or {}
-	-- opts.on_attach = function(client, bufnr) end
-	server.setup(opts)
+    opts = opts or {}
+    -- opts.on_attach = function(client, bufnr) end
+    server.setup(opts)
 end
 
 -- python
@@ -15,13 +15,13 @@ setup(lsp.rust_analyzer)
 
 -- lua
 setup(lsp.lua_ls, {
-	settings = {
-		Lua = {
-			runtime = { version = "LuaJIT" },
-			diagnostics = { globals = { "vim" } },
-			telemetry = { enable = false },
-		},
-	},
+    settings = {
+        Lua = {
+            runtime = { version = "LuaJIT" },
+            diagnostics = { globals = { "vim" } },
+            telemetry = { enable = false },
+        },
+    },
 })
 
 -- nix
