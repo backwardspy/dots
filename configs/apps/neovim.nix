@@ -51,6 +51,7 @@ in {
       nvim-treesitter-textobjects
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
+      rust-tools-nvim
       telescope-fzf-native-nvim
       telescope-nvim
       telescope-ui-select-nvim

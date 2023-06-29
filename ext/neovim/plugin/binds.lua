@@ -27,6 +27,7 @@ wk.register({
     a = { vim.lsp.buf.code_action, "Show code actions" },
     d = { ":Telescope diagnostics<CR>", "Show diagnostics" },
     f = { vim.lsp.buf.format, "Format buffer" },
+    l = { vim.lsp.codelens.run, "Run code lens" },
     r = { vim.lsp.buf.rename, "Rename symbol" },
     s = { ":Telescope lsp_document_symbols<CR>", "Search document symbols" },
   },

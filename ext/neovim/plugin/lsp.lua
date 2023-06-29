@@ -1,8 +1,23 @@
 local lsp = require("lspconfig")
 
+local function maybe_setup_codelens(client, bufnr)
+  if not client.server_capabilities.codeLensProvider then return end
+
+  -- as per :help vim.lsp.codelens.refresh
+  vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "CursorHold" }, {
+    group = vim.api.nvim_create_augroup("LSPCodeLens", {}),
+    callback = vim.lsp.codelens.refresh,
+    buffer = bufnr,
+  })
+end
+
+local on_attach = function(client, bufnr)
+  maybe_setup_codelens(client, bufnr)
+end
+
 local setup = function(server, opts)
   opts = opts or {}
-  -- opts.on_attach = function(client, bufnr) end
+  opts.on_attach = on_attach
   server.setup(opts)
 end
 
@@ -11,7 +26,7 @@ setup(lsp.pyright)
 setup(lsp.ruff_lsp)
 
 -- rust
-setup(lsp.rust_analyzer)
+require("rust-tools").setup({ server = { on_attach = on_attach } })
 
 -- lua
 setup(lsp.lua_ls, {
