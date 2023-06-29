@@ -56,6 +56,7 @@ in {
       telescope-fzf-native-nvim
       telescope-nvim
       telescope-ui-select-nvim
+      telescope-undo-nvim
       vim-fugitive
       (buildVimPluginFromGithub {
         owner = "m4xshen";
