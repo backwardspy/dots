@@ -13,7 +13,7 @@ in {
     in {
       add_newline = true;
       format = lib.concatStrings [
-        "[](base bg:pink)"
+        "[](pink bg:base)"
         "$directory"
         "[](pink bg:#DABFEC)"
         "$git_branch"
