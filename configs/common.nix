@@ -16,5 +16,6 @@
   apps/starship.nix
   apps/viddy.nix
   apps/wezterm.nix
+  apps/zoxide.nix
   apps/zs.nix
 ]
