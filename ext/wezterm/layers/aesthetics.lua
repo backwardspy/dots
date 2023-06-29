@@ -57,8 +57,20 @@ M.apply = function(config, wez)
 	config.color_scheme = colours(wez.gui.get_appearance())
 
 	config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
-	config.font = wez.font("JetBrains Mono")
+	config.font = wez.font("JetBrains Mono", { weight = "Light" })
 	config.font_size = string.match(wez.target_triple, "darwin") and 17 or 11
+	config.font_rules = {
+		{
+			intensity = "Bold",
+			italic = false,
+			font = wez.font("JetBrains Mono", { weight = "ExtraBold" }),
+		},
+		{
+			intensity = "Bold",
+			italic = true,
+			font = wez.font("JetBrains Mono", { weight = "ExtraBold", italic = true }),
+		},
+	}
 
 	config.window_padding = { top = 32, bottom = 32, left = 32, right = 32 }
 	config.use_resize_increments = true
