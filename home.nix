@@ -27,6 +27,7 @@
     pkgs.kubectx
     pkgs.kubelogin
     pkgs.mdcat
+    pkgs.mosh
     pkgs.nil
     pkgs.openssh
     pkgs.postgresql
