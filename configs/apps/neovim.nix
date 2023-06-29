@@ -27,6 +27,7 @@ in {
       # generic
       gcc
       git
+      rustc
 
       # formatters
       alejandra
