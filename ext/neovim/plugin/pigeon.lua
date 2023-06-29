@@ -39,6 +39,7 @@ local hl = {
     PmenuSbar = { bg = down2 },
     PmenuThumb = { bg = up1 },
     Title = { fg = passive },
+    NonText = { fg = text4 },
     DiagnosticError = { fg = error },
     DiagnosticWarn = { fg = active },
     DiagnosticInfo = { fg = passive },
