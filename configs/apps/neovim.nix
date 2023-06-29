@@ -65,6 +65,12 @@ in {
         rev = "HEAD";
         sha256 = "sha256-AVHXVXUGTpxieqeURnTv8mN+SQAhjyro9WwwnhF5dI4=";
       })
+      (buildVimPluginFromGithub {
+        owner = "linrongbin16";
+        repo = "lsp-progress.nvim";
+        rev = "HEAD";
+        sha256 = "sha256-eEcEm9vd0o1cCBKlBENP3noQbzyBVzxDZlWfAMKbV1g=";
+      })
     ];
   };
 

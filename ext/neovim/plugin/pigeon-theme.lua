@@ -121,8 +121,18 @@ require("lualine").setup({
     lualine_a = { { "filename", symbols = { modified = "⬤" } } },
     lualine_b = { "branch", { "diff", colored = true } },
     lualine_c = { "searchcount", { "diagostics", sources = { "nvim_lsp" } } },
-    lualine_x = {},
+    lualine_x = { require("lsp-progress").progress },
     lualine_y = { "filetype", "location" },
     lualine_z = { "mode" },
   },
 })
+
+-- refresh lualine on lsp progress update
+vim.api.nvim_create_autocmd(
+  "User",
+  {
+    pattern = "LspProgressStatusUpdated",
+    group = vim.api.nvim_create_augroup("LualineLSPProgress", {}),
+    callback = function() require("lualine").refresh() end,
+  }
+)

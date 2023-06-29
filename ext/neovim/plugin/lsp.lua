@@ -55,3 +55,6 @@ require("lspkind").init()
 -- multiline diagnostics
 require("lsp_lines").setup()
 vim.diagnostic.config({ virtual_text = false })
+
+-- progress listener
+require("lsp-progress").setup({ decay = 3000 })
