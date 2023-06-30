@@ -22,7 +22,7 @@ local setup = function(server, opts)
 end
 
 -- python
-setup(lsp.pyright)
+require("py_lsp").setup()
 setup(lsp.ruff_lsp)
 
 -- rust

@@ -108,6 +108,24 @@ local lualine_pigeon_theme = function()
   }
 end
 
+local lsp_venv = function()
+  local lsp = nil
+  for _, client in pairs(vim.lsp.buf_get_clients()) do
+    if client.name == "pyright" then
+      lsp = client
+      break
+    end
+  end
+  if lsp == nil then return "" end
+
+  local venv_name = lsp.config.settings.python.venv_name
+  if venv_name then
+    return "(" .. venv_name .. ")"
+  else
+    return ""
+  end
+end
+
 require("lualine").setup({
   options = {
     theme = lualine_pigeon_theme(),
@@ -121,8 +139,8 @@ require("lualine").setup({
     lualine_a = { { "filename", symbols = { modified = "⬤" } } },
     lualine_b = { "branch", { "diff", colored = true } },
     lualine_c = { "searchcount", { "diagostics", sources = { "nvim_lsp" } } },
-    lualine_x = { require("lsp-progress").progress },
-    lualine_y = { "filetype", { "swenv", color = { fg = text4 } } },
+    lualine_x = { require("lsp-progress").progress, lsp_venv },
+    lualine_y = { "filetype" },
     lualine_z = { "location", "mode" },
   },
 })

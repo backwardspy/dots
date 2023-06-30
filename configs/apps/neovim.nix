@@ -72,10 +72,10 @@ in {
         sha256 = "sha256-o51SgcX/VsZy6IN7hVoSWAlJO41/sZksx2C4FvPYhR0=";
       })
       (buildVimPluginFromGithub {
-        owner = "backwardspy" ;
-        repo = "swenv.nvim";
+        owner = "HallerPatrick";
+        repo = "py_lsp.nvim";
         rev = "HEAD";
-        sha256 = "sha256-Wq+QJn+bcZz/cYGDClkiWKlLZaRPS/1waEu+VlR/bp4=";
+        sha256 = "sha256-YOYrumIYlWcZBL1LSeBWseb/0G4n8obcll6wPwaXqpM=";
       })
     ];
   };
