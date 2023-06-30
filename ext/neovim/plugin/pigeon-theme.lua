@@ -122,8 +122,8 @@ require("lualine").setup({
     lualine_b = { "branch", { "diff", colored = true } },
     lualine_c = { "searchcount", { "diagostics", sources = { "nvim_lsp" } } },
     lualine_x = { require("lsp-progress").progress },
-    lualine_y = { "filetype", "location" },
-    lualine_z = { "mode" },
+    lualine_y = { "filetype", { "swenv", color = { fg = text4 } } },
+    lualine_z = { "location", "mode" },
   },
 })
 
