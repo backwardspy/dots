@@ -69,13 +69,13 @@ in {
         owner = "linrongbin16";
         repo = "lsp-progress.nvim";
         rev = "HEAD";
-        sha256 = "sha256-eEcEm9vd0o1cCBKlBENP3noQbzyBVzxDZlWfAMKbV1g=";
+        sha256 = "sha256-o51SgcX/VsZy6IN7hVoSWAlJO41/sZksx2C4FvPYhR0=";
       })
       (buildVimPluginFromGithub {
         owner = "backwardspy" ;
         repo = "swenv.nvim";
         rev = "HEAD";
-        sha256 = "sha256-G0sx6cx7KwpAvKQRN7p2H+SLykBkMp5oWYb6XV5/HPc=";
+        sha256 = "sha256-Wq+QJn+bcZz/cYGDClkiWKlLZaRPS/1waEu+VlR/bp4=";
       })
     ];
   };
