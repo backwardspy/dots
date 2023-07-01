@@ -25,6 +25,7 @@ local hl = {
   Normal = { bg = base, fg = text0 },
   EndOfBuffer = { link = "Normal" },
   SignColumn = { link = "Normal" },
+  ColorColumn = { bg = down1 },
   LineNr = { fg = text4 },
   CursorLineNr = { fg = text1 },
   Search = { bg = up2 },
@@ -109,18 +110,9 @@ local lualine_pigeon_theme = function()
 end
 
 local lsp_venv = function()
-  local lsp = nil
-  for _, client in pairs(vim.lsp.buf_get_clients()) do
-    if client.name == "pyright" then
-      lsp = client
-      break
-    end
-  end
-  if lsp == nil then return "" end
-
-  local venv_name = lsp.config.settings.python.venv_name
-  if venv_name then
-    return "(" .. venv_name .. ")"
+  local env = PythonEnv()
+  if env then
+    return "(" .. env.venv_name .. ")"
   else
     return ""
   end
@@ -154,3 +146,51 @@ vim.api.nvim_create_autocmd(
     callback = function() require("lualine").refresh() end,
   }
 )
+
+-- signs
+-- full credit to LazyVim for this config
+local signs = {
+  dap = {
+    Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+    Breakpoint = " ",
+    BreakpointCondition = " ",
+    BreakpointRejected = { " ", "DiagnosticError" },
+    LogPoint = ".>",
+  },
+  diagnostics = {
+    Error = " ",
+    Warn = " ",
+    Hint = " ",
+    Info = " ",
+  },
+  git = {
+    added = " ",
+    modified = " ",
+    removed = " ",
+  },
+}
+
+vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
+for name, sign in pairs(signs.dap) do
+  sign = type(sign) == "table" and sign or { sign }
+  vim.fn.sign_define(
+    "Dap" .. name,
+    {
+      text = sign[1],
+      texthl = sign[2] or "DiagnosticInfo",
+      linehl = sign[3],
+      numhl = sign[3],
+    })
+end
+
+for name, sign in pairs(signs.diagnostics) do
+  name = "DiagnosticSign" .. name
+  vim.fn.sign_define(
+    name,
+    {
+      text = sign,
+      texthl = name,
+      numhl = "",
+    }
+  )
+end

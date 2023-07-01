@@ -1,15 +1,17 @@
 {pkgs, ...}: let
-  pip-packages = ps:
+  python-packages = ps:
     with ps; [
       catppuccin
       cookiecutter
+      debugpy
       ipython
       requests
       rich
+      ruff-lsp
     ];
 in {
   home.packages = [
-    (pkgs.python311.withPackages pip-packages)
+    (pkgs.python3.withPackages python-packages)
     pkgs.poetry
   ];
 

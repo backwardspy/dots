@@ -24,6 +24,7 @@
     pkgs.docker-client
     pkgs.entr
     pkgs.fd
+    pkgs.file
     pkgs.gh
     pkgs.is-lightmode
     pkgs.jq

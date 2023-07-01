@@ -27,6 +27,7 @@ in {
       # generic
       gcc
       git
+      lldb
       rustc
 
       # formatters
@@ -34,18 +35,23 @@ in {
 
       # language servers
       lua-language-server
-      nodePackages.pyright
-      python3Packages.ruff-lsp
-      rust-analyzer
       nil
+      nodePackages.pyright
+      rust-analyzer
     ];
 
     plugins = with pkgs.vimPlugins; [
+      catppuccin-nvim
       copilot-lua
+      gitsigns-nvim
       lsp_lines-nvim
       lspkind-nvim
       lualine-nvim
       mini-nvim
+      nvim-dap
+      nvim-dap-python
+      nvim-dap-ui
+      nvim-dap-virtual-text
       nvim-lspconfig
       nvim-treesitter-context
       nvim-treesitter-endwise
@@ -84,4 +90,6 @@ in {
     source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/ext/neovim";
     recursive = true;
   };
+
+  xdg.dataFile."nvim/codelldb".source = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb";
 }

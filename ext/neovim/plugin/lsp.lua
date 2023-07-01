@@ -26,7 +26,16 @@ require("py_lsp").setup()
 setup(lsp.ruff_lsp)
 
 -- rust
-require("rust-tools").setup({ server = { on_attach = on_attach } })
+local codelldb_path = vim.fn.stdpath("data") .. "/codelldb"
+require("rust-tools").setup({
+  server = { on_attach = on_attach },
+  dap = {
+    adapter = require("rust-tools.dap").get_codelldb_adapter(
+      codelldb_path .. "/adapter/codelldb",
+      codelldb_path .. "/lldb/lib/liblldb.so"
+    )
+  }
+})
 
 -- lua
 setup(lsp.lua_ls, {
@@ -50,7 +59,46 @@ setup(lsp.lua_ls, {
 setup(lsp.nil_ls, { settings = { ["nil"] = { formatting = { command = { "alejandra" } } } } })
 
 -- lsp symbol icons
-require("lspkind").init()
+require("lspkind").init({
+  symbol_map = {
+    Class = " ",
+    Color = " ",
+    Constant = " ",
+    Constructor = " ",
+    Enum = " ",
+    EnumMember = " ",
+    Event = " ",
+    Field = " ",
+    File = " ",
+    Folder = " ",
+    Function = " ",
+    Interface = " ",
+    Keyword = " ",
+    Method = " ",
+    Module = " ",
+    Operator = " ",
+    Property = " ",
+    Reference = " ",
+    Snippet = " ",
+    Struct = " ",
+    Text = " ",
+    TypeParameter = " ",
+    Unit = " ",
+    Value = " ",
+    Variable = " ",
+
+    Array = " ",
+    Boolean = " ",
+    Copilot = " ",
+    Key = " ",
+    Namespace = " ",
+    Null = " ",
+    Number = " ",
+    Object = " ",
+    Package = " ",
+    String = " ",
+  }
+})
 
 -- multiline diagnostics
 require("lsp_lines").setup()

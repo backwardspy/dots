@@ -1,6 +1,7 @@
 require("mini.ai").setup()
 require("mini.basics").setup({
   mappings = { windows = true },
+  autocommands = { basic = false }, -- breaks dap (nvim-dap/issues/439 )
 })
 require("mini.bracketed").setup()
 require("mini.comment").setup()

@@ -1,28 +1,41 @@
-local auto_rnu = vim.api.nvim_create_augroup("AutoRelativeNumber", {})
-vim.api.nvim_create_autocmd(
+local group = vim.api.nvim_create_augroup("Pigeon", {})
+local autocmd = function(event, args)
+  args.group = group
+  vim.api.nvim_create_autocmd(event, args)
+end
+
+autocmd(
   "InsertEnter",
   {
-    group = auto_rnu,
     command = ":set norelativenumber",
     desc = "Disable relative numbers",
   }
 )
-vim.api.nvim_create_autocmd(
+
+autocmd(
   "InsertLeave",
   {
-    group = auto_rnu,
     command = ":set relativenumber",
     desc = "Enable relative numbers",
   }
 )
 
-vim.api.nvim_create_autocmd(
+autocmd(
   "InsertEnter",
   {
-    group = vim.api.nvim_create_augroup("CopilotLazy", {}),
     callback = function()
       require("copilot").setup({ suggestion = { auto_trigger = true } })
     end,
     desc = "Lazy load Copilot",
+  }
+)
+
+autocmd(
+  "TextYankPost",
+  {
+    callback = function()
+      vim.highlight.on_yank()
+    end,
+    desc = "Highlight on yank",
   }
 )

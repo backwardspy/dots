@@ -51,4 +51,15 @@ wk.register({
     k = { ":Telescope keymaps<CR>", "Search keymaps" },
   },
   u = { ":Telescope undo<CR>", "Show undo history" },
+  x = {
+    name = "Debug",
+    x = { require('dap').continue, "Continue" },
+    b = { require('dap').toggle_breakpoint, "Toggle breakpoint" },
+    s = {
+      name = "Step",
+      i = { require('dap').step_into, "Step into" },
+      o = { require('dap').step_over, "Step over" },
+    },
+    r = { require('dap').repl.open, "Open REPL" },
+  }
 }, { prefix = "<leader>" })
