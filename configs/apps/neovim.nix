@@ -36,7 +36,9 @@ in {
       # language servers
       lua-language-server
       nil
+      nodePackages.eslint
       nodePackages.pyright
+      nodePackages.typescript-language-server
       rust-analyzer
     ];
 
@@ -66,12 +68,6 @@ in {
       vim-fugitive
       which-key-nvim
       (buildVimPluginFromGithub {
-        owner = "m4xshen";
-        repo = "hardtime.nvim";
-        rev = "HEAD";
-        sha256 = "sha256-AVHXVXUGTpxieqeURnTv8mN+SQAhjyro9WwwnhF5dI4=";
-      })
-      (buildVimPluginFromGithub {
         owner = "linrongbin16";
         repo = "lsp-progress.nvim";
         rev = "HEAD";
@@ -82,6 +78,12 @@ in {
         repo = "py_lsp.nvim";
         rev = "HEAD";
         sha256 = "sha256-YOYrumIYlWcZBL1LSeBWseb/0G4n8obcll6wPwaXqpM=";
+      })
+      (buildVimPluginFromGithub {
+        owner = "folke";
+        repo = "flash.nvim";
+        rev = "HEAD";
+        sha256 = "sha256-kDxU5G6Z9JBZjn3CaYQ8tZ9UTgfQVP5veDFOTr3O1es=";
       })
     ];
   };

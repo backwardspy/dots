@@ -7,11 +7,20 @@ require("mini.bracketed").setup()
 require("mini.comment").setup()
 require("mini.completion").setup()
 require("mini.indentscope").setup({ symbol = "│" })
-require("mini.jump").setup({ delay = { idle_stop = 3000 } })
 require("mini.pairs").setup()
 require("mini.sessions").setup()
 require("mini.starter").setup()
-require("mini.surround").setup()
+require("mini.surround").setup({
+  mappings = {
+    add = "ys",
+    delete = "ds",
+    find = "",
+    find_left = "",
+    highlight = "",
+    replace = "cs",
+    update_n_lines = "",
+  }
+})
 require("mini.trailspace").setup()
 
 -- i like C-y to accept completions. CR should *always* just insert a newline.

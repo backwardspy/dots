@@ -1,14 +1,5 @@
 local wk = require("which-key")
 
-local project_files = function()
-  vim.fn.system("git rev-parse --is-inside-work-tree")
-  if vim.v.shell_error == 0 then
-    require("telescope.builtin").git_files()
-  else
-    require("telescope.builtin").find_files()
-  end
-end
-
 wk.setup()
 
 wk.register({
@@ -23,7 +14,24 @@ wk.register({
 })
 
 wk.register({
-  ["<leader>"] = { project_files, "Find project files" },
+  s = { require("flash").jump, "Flash jump" },
+  S = { require("flash").treesitter, "Flash treesitter" },
+}, { mode = { "n", "o", "x" } })
+
+wk.register({
+  r = { require("flash").remote, "Flash remote" },
+}, { mode = "o" })
+
+wk.register({
+  R = { require("flash").treesitter_search, "Flash treesitter search" },
+}, { mode = { "o", "x" } })
+
+wk.register({
+  ["<C-s>"] = { require("flash").toggle, "Toggle flash search" },
+}, { mode = "c" })
+
+wk.register({
+  ["<leader>"] = { ":Telescope find_files<CR>", "Find files" },
   f = {
     name = "Find",
     b = { ":Telescope buffers<CR>", "Find buffers" },

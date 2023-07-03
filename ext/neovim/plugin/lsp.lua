@@ -58,6 +58,10 @@ setup(lsp.lua_ls, {
 -- nix
 setup(lsp.nil_ls, { settings = { ["nil"] = { formatting = { command = { "alejandra" } } } } })
 
+-- js/ts
+setup(lsp.tsserver)
+setup(lsp.eslint)
+
 -- lsp symbol icons
 require("lspkind").init({
   symbol_map = {
