@@ -83,7 +83,7 @@ in {
         owner = "folke";
         repo = "flash.nvim";
         rev = "HEAD";
-        sha256 = "sha256-kDxU5G6Z9JBZjn3CaYQ8tZ9UTgfQVP5veDFOTr3O1es=";
+        sha256 = "sha256-HxLLUi5avG4YTFE5Kudp/7hrut/D2QNBa1tQKJ80Z+4=";
       })
     ];
   };
@@ -92,6 +92,4 @@ in {
     source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/ext/neovim";
     recursive = true;
   };
-
-  xdg.dataFile."nvim/codelldb".source = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb";
 }

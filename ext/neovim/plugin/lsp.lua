@@ -26,16 +26,7 @@ require("py_lsp").setup()
 setup(lsp.ruff_lsp)
 
 -- rust
-local codelldb_path = vim.fn.stdpath("data") .. "/codelldb"
-require("rust-tools").setup({
-  server = { on_attach = on_attach },
-  dap = {
-    adapter = require("rust-tools.dap").get_codelldb_adapter(
-      codelldb_path .. "/adapter/codelldb",
-      codelldb_path .. "/lldb/lib/liblldb.so"
-    )
-  }
-})
+require("rust-tools").setup()
 
 -- lua
 setup(lsp.lua_ls, {
