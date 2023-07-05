@@ -67,6 +67,8 @@ in {
       telescope-undo-nvim
       vim-fugitive
       which-key-nvim
+      lush-nvim
+      zenbones-nvim
       (buildVimPluginFromGithub {
         owner = "linrongbin16";
         repo = "lsp-progress.nvim";
