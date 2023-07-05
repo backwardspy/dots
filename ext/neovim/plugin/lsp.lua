@@ -22,7 +22,11 @@ local setup = function(server, opts)
 end
 
 -- python
-require("py_lsp").setup()
+-- pyright emits a ton of "hint" diagnostics which are very noisy.
+-- this disables those.
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
+require("py_lsp").setup({ capabilities = capabilities })
 setup(lsp.ruff_lsp)
 
 -- rust
