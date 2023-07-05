@@ -33,7 +33,7 @@ end
 
 local catppigeon = function()
   local catppigeon = require("wezterm").color.get_builtin_schemes()["Catppuccin Mocha"]
-  catppigeon.background = "#200F2F"
+  catppigeon.background = "#000000"
   catppigeon.tab_bar.background = "#0B0510"
   catppigeon.tab_bar.inactive_tab.bg_color = "#150A1F"
   catppigeon.tab_bar.new_tab.bg_color = "#150A1F"
