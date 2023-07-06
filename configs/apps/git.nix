@@ -1,4 +1,8 @@
-{email, username, ...}: {
+{
+  email,
+  username,
+  ...
+}: {
   programs.git = {
     enable = true;
     difftastic = {

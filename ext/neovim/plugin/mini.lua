@@ -9,7 +9,6 @@ require("mini.completion").setup()
 require("mini.indentscope").setup({ symbol = "│" })
 require("mini.pairs").setup()
 require("mini.sessions").setup()
-require("mini.starter").setup()
 require("mini.surround").setup({
   mappings = {
     add = "ys",

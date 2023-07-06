@@ -49,6 +49,7 @@ in {
       lsp_lines-nvim
       lspkind-nvim
       lualine-nvim
+      lush-nvim
       mini-nvim
       nvim-dap
       nvim-dap-python
@@ -60,14 +61,16 @@ in {
       nvim-treesitter-textobjects
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
+      octo-nvim
+      oil-nvim
       rust-tools-nvim
       telescope-fzf-native-nvim
       telescope-nvim
       telescope-ui-select-nvim
       telescope-undo-nvim
       vim-fugitive
+      vim-rhubarb
       which-key-nvim
-      lush-nvim
       zenbones-nvim
       (buildVimPluginFromGithub {
         owner = "linrongbin16";
