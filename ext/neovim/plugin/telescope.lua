@@ -16,7 +16,7 @@ ts.setup({
     path_display = { shorten = { len = 3, exclude = { 1, -1 } } },
     layout_config = {
       height = 0.6,
-    }
+    },
   }),
   pickers = {
     live_grep = {

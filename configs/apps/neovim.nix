@@ -85,7 +85,7 @@ in {
         owner = "folke";
         repo = "flash.nvim";
         rev = "HEAD";
-        sha256 = "sha256-HxLLUi5avG4YTFE5Kudp/7hrut/D2QNBa1tQKJ80Z+4=";
+        sha256 = "sha256-kUvuys85luCkRAmkgmJicAHEWq6S53pUgGHoB1nX05A=";
       })
     ];
   };
