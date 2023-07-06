@@ -15,7 +15,7 @@
   ];
 
   home.sessionVariables = {
-      BROWSER = "$BROWSER:wsl-open";
+    BROWSER = "$BROWSER:wsl-open";
   };
 
   home.packages = [

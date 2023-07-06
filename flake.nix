@@ -37,6 +37,7 @@
       modules = [
         ./home.nix
         nix-index-database.hmModules.nix-index
+        {programs.nix-index-database.comma.enable = true;}
       ];
       extraSpecialArgs = rec {
         username = machine.username;
