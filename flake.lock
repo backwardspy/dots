@@ -37,6 +37,26 @@
         "type": "path"
       }
     },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1688680913,
+        "narHash": "sha256-jo/RDXXL7Zx6M36m0f0F+tQPJRzs31Y7gaDiTqqh4Ns=",
+        "owner": "Mic92",
+        "repo": "nix-index-database",
+        "rev": "44337c30729a3616c7a71d485af70d231b29675a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1688590700,
@@ -57,6 +77,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "is-lightmode": "is-lightmode",
+        "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs"
       }
     }
