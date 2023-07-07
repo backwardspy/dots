@@ -15,6 +15,11 @@
     version = rev;
     src = pkgs.fetchFromGitHub {inherit owner repo rev sha256;};
   });
+
+  opt = plugin: {
+    inherit plugin;
+    optional = true;
+  };
 in {
   programs.neovim = {
     enable = true;
@@ -44,8 +49,8 @@ in {
 
     plugins = with pkgs.vimPlugins; [
       catppuccin-nvim
-      copilot-lua
-      gitsigns-nvim
+      (opt copilot-lua)
+      (opt gitsigns-nvim)
       lsp_lines-nvim
       lspkind-nvim
       lualine-nvim

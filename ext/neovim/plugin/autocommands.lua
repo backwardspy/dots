@@ -21,16 +21,6 @@ autocmd(
 )
 
 autocmd(
-  "InsertEnter",
-  {
-    callback = function()
-      require("copilot").setup({ suggestion = { auto_trigger = true } })
-    end,
-    desc = "Lazy load Copilot",
-  }
-)
-
-autocmd(
   "TextYankPost",
   {
     callback = function()
@@ -39,3 +29,33 @@ autocmd(
     desc = "Highlight on yank",
   }
 )
+
+local lazy = function(spec)
+  local name = spec[1]
+  local plugin = spec.plugin or name
+  local events = spec.events or { "BufReadPre", "BufNewFile" }
+  local opts = spec.opts or {}
+  local setup = spec.setup or function(o) require(name).setup(o) end
+  autocmd(events, {
+    desc = "Lazy load " .. name,
+    once = true,
+    callback = function()
+      print("Lazyloading " .. name .. " (" .. plugin .. ")")
+      vim.cmd.packadd(plugin)
+      setup(opts)
+    end,
+  })
+end
+
+lazy({
+  "copilot",
+  plugin = "copilot.lua",
+  events = "InsertEnter",
+  opts = {
+    suggestion = {
+      auto_trigger = true,
+    },
+  }
+})
+
+lazy({ "gitsigns" })
