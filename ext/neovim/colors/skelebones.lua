@@ -1,38 +1,46 @@
-local colors_name = "skelebones"
-vim.g.colors_name = colors_name
+local name = "skelebones"
+vim.g.colors_name = name
 
 local lush = require("lush")
 local hsluv = lush.hsluv
 local util = require("zenbones.util")
+local specs = require("zenbones.specs")
+local term = require("zenbones.term")
 
 local bg = vim.o.background
 
 local palette
 if bg == "light" then
-  palette = util.palette_extend({
-    bg = hsluv "#FFEEFF",
-    fg = hsluv "#555555",
-    rose = hsluv "#F01D7F",
-    leaf = hsluv "#F01D7F",
-    wood = hsluv "#F01D7F",
-    water = hsluv "#F01D7F",
-    blossom = hsluv "#F01D7F",
-    sky = hsluv "#F01D7F",
-  }, bg)
+    palette = util.palette_extend({
+        bg = hsluv("#EBEBEB"),
+        fg = hsluv("#4C3836"),
+        rose = hsluv("#EB4B9E"),
+        leaf = hsluv("#D6EB4B"),
+        wood = hsluv("#EB934B"),
+        water = hsluv("#704BEB"),
+        blossom = hsluv("#A34BEB"),
+        sky = hsluv("#4BEBC8"),
+    }, bg)
 else
-  palette = util.palette_extend({
-    bg = hsluv "#000000",
-    fg = hsluv "#FFEEFF",
-    rose = hsluv "#F01D7F",
-    leaf = hsluv "#F01D7F",
-    wood = hsluv "#F01D7F",
-    water = hsluv "#F01D7F",
-    blossom = hsluv "#F01D7F",
-    sky = hsluv "#F01D7F",
-  }, bg)
+    palette = util.palette_extend({
+        bg = hsluv("#131313"),
+        fg = hsluv("#EB4B60"),
+        rose = hsluv("#EB4B9E"),
+        leaf = hsluv("#D6EB4B"),
+        wood = hsluv("#EB934B"),
+        water = hsluv("#704BEB"),
+        blossom = hsluv("#A34BEB"),
+        sky = hsluv("#4BEBC8"),
+    }, bg)
 end
 
-local generator = require("zenbones.specs")
-local specs = generator.generate(palette, bg, generator.get_global_config(colors_name, bg))
-lush(specs)
-require("zenbones.term").apply_colors(palette)
+local base_specs = specs.generate(palette, bg, specs.get_global_config(name, bg))
+local final_specs = lush.extends({ base_specs }).with(function()
+    return {
+        ColorColumn({ base_specs.CursorLine }),
+        LazyNormal({ base_specs.Normal }),
+    }
+end)
+lush(final_specs)
+
+term.apply_colors(palette)
