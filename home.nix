@@ -38,6 +38,7 @@
     pkgs.postgresql
     pkgs.ripgrep
     pkgs.scc
+    pkgs.terraform
     pkgs.unzip
     pkgs.wget
     pkgs.wsl-open
