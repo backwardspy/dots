@@ -31,33 +31,13 @@ local setup_tab_bar = function(config, wez)
     config.tab_bar_at_bottom = true
 end
 
-local skelebones = function()
-    local colors = require("wezterm").color.get_builtin_schemes()["Catppuccin Mocha"]
-    colors.background = "#131313"
-    colors.tab_bar.background = "#050505"
-    colors.tab_bar.inactive_tab.bg_color = "#0A0A0A"
-    colors.tab_bar.new_tab.bg_color = "#0A0A0A"
-    return colors
-end
-
 M.apply = function(config, wez)
     setup_tab_bar(config, wez)
 
-    local colours = function(appearance)
-        if appearance:find("Dark") then
-            return "Catppigeon Mocha"
-        else
-            return "Catppuccin Latte"
-        end
-    end
-
-    config.color_schemes = {
-        ["Catppigeon Mocha"] = skelebones(),
-    }
-    config.color_scheme = colours(wez.gui.get_appearance())
+    config.color_scheme = "carbonfox"
 
     config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
-    config.font = wez.font("JetBrains Mono", { weight = "Light" })
+    config.font = wez.font("JetBrains Mono", { weight = "DemiBold" })
     config.font_size = string.match(wez.target_triple, "darwin") and 16 or 10
     config.font_rules = {
         {

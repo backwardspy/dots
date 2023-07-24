@@ -10,11 +10,9 @@ opt.relativenumber = true
 opt.scrolloff = 3
 opt.colorcolumn = "80,88,120"
 opt.cmdheight = 0
+opt.completeopt = "menu,menuone,noinsert"
 
 vim.keymap.set("n", "<C-s>", "<CMD>w<CR>", { desc = "Save file" })
-
-local ascii_border = { "+", "-", "+", "|", "+", "-", "+", "|" }
-local ascii_border_telescope = { "-", "|", "-", "|", "+", "+", "+", "+" }
 
 function PythonEnv()
     for _, client in pairs(vim.lsp.buf_get_clients()) do
@@ -27,10 +25,12 @@ end
 
 require("lazy").setup({
     {
-        "mcchrish/zenbones.nvim",
-        dependencies = { "rktjmp/lush.nvim" },
+        "nyoom-engineering/oxocarbon.nvim",
+        lazy = false,
+        priority = 1000,
         config = function()
-            vim.cmd.colorscheme("skelebones")
+            vim.opt.background = "dark"
+            vim.cmd.colorscheme("oxocarbon")
         end
     },
     {
@@ -88,25 +88,37 @@ require("lazy").setup({
                     })
             end
 
+            local on_attach = function(client, bufnr)
+                maybe_setup_codelens(client, bufnr)
+
+                vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.lsp.formatexpr()")
+                vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.lsp.omnifunc")
+                vim.api.nvim_buf_set_option(bufnr, "tagfunc", "v:lua.lsp.tagfunc")
+            end
+
             local setup = function(server, opts)
                 opts = opts or {}
-                opts.on_attach = maybe_setup_codelens
+                opts.on_attach = on_attach
                 server.setup(opts)
             end
+
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             -- python
             -- pyright emits a ton of "hint" diagnostics which are very noisy.
             -- this disables those.
-            local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
-            require("py_lsp").setup({ capabilities = capabilities })
+            local py_capabilities = vim.tbl_extend("force", capabilities, {
+                textDocument = { publishDiagnostics = { tagsSupport = { valueSet = { 2 } } } }
+            })
+            require("py_lsp").setup({ capabilities = py_capabilities })
             setup(lsp.ruff_lsp)
 
             -- rust
-            require("rust-tools").setup()
+            require("rust-tools").setup({ capabilities = capabilities })
 
             -- lua
             setup(lsp.lua_ls, {
+                capabilities = capabilities,
                 settings = {
                     Lua = {
                         runtime = { version = "LuaJIT" },
@@ -125,6 +137,7 @@ require("lazy").setup({
 
             -- nix
             setup(lsp.nil_ls, {
+                capabilities = capabilities,
                 settings = {
                     ["nil"] = {
                         formatting = {
@@ -197,7 +210,6 @@ require("lazy").setup({
             })
             require("mini.bracketed").setup()
             require("mini.comment").setup()
-            require("mini.completion").setup()
             require("mini.indentscope").setup({ symbol = "│" })
             require("mini.pairs").setup()
             require("mini.sessions").setup()
@@ -213,26 +225,124 @@ require("lazy").setup({
                 }
             })
             require("mini.trailspace").setup()
+        end,
+    },
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "L3MON4D3/LuaSnip",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-path",
+            "lukas-reineke/cmp-under-comparator",
+            "neovim/nvim-lspconfig",
+            "onsails/lspkind.nvim",
+            "saadparwaiz1/cmp_luasnip",
+        },
+        config = function()
+            local cmp = require("cmp")
+            local lspkind = require("lspkind")
 
-            -- i like C-y to accept completions. CR should *always* just insert a newline.
-            local keys = {
-                ["C-y"] = vim.api.nvim_replace_termcodes("<C-y>", true, true, true),
-                ["C-y_CR"] = vim.api.nvim_replace_termcodes("<C-y><CR>", true, true, true),
-            }
-
-            _G.cr_action = function()
-                if vim.fn.pumvisible() ~= 0 then
-                    -- if popup is visible, confirm selected item or add new line otherwise
-                    local item_selected = vim.fn.complete_info()["selected"] ~= -1
-                    return item_selected and keys["C-y"] or keys["C-y_CR"]
-                else
-                    -- if popup is not visible, use plain `<cr>`.
-                    return require("mini.pairs").cr()
+            local kind_width = 0
+            for kind, _ in pairs(lspkind.symbol_map) do
+                local len = string.len(kind)
+                if len > kind_width then
+                    kind_width = len
                 end
             end
 
-            vim.keymap.set("i", "<CR>", "v:lua._G.cr_action()", { expr = true })
-        end,
+            cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        require("luasnip").lsp_expand(args.body)
+                    end,
+                },
+                mapping = cmp.mapping.preset.insert({
+                    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                    ["<C-Space>"] = cmp.mapping.complete(),
+                    ["<C-e>"] = cmp.mapping.abort(),
+                    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+                }),
+                sources = cmp.config.sources({
+                    { name = "nvim_lsp" },
+                    { name = "luasnip" },
+                }, {
+                    { name = "buffer" },
+                    { name = "path" },
+                }),
+                sorting = {
+                    comparators = {
+                        cmp.config.compare.offset,
+                        cmp.config.compare.exact,
+                        cmp.config.compare.score,
+                        require("cmp-under-comparator").under,
+                        cmp.config.compare.kind,
+                        cmp.config.compare.sort_text,
+                        cmp.config.compare.length,
+                        cmp.config.compare.order,
+                    }
+                },
+                window = {
+                    completion = { scrollbar = false },
+                },
+                formatting = {
+                    format = function(entry, vim_item)
+                        local kind = lspkind.cmp_format({
+                            mode = "symbol_text",
+                            maxwidth = 32,
+                        })(entry, vim_item)
+
+                        local strings = vim.split(kind.kind, "%s", { trimempty = true })
+                        strings[1] = " " .. strings[1]
+                        strings[2] = string.upper(strings[2])
+
+                        local pad_len = kind_width - string.len(strings[2])
+
+                        if pad_len > 0 then
+                            local spaces = string.rep(" ", pad_len)
+                            strings[2] = strings[2] .. spaces
+                        end
+                        kind.kind = table.concat(strings, " ")
+                        return kind
+                    end
+                },
+            })
+
+            cmp.setup.filetype("gitcommit", {
+                sources = cmp.config.sources({
+                    { name = "git" },
+                }, {
+                    { name = "buffer" },
+                })
+            })
+
+            cmp.setup.cmdline({ "/", "?" }, {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                    { name = "buffer" }
+                }
+            })
+
+            cmp.setup.cmdline(":", {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = cmp.config.sources({
+                    { name = "path" }
+                }, {
+                    { name = "cmdline" }
+                })
+            })
+
+            local luasnip = require("luasnip")
+            local wk = require("which-key")
+            local snippet_mappings = {
+                ["<C-j>"] = { function() luasnip.expand_or_jump() end, "Jump to next placeholder" },
+                ["<C-k>"] = { function() luasnip.jump(-1) end, "Jump to previous placeholder" },
+            }
+            wk.register(snippet_mappings, { mode = "i" })
+            wk.register(snippet_mappings, { mode = "s" })
+        end
     },
     {
         "mfussenegger/nvim-dap",
@@ -308,7 +418,7 @@ require("lazy").setup({
             local layouts = require("telescope.pickers.layout_strategies")
 
             local adaptive_layout = function(picker, columns, lines, layout_config)
-                if columns < 120 then
+                if columns < 200 then
                     return layouts.vertical(picker, columns, lines, layout_config)
                 else
                     return layouts.horizontal(picker, columns, lines, layout_config)
@@ -323,16 +433,10 @@ require("lazy").setup({
                     layout_config = {
                         height = 0.6,
                     },
-                    borderchars = ascii_border_telescope,
                 }),
-                pickers = {
-                    live_grep = {
-                        layout_strategy = "adaptive",
-                    }
-                },
                 extensions = {
                     ["ui-select"] = { require("telescope.themes").get_cursor() },
-                    undo = { layout_strategy = "adaptive" }
+                    undo = { layout_strategy = "adaptive" },
                 },
             })
 
@@ -417,6 +521,13 @@ require("lazy").setup({
             },
         },
     },
+    {
+        "mvaldes14/terraform.nvim",
+        cmd = {
+            "TerraformPlan",
+            "TerraformExplore",
+        },
+    },
 }, {
     dev = {
         path = "~/src/backwardspy",
@@ -427,7 +538,6 @@ require("lazy").setup({
         colorscheme = { "256_noir" },
     },
     ui = {
-        border = ascii_border,
         title = "PLUGIN MANAGER",
         title_pos = "left",
     },
