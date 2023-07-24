@@ -39,7 +39,7 @@
       rustfmt
 
       # language servers
-      lua-language-server
+      master.lua-language-server
       nil
       nodePackages.eslint
       nodePackages.pyright

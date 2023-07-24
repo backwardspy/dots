@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +26,8 @@
   } @ inputs: let
     machine = import ./machine.nix;
     overlays = final: prev: {
-      is-lightmode = inputs.is-lightmode.packages.${machine.system}.default;
+      is-lightmode = inputs.is-lightmode.packages.${prev.system}.default;
+      master = inputs.nixpkgs-master.legacyPackages.${prev.system};
     };
     pkgs = import nixpkgs {
       system = machine.system;
