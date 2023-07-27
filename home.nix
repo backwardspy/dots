@@ -26,6 +26,7 @@
     pkgs.fd
     pkgs.file
     pkgs.gh
+    pkgs.hyperfine
     pkgs.is-lightmode
     pkgs.jq
     pkgs.just

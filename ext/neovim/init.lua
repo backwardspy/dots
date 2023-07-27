@@ -35,6 +35,7 @@ require("lazy").setup({
     },
     {
         "nvim-lualine/lualine.nvim",
+        event = "VeryLazy",
         dependencies = { { "linrongbin16/lsp-progress.nvim", opts = {} } },
         opts = {
             options = {
@@ -56,12 +57,12 @@ require("lazy").setup({
     },
     {
         "neovim/nvim-lspconfig",
-        lazy = false,
         dependencies = {
             "HallerPatrick/py_lsp.nvim",
             "simrat39/rust-tools.nvim",
             "LnL7/vim-nix",
         },
+        lazy = false,
         keys = {
             { "<leader>la", vim.lsp.buf.code_action,    desc = "Code action" },
             { "<leader>lf", vim.lsp.buf.format,         desc = "Format document" },
@@ -158,6 +159,7 @@ require("lazy").setup({
             "RRethy/nvim-treesitter-endwise",
             "nvim-treesitter/nvim-treesitter-textobjects",
         },
+        event = "VeryLazy",
         config = function()
             require("nvim-treesitter.configs").setup({
                 auto_install = false,
@@ -202,6 +204,7 @@ require("lazy").setup({
     },
     {
         "echasnovski/mini.nvim",
+        lazy = false,
         config = function()
             require("mini.ai").setup()
             require("mini.basics").setup({
@@ -211,8 +214,6 @@ require("lazy").setup({
             require("mini.bracketed").setup()
             require("mini.comment").setup()
             require("mini.indentscope").setup({ symbol = "│" })
-            require("mini.pairs").setup()
-            require("mini.sessions").setup()
             require("mini.surround").setup({
                 mappings = {
                     add = "ys",
@@ -229,6 +230,7 @@ require("lazy").setup({
     },
     {
         "hrsh7th/nvim-cmp",
+        event = {"VeryLazy"},
         dependencies = {
             "L3MON4D3/LuaSnip",
             "hrsh7th/cmp-buffer",
@@ -396,6 +398,7 @@ require("lazy").setup({
             { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
             "nvim-telescope/telescope-ui-select.nvim",
         },
+        cmd = "Telescope",
         keys = {
             { "<leader><leader>", "<CMD>Telescope find_files<CR>",            desc = "Find Files" },
             { "<leader>fb",       "<CMD>Telescope buffers<CR>",               desc = "Buffers" },
@@ -446,25 +449,40 @@ require("lazy").setup({
         end
     },
     {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = {},
+    },
+    {
+        "utilyre/sentiment.nvim",
+        event = "VeryLazy",
+        opts = {},
+    },
+    {
         "zbirenbaum/copilot.lua",
         event = "InsertEnter",
-        opts = { suggestion = { auto_trigger = true } }
+        opts = { suggestion = { auto_trigger = true } },
     },
-    { "lewis6991/gitsigns.nvim", opts = {} },
+    {
+        "lewis6991/gitsigns.nvim",
+        event = "VeryLazy",
+        opts = {},
+    },
     {
         "tpope/vim-fugitive",
+        cmd = {"Git", "G", "GBrowse"},
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",
             "nvim-tree/nvim-web-devicons",
-            "pwntester/octo.nvim",
             "tpope/vim-rhubarb",
         },
-        config = function()
-            require("octo").setup()
-        end
     },
-    { "stevearc/oil.nvim",       opts = {} },
+    {
+        "stevearc/oil.nvim",
+        event = "VeryLazy",
+        opts = {},
+    },
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
@@ -529,13 +547,16 @@ require("lazy").setup({
         },
     },
 }, {
+    defaults = {
+        lazy = true,
+    },
     dev = {
         path = "~/src/backwardspy",
         patterns = { "backwardspy" },
         fallback = true,
     },
     install = {
-        colorscheme = { "256_noir" },
+        colorscheme = { "oxocarbon" },
     },
     ui = {
         title = "PLUGIN MANAGER",
@@ -550,6 +571,7 @@ require("lazy").setup({
     performance = {
         disabled_plugins = {
             "gzip",
+            "matchparen",
             "netrw",
             "netrwPlugin",
             "tar",

@@ -2,8 +2,9 @@
   home.packages = [
     pkgs.cargo
     pkgs.cargo-nextest
+    pkgs.clippy
     pkgs.gcc
-    # pkgs.rustc
+    pkgs.rustfmt
     pkgs.sccache
   ];
   home.sessionVariables = {
