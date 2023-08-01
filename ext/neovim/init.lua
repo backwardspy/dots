@@ -9,7 +9,6 @@ opt.number = true
 opt.relativenumber = true
 opt.scrolloff = 3
 opt.colorcolumn = "80,88,120"
-opt.cmdheight = 0
 opt.completeopt = "menu,menuone,noinsert"
 
 -- see :help clipboard-wsl
