@@ -294,7 +294,7 @@ require("lazy").setup({
     },
     {
         "hrsh7th/nvim-cmp",
-        event = {"VeryLazy"},
+        event = { "VeryLazy" },
         dependencies = {
             "L3MON4D3/LuaSnip",
             "hrsh7th/cmp-buffer",
