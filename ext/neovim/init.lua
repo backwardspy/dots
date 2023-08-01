@@ -219,6 +219,7 @@ require("lazy").setup({
     },
     {
         "echasnovski/mini.nvim",
+        version = false,
         lazy = false,
         config = function()
             require("mini.ai").setup()
@@ -227,6 +228,54 @@ require("lazy").setup({
                 autocommands = { basic = false }, -- breaks dap (nvim-dap/issues/439 )
             })
             require("mini.bracketed").setup()
+            local miniclue = require("mini.clue")
+            miniclue.setup({
+                triggers = {
+                    -- Leader triggers
+                    { mode = 'n', keys = '<Leader>' },
+                    { mode = 'x', keys = '<Leader>' },
+
+                    -- Built-in completion
+                    { mode = 'i', keys = '<C-x>' },
+
+                    -- `g` key
+                    { mode = 'n', keys = 'g' },
+                    { mode = 'x', keys = 'g' },
+
+                    -- Marks
+                    { mode = 'n', keys = "'" },
+                    { mode = 'n', keys = '`' },
+                    { mode = 'x', keys = "'" },
+                    { mode = 'x', keys = '`' },
+
+                    -- Registers
+                    { mode = 'n', keys = '"' },
+                    { mode = 'x', keys = '"' },
+                    { mode = 'i', keys = '<C-r>' },
+                    { mode = 'c', keys = '<C-r>' },
+
+                    -- Window commands
+                    { mode = 'n', keys = '<C-w>' },
+
+                    -- `z` key
+                    { mode = 'n', keys = 'z' },
+                    { mode = 'x', keys = 'z' },
+                },
+
+                clues = {
+                    -- Enhance this by adding descriptions for <Leader> mapping groups
+                    miniclue.gen_clues.builtin_completion(),
+                    miniclue.gen_clues.g(),
+                    miniclue.gen_clues.marks(),
+                    miniclue.gen_clues.registers(),
+                    miniclue.gen_clues.windows(),
+                    miniclue.gen_clues.z(),
+                },
+
+                window = {
+                    delay = 0,
+                },
+            })
             require("mini.comment").setup()
             require("mini.indentscope").setup({ symbol = "│" })
             require("mini.surround").setup({
@@ -352,13 +401,8 @@ require("lazy").setup({
             })
 
             local luasnip = require("luasnip")
-            local wk = require("which-key")
-            local snippet_mappings = {
-                ["<C-j>"] = { function() luasnip.expand_or_jump() end, "Jump to next placeholder" },
-                ["<C-k>"] = { function() luasnip.jump(-1) end, "Jump to previous placeholder" },
-            }
-            wk.register(snippet_mappings, { mode = "i" })
-            wk.register(snippet_mappings, { mode = "s" })
+            vim.keymap.set("i", "<C-j>", function() luasnip.expand_or_jump() end, { desc = "Jump to next placeholder" })
+            vim.keymap.set("i", "<C-k>", function() luasnip.jump(-1) end, { desc = "Jump to previous placeholder" })
         end
     },
     {
@@ -497,15 +541,6 @@ require("lazy").setup({
         "stevearc/oil.nvim",
         event = "VeryLazy",
         opts = {},
-    },
-    {
-        "folke/which-key.nvim",
-        event = "VeryLazy",
-        init = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-        end,
-        opts = {}
     },
     {
         "folke/flash.nvim",
