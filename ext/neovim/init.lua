@@ -529,7 +529,10 @@ require("lazy").setup({
     },
     {
         "tpope/vim-fugitive",
-        cmd = {"Git", "G", "GBrowse"},
+        cmd = { "Git", "G", "GBrowse" },
+        keys = {
+            {"<leader>g", vim.cmd.G, desc = "Git"},
+        },
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",
