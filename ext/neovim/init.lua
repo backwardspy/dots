@@ -12,6 +12,22 @@ opt.colorcolumn = "80,88,120"
 opt.cmdheight = 0
 opt.completeopt = "menu,menuone,noinsert"
 
+-- see :help clipboard-wsl
+if vim.fn.has("wsl") then
+    g.clipboard = {
+        name = "WslClipboard",
+        copy = {
+            ["+"] = "clip.exe",
+            ["*"] = "clip.exe",
+        },
+        paste = {
+            ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+            ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        },
+        cache_enabled = 0,
+    }
+end
+
 vim.keymap.set("n", "<C-s>", "<CMD>w<CR>", { desc = "Save file" })
 
 function PythonEnv()
