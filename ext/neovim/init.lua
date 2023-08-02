@@ -79,6 +79,7 @@ require("lazy").setup({
             "HallerPatrick/py_lsp.nvim",
             "simrat39/rust-tools.nvim",
             "LnL7/vim-nix",
+            "jose-elias-alvarez/null-ls.nvim",
         },
         lazy = false,
         keys = {
@@ -168,6 +169,14 @@ require("lazy").setup({
 
             -- progress listener
             require("lsp-progress").setup({ decay = 3000 })
+
+            -- non-lsp tools
+            local nls = require("null-ls")
+            nls.setup({
+                sources = {
+                    nls.builtins.formatting.black,
+                }
+            })
         end,
     },
     {
