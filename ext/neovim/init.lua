@@ -15,7 +15,7 @@ vim.keymap.set("n", "<leader>tn", function() vim.wo.relativenumber = not vim.wo.
     { desc = "Toggle relative line numbers" })
 
 -- see :help clipboard-wsl
-if vim.fn.has("wsl") then
+if vim.fn.has("wsl") ~= 0 then
     g.clipboard = {
         name = "WslClipboard",
         copy = {
