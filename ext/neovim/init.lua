@@ -11,6 +11,9 @@ opt.scrolloff = 3
 opt.colorcolumn = "80,88,120"
 opt.completeopt = "menu,menuone,noinsert"
 
+vim.keymap.set("n", "<leader>tn", function() vim.wo.relativenumber = not vim.wo.relativenumber end,
+    { desc = "Toggle relative line numbers" })
+
 -- see :help clipboard-wsl
 if vim.fn.has("wsl") then
     g.clipboard = {
@@ -223,10 +226,7 @@ require("lazy").setup({
         lazy = false,
         config = function()
             require("mini.ai").setup()
-            require("mini.basics").setup({
-                mappings = { windows = true },
-                autocommands = { basic = false }, -- breaks dap (nvim-dap/issues/439 )
-            })
+            require("mini.basics").setup({ mappings = { windows = true } })
             require("mini.bracketed").setup()
             local miniclue = require("mini.clue")
             miniclue.setup({
@@ -531,7 +531,7 @@ require("lazy").setup({
         "tpope/vim-fugitive",
         cmd = { "Git", "G", "GBrowse" },
         keys = {
-            {"<leader>g", vim.cmd.G, desc = "Git"},
+            { "<leader>g", vim.cmd.G, desc = "Git" },
         },
         dependencies = {
             "nvim-lua/plenary.nvim",
