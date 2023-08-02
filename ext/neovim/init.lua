@@ -500,7 +500,7 @@ require("lazy").setup({
 
             ts.setup({
                 defaults = vim.tbl_extend("force", require("telescope.themes").get_ivy(), {
-                    path_display = { shorten = { len = 3, exclude = { 1, -1 } } },
+                    path_display = { shorten = { len = 5, exclude = { 1, -1 } } },
                     layout_config = {
                         height = 0.6,
                     },
