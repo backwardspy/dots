@@ -1,4 +1,5 @@
 local opt, g = vim.opt, vim.g
+local map = vim.keymap.set
 
 g.mapleader = " "
 opt.shiftwidth = 4
@@ -11,8 +12,20 @@ opt.scrolloff = 3
 opt.colorcolumn = "80,88,120"
 opt.completeopt = "menu,menuone,noinsert"
 
-vim.keymap.set("n", "<leader>tn", function() vim.wo.relativenumber = not vim.wo.relativenumber end,
+map("n", "<leader>tn", function() vim.wo.relativenumber = not vim.wo.relativenumber end,
     { desc = "Toggle relative line numbers" })
+
+map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half a page" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half a page" })
+map("n", "<leader>Y", '"+Y', { desc = "Yank rest of line to system clipboard" })
+map("n", "J", "mzJ`z", { desc = "Join lines" })
+map("n", "N", "Nzzzv", { desc = "Center on previous search result" })
+map("n", "Q", "<nop>", { desc = "Disable Ex mode" })
+map("n", "n", "nzzzv", { desc = "Center on next search result" })
+map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move lines down" })
+map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move lines up" })
+map("x", "p", '"_dP', { desc = "Replace without yank" })
+map({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 
 -- see :help clipboard-wsl
 if vim.fn.has("wsl") ~= 0 then
