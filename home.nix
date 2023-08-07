@@ -46,6 +46,9 @@
     pkgs.xdg-utils
   ];
 
+  home.file."src/backwardspy/.editorconfig".source = ./ext/.editorconfig;
+  home.file."src/binkhq/.editorconfig".source = ./ext/.editorconfig;
+
   programs.home-manager.enable = true;
   targets.genericLinux.enable = pkgs.stdenv.isLinux;
 
