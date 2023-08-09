@@ -20,7 +20,7 @@
 
   home.packages = [
     pkgs.alejandra
-    pkgs.azure-cli
+    # pkgs.azure-cli
     pkgs.docker-client
     pkgs.entr
     pkgs.fd

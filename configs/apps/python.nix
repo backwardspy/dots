@@ -2,7 +2,6 @@
   python-packages = ps:
     with ps; [
       catppuccin
-      cookiecutter
       # debugpy
       ipython
       requests
