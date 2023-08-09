@@ -113,6 +113,8 @@
     sha256 = "sha256-SL19zcXf+Df1BeH+nfI63t3qpDmRISHGRtaEP36mojE=";
   });
 
+  home.file.".local/bin/is-lightmode".source = ../../ext/is-lightmode.fish;
+
   home.packages = [
     pkgs.vivid
   ];

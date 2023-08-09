@@ -12,10 +12,6 @@
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    is-lightmode = {
-      url = "path:./scripts/is-lightmode";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -26,7 +22,6 @@
   } @ inputs: let
     machine = import ./machine.nix;
     overlays = final: prev: {
-      is-lightmode = inputs.is-lightmode.packages.${prev.system}.default;
       master = inputs.nixpkgs-master.legacyPackages.${prev.system};
     };
     pkgs = import nixpkgs {

@@ -20,23 +20,6 @@
         "type": "github"
       }
     },
-    "is-lightmode": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-dtsHxos9P6C6IhmKfX/sY/ObZnfZazysThC0rqDLUx4=",
-        "path": "./scripts/is-lightmode",
-        "type": "path"
-      },
-      "original": {
-        "path": "./scripts/is-lightmode",
-        "type": "path"
-      }
-    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -92,7 +75,6 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "is-lightmode": "is-lightmode",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master"
