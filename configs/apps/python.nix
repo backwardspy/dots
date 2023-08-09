@@ -3,7 +3,7 @@
     with ps; [
       catppuccin
       cookiecutter
-      debugpy
+      # debugpy
       ipython
       requests
       rich
@@ -11,8 +11,9 @@
     ];
 in {
   home.packages = [
-    (pkgs.python3.withPackages python-packages)
+    (pkgs.python311.withPackages python-packages)
     pkgs.poetry
+    pkgs.pipenv
   ];
 
   home.file.".ipython/profile_default/ipython_config.py".text = ''
