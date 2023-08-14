@@ -1,5 +1,7 @@
 set -gx EDITOR nvim
 
+fish_add_path -g /opt/homebrew/bin
+fish_add_path -g /opt/homebrew/opt/python@3.11/libexec/bin
 fish_add_path -g ~/.cargo/bin
 fish_add_path -g ~/.local/bin
 fish_vi_key_bindings

@@ -1,3 +1,7 @@
+.config/fish/completions/
+.config/fish/conf.d/
+.config/fish/fish_variables
+
 {{- if ne .chezmoi.os "linux" }}
 # exclude linux-specific dots
 {{- end }}
