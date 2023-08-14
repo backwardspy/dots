@@ -1,0 +1,17 @@
+local map = vim.keymap.set
+map("n", "<Leader>`n", function() vim.wo.relativenumber = not vim.wo.relativenumber end,
+    { desc = "Toggle relative line numbers" })
+map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half a page" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half a page" })
+map("n", "<Leader>Y", '"+Y', { desc = "Yank rest of line to system clipboard" })
+map("n", "J", "mzJ`z", { desc = "Join lines" })
+map("n", "N", "Nzzzv", { desc = "Center on previous search result" })
+map("n", "Q", "<NOP>", { desc = "Disable Ex mode" })
+map("n", "n", "nzzzv", { desc = "Center on next search result" })
+map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move lines down" })
+map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move lines up" })
+map("x", "p", '"_dP', { desc = "Replace without yank" })
+map({ "n", "v" }, "<Leader>y", '"+y', { desc = "Yank to system clipboard" })
+map("n", "<C-s>", "<CMD>w<CR>", { desc = "Save file" })
+map("n", "<Leader><Tab>", vim.cmd.tabn, { desc = "Next tab" })
+map("n", "<Leader><S-Tab>", vim.cmd.tabp, { desc = "Previous tab" })

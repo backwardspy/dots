@@ -1,70 +1,43 @@
 set -gx EDITOR nvim
-set -gx TERM wezterm
-set -gx npm_config_prefix ~/.local
 
-# paths are only added if they exist
-fish_add_path -g /usr/local/sbin
-fish_add_path -g ~/.local/bin
 fish_add_path -g ~/.cargo/bin
-fish_add_path -g ~/.spicetify
-fish_add_path -g ~/go/bin
-fish_add_path -g /opt/homebrew/bin
-fish_add_path -g /opt/homebrew/opt/python@3.11/libexec/bin
+fish_add_path -g ~/.local/bin
+fish_vi_key_bindings
+fish_vi_cursor
 
-# source machine-specific config if it's present
-set machineconf "$HOME/.config/fish/.profile."(uname -s)
-if test -f $machineconf
-    source $machineconf
-end
+abbr ls lsd
+abbr la lsd -a
+abbr ll lsd -l
+abbr lla lsd -la
+abbr lt lsd --tree
 
-set -q APPEARANCE; or set -gx APPEARANCE dark
+abbr ga git add
+abbr gb git branch
+abbr gc git commit
+abbr gcm git checkout main
+abbr gco git checkout
+abbr gd git diff
+abbr gl git pull
+abbr gp git push
+abbr gr git rebase
+abbr gra git rebase --abort
+abbr grc git rebase --continue
+abbr gs git switch
+abbr gst git status
 
-if test "$APPEARANCE" = light
-    yes | fish_config theme save 'Catppuccin Latte'
-else
-    yes | fish_config theme save 'Catppuccin Mocha'
-end
+abbr kctx kubectx
+abbr ke kubectl exec -it
+abbr kgd kubectl get deployments
+abbr kgp kubectl get pods
+abbr kl kubectl logs -f
+abbr kns kubens
 
-if type -q vivid
-    if test "$APPEARANCE" = light
-        set -gx LS_COLORS (vivid generate catppuccin-latte)
-    else
-        set -gx LS_COLORS (vivid generate catppuccin-mocha)
-    end
-end
+abbr pa poetry add
+abbr pad poetry add --group dev
+abbr pi poetry install
+abbr pr poetry run
+abbr psh poetry shell
 
-if type -q direnv
-    # use direnv to autoload project .env files
-    direnv hook fish | source
-end
-
-# use lsd for ls
-function ls
-    lsd --config-file="$HOME/.config/lsd/$APPEARANCE.yaml" $argv
-end
-
-# automatically ls on cd
-if ! type -q _standard_cd
-    functions --copy cd _standard_cd
-    function cd
-        _standard_cd $argv && ls
-    end
-end
-
-# setup kubernetes-tools completions
-if ! type -q _maybe_source
-    function _maybe_source -a file
-        if test -e $file
-            source $file
-        end
-    end
-    _maybe_source $HOME/.config/fish/completions/kubernetes-tools.fish
-end
-
-if type -q starship
-    starship init fish | source
-end
-
-if string match -q "$TERM_PROGRAM" vscode
-    source (code --locate-shell-integration-path fish)
-end
+abbr vi nvim
+abbr vim nvim
+abbr neogit nvim +Neogit
