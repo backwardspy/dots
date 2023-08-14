@@ -9,8 +9,8 @@ return {
         end
     },
     {
-        "mcchrish/zenbones.nvim",
-        dependencies = {"rktjmp/lush.nvim"}
+        "rktjmp/lush.nvim",
+        cmd = {"Lushify", "LushRunTutorial"},
     },
     {
         "nvim-lualine/lualine.nvim",
