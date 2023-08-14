@@ -11,7 +11,7 @@ return {
             "williamboman/mason-lspconfig.nvim",
             "williamboman/mason.nvim",
         },
-        cmd = { "LspInfo", "LspInstall", "LspStart" },
+        cmd = { "LspInfo", "LspInstall", "LspStart", "Mason" },
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             local lsp = require("lsp-zero").preset({})
