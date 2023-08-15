@@ -7,5 +7,5 @@ opt.expandtab = true
 opt.number = true
 opt.relativenumber = true
 opt.scrolloff = 3
--- opt.colorcolumn = "80,88,120"
 opt.completeopt = "menu,menuone,noinsert"
+opt.shortmess:append({ I = true })
