@@ -64,7 +64,7 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             require("mason-null-ls").setup({
-                ensure_installed = { "black" },
+                ensure_installed = { "black", "mypy" },
                 handlers = {},
             })
         end
