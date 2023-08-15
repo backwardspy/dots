@@ -15,7 +15,10 @@ return {
     {
         "nvim-lualine/lualine.nvim",
         event = "VeryLazy",
-        dependencies = { { "linrongbin16/lsp-progress.nvim", opts = {} } },
+        dependencies = {
+            { "linrongbin16/lsp-progress.nvim", opts = {} },
+            "KadoBOT/nvim-spotify",
+        },
         opts = {
             options = {
                 icons_enabled = false,
@@ -30,7 +33,7 @@ return {
                 lualine_c = { "require('lsp-progress').progress()" },
                 lualine_x = {},
                 lualine_y = {},
-                lualine_z = {},
+                lualine_z = { "require('nvim-spotify').status.listen()" },
             },
         },
     },
