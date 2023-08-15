@@ -1,8 +1,44 @@
+tap "azure/kubelogin"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
-tap "homebrew/core"
+tap "homebrew/services"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GitHub command-line tool
+brew "gh"
+# Interactive computing in Python
+brew "ipython"
+# Tool that can switch between kubectl contexts easily and create aliases
+brew "kubectx"
+# Clone of ls with colorful output, file type icons, and more
+brew "lsd"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Platform built on V8 to build network applications
+brew "node"
+# Python dependency management tool
+brew "pipenv"
+# Python package management tool
+brew "poetry"
+# Object-relational database system
+brew "postgresql@15", link: true
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Very fast implementation of tldr in Rust
+brew "tealdeer"
+# A Kubernetes credential (exec) plugin implementing azure authentication
+brew "azure/kubelogin/kubelogin"
 # Enable Windows-like alt-tab
 cask "alt-tab"
 # Chromium based browser
