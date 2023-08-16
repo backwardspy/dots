@@ -10,13 +10,21 @@ return {
             "neovim/nvim-lspconfig",
             "williamboman/mason-lspconfig.nvim",
             "williamboman/mason.nvim",
+            "ray-x/lsp_signature.nvim",
         },
         cmd = { "LspInfo", "LspInstall", "LspStart", "Mason" },
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             local lsp = require("lsp-zero").preset({})
 
-            lsp.on_attach(function()
+            lsp.on_attach(function(client, buffer)
+                -- prefer pyright's hover to ruff's
+                if client.name == "ruff_lsp" then
+                    client.server_capabilities.hoverProvider = false
+                end
+
+                require("lsp_signature").on_attach({}, buffer)
+
                 lsp.default_keymaps({ preserve_mappings = false })
 
                 local function map(lhs, rhs, opts)
