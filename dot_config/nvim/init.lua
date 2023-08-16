@@ -5,6 +5,7 @@
         "make",
         "node",
         "npm",
+        "python",
         "rg",
         "unzip",
     }

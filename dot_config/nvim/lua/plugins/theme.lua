@@ -1,17 +1,15 @@
 return {
     {
-        "nyoom-engineering/oxocarbon.nvim",
+        "backwardspy/pigeon.nvim",
+        dependencies = { "rktjmp/lush.nvim" },
         lazy = false,
         priority = 1000,
         config = function()
             vim.opt.background = "dark"
-            vim.cmd.colorscheme("oxocarbon")
+            vim.cmd.colorscheme("pigeon")
         end
     },
-    {
-        "rktjmp/lush.nvim",
-        cmd = {"Lushify", "LushRunTutorial"},
-    },
+    "nyoom-engineering/oxocarbon.nvim",
     {
         "nvim-lualine/lualine.nvim",
         event = "VeryLazy",
