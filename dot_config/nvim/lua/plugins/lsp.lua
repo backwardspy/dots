@@ -18,11 +18,6 @@ return {
             local lsp = require("lsp-zero").preset({})
 
             lsp.on_attach(function(client, buffer)
-                -- prefer pyright's hover to ruff's
-                if client.name == "ruff_lsp" then
-                    client.server_capabilities.hoverProvider = false
-                end
-
                 require("lsp_signature").on_attach({}, buffer)
 
                 lsp.default_keymaps({ preserve_mappings = false })
@@ -50,7 +45,12 @@ return {
 
             require("mason").setup()
             require("mason-lspconfig").setup({
-                ensure_installed = { "pyright", "ruff_lsp", "rust_analyzer", "lua_ls" },
+                ensure_installed = {
+                  "pyright",
+                  "ruff_lsp",
+                  "rust_analyzer",
+                  "lua_ls",
+                },
                 handlers = {
                     lsp.default_setup,
                     lua_ls = function()
