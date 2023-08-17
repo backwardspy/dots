@@ -43,7 +43,7 @@ return {
 
                 if client.name == "rust_analyzer" then
                     map("<Leader>lR", "<CMD>RustRunnables<CR>", { desc = "Rust Runnables" })
-                    map("<Leader>lD", "<CMD>RustDebuggables<CR>", { desc = "Rust Debuggables" })
+                    map("<Leader>xR", "<CMD>RustDebuggables<CR>", { desc = "Rust Debuggables" })
                 end
             end)
 
@@ -52,10 +52,10 @@ return {
             require("mason").setup()
             require("mason-lspconfig").setup({
                 ensure_installed = {
-                  "pyright",
-                  "ruff_lsp",
-                  "rust_analyzer",
-                  "lua_ls",
+                    "pyright",
+                    "ruff_lsp",
+                    "rust_analyzer",
+                    "lua_ls",
                 },
                 handlers = {
                     lsp.default_setup,
@@ -66,7 +66,19 @@ return {
                         require("py_lsp").setup()
                     end,
                     rust_analyzer = function()
-                        require("rust-tools").setup()
+                        local mason_registry = require("mason-registry")
+
+                        local codelldb = mason_registry.get_package("codelldb")
+                        local extension_path = codelldb:get_install_path() .. "/extension/"
+                        local codelldb_path = extension_path .. "adapter/codelldb"
+                        local liblldb_path =
+                            vim.fn.has("mac") == 1 and extension_path .. "lldb/lib/liblldb.dylib"
+                            or extension_path .. "lldb/lib/liblldb.so"
+                        local adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
+
+                        require("rust-tools").setup({
+                            dap = { adapter = adapter }
+                        })
                     end,
                 }
             })

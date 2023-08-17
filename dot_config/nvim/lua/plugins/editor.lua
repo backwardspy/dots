@@ -6,10 +6,32 @@ return {
             "RRethy/nvim-treesitter-endwise",
             "nvim-treesitter/nvim-treesitter-textobjects",
         },
-        event = "VeryLazy",
+        event = { "BufReadPost", "BufNewFile" },
         config = function()
             require("nvim-treesitter.configs").setup({
-                ensure_installed = "all",
+                ensure_installed = {
+                    "bash",
+                    "c",
+                    "fish",
+                    "html",
+                    "javascript",
+                    "jsdoc",
+                    "json",
+                    "luadoc",
+                    "luap",
+                    "markdown_inline",
+                    "query",
+                    "regex",
+                    "tsx",
+                    "typescript",
+                    "vim",
+                    "vimdoc",
+                    "yaml",
+                    "lua",
+                    "markdown",
+                    "python",
+                    "rust",
+                },
                 highlight = {
                     enable = true,
                 },
@@ -23,7 +45,7 @@ return {
                 },
                 indent = {
                     enable = true,
-                    disable = { "python" },
+                    disable = { "python", "yaml" },
                 },
                 textobjects = {
                     select = {

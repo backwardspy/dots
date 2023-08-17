@@ -8,7 +8,7 @@
   "easypick.nvim": { "branch": "main", "commit": "88d2a95eb87413f043cf21ff985a300eaaf20496" },
   "flash.nvim": { "branch": "main", "commit": "967117690bd677cb7b6a87f0bc0077d2c0be3a27" },
   "gitsigns.nvim": { "branch": "main", "commit": "5a2b1205841bc06ffb15719b14d54987e17b22ae" },
-  "lazy.nvim": { "branch": "main", "commit": "dac844ed617dda4f9ec85eb88e9629ad2add5e05" },
+  "lazy.nvim": { "branch": "main", "commit": "3ad55ae678876516156cca2f361c51f7952a924b" },
   "lsp-progress.nvim": { "branch": "main", "commit": "49e52ce6525bd10da144aec274172652a997ee64" },
   "lsp-zero.nvim": { "branch": "dev-v3", "commit": "04d2bd53ebc490378e25cb399942a5f48f5befd2" },
   "lsp_signature.nvim": { "branch": "master", "commit": "58d4e810801da74c29313da86075d6aea537501f" },

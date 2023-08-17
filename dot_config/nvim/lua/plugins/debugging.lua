@@ -22,25 +22,8 @@ return {
                 handlers = {
                     function(config) require("mason-nvim-dap").default_setup(config) end,
 
-                    -- for rust we can get the executable from cargo automatically
-                    codelldb = function(config)
-                        config.configurations[1].program = function()
-                            local output = vim.fn.systemlist("cargo build -q --message-format=json 2>1")
-                            for _, l in ipairs(output) do
-                                local json = vim.json.decode(l)
-                                if json == nil then
-                                    error("error parsing json")
-                                end
-                                if json.success == false then
-                                    error("error building package")
-                                end
-                                if json.executable ~= nil then
-                                    return json.executable
-                                end
-                            end
-                        end
-                        require("mason-nvim-dap").default_setup(config)
-                    end
+                    -- rust-tools sets up our codelldb handler
+                    codelldb = function(config) end
                 },
             })
 
