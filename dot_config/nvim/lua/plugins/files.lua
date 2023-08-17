@@ -4,7 +4,11 @@ return {
         dependencies = {
             "debugloop/telescope-undo.nvim",
             "nvim-lua/plenary.nvim",
-            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build = "make",
+                cond = vim.fn.executable("make") ~= 0,
+            },
             "nvim-telescope/telescope-ui-select.nvim",
             "axkirillov/easypick.nvim"
         },
@@ -32,9 +36,9 @@ return {
                 },
             })
 
-            ts.load_extension("fzf")       -- native sorter
-            ts.load_extension("ui-select") -- use telescope for code actions etc
-            ts.load_extension("undo")      -- undo tree
+            pcall(ts.load_extension, "fzf") -- native sorter
+            ts.load_extension("ui-select")  -- use telescope for code actions etc
+            ts.load_extension("undo")       -- undo tree
 
             require("easypick").setup({
                 pickers = {

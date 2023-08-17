@@ -32,7 +32,7 @@ return {
                                     error("error parsing json")
                                 end
                                 if json.success == false then
-                                    return error("error building package")
+                                    error("error building package")
                                 end
                                 if json.executable ~= nil then
                                     return json.executable

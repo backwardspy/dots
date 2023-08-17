@@ -3,6 +3,7 @@ return {
     -- statusline works fine, but we can't search for content
     {
         "KadoBOT/nvim-spotify",
+        cond = vim.fn.executable("spt") ~= 0 and vim.fn.executable("go") ~= 0,
         dependencies = {
             "nvim-telescope/telescope.nvim",
             { "akinsho/toggleterm.nvim", opts = {} },
@@ -17,13 +18,14 @@ return {
 
             local Terminal = require("toggleterm.terminal").Terminal
             local spt = Terminal:new({
-              cmd = "spt",
-              hidden = true,
-              direction = "float",
+                cmd = "spt",
+                hidden = true,
+                direction = "float",
             })
             function SptToggle()
                 spt:toggle()
             end
+
             vim.api.nvim_set_keymap(
                 "n",
                 "<leader>m",

@@ -8,9 +8,10 @@ return {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/nvim-cmp",
             "neovim/nvim-lspconfig",
+            "ray-x/lsp_signature.nvim",
+            "simrat39/rust-tools.nvim",
             "williamboman/mason-lspconfig.nvim",
             "williamboman/mason.nvim",
-            "ray-x/lsp_signature.nvim",
         },
         cmd = { "LspInfo", "LspInstall", "LspStart", "Mason" },
         event = { "BufReadPre", "BufNewFile" },
@@ -39,6 +40,11 @@ return {
                 map("go", "<CMD>Telescope lsp_type_definitions<CR>", { desc = "Type definitions" })
                 map("gr", "<CMD>Telescope lsp_references<CR>", { desc = "References" })
                 map("gh", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+
+                if client.name == "rust_analyzer" then
+                    map("<Leader>lR", "<CMD>RustRunnables<CR>", { desc = "Rust Runnables" })
+                    map("<Leader>lD", "<CMD>RustDebuggables<CR>", { desc = "Rust Debuggables" })
+                end
             end)
 
             lsp.extend_cmp()
@@ -58,6 +64,9 @@ return {
                     end,
                     pyright = function()
                         require("py_lsp").setup()
+                    end,
+                    rust_analyzer = function()
+                        require("rust-tools").setup()
                     end,
                 }
             })
