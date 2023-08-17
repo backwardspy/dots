@@ -1,21 +1,3 @@
--- warn if we don't have all the tools we need
-(function()
-    local required_tools = {
-        "git",
-        "make",
-        "node",
-        "npm",
-        "python",
-        "rg",
-        "unzip",
-    }
-    for _, tool in ipairs(required_tools) do
-        if vim.fn.executable(tool) == 0 then
-            vim.api.nvim_err_writeln("missing required tool: " .. tool)
-        end
-    end
-end)()
-
 require("pigeon.options")
 require("pigeon.keybinds")
 require("pigeon.utils")
