@@ -7,6 +7,10 @@ return {
         config = function()
             vim.opt.background = "dark"
             vim.cmd.colorscheme("pigeon")
+
+            local hl = vim.api.nvim_get_hl(0, { name = "Normal" })
+            hl.bg = nil
+            vim.api.nvim_set_hl(0, "Normal", hl)
         end
     },
     "nyoom-engineering/oxocarbon.nvim",
