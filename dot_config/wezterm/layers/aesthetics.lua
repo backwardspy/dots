@@ -73,6 +73,8 @@ M.apply = function(config, wez)
         },
     }
 
+    config.inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 }
+
     config.window_padding = { top = 0, bottom = 0, left = 0, right = 0 }
     config.use_resize_increments = true
 end
