@@ -7,6 +7,7 @@ M.apply = function(config, wez)
 
     local pwsh = os.getenv("LOCALAPPDATA") .. "/Microsoft/WindowsApps/pwsh.exe"
     config.default_prog = { pwsh, "-NoLogo" }
+    config.default_cwd = "E:"
 end
 
 return M

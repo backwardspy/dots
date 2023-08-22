@@ -1,25 +1,26 @@
 {
   "extras": [
-    "coding.codeium",
-    "coding.yanky",
-    "dap.core",
-    "editor.mini-files",
-    "formatting.black",
-    "formatting.prettier",
-    "lang.docker",
-    "lang.go",
-    "lang.json",
-    "lang.python",
-    "lang.rust",
-    "lang.yaml",
-    "lsp.none-ls",
-    "test.core",
-    "util.dot",
-    "util.mini-hipatterns",
-    "util.project",
-    "vscode"
+    "lazyvim.plugins.extras.dap.core",
+    "lazyvim.plugins.extras.test.core",
+    "lazyvim.plugins.extras.coding.codeium",
+    "lazyvim.plugins.extras.coding.yanky",
+    "lazyvim.plugins.extras.editor.mini-files",
+    "lazyvim.plugins.extras.formatting.black",
+    "lazyvim.plugins.extras.formatting.prettier",
+    "lazyvim.plugins.extras.lang.docker",
+    "lazyvim.plugins.extras.lang.go",
+    "lazyvim.plugins.extras.lang.json",
+    "lazyvim.plugins.extras.lang.python",
+    "lazyvim.plugins.extras.lang.rust",
+    "lazyvim.plugins.extras.lang.yaml",
+    "lazyvim.plugins.extras.lsp.none-ls",
+    "lazyvim.plugins.extras.util.dot",
+    "lazyvim.plugins.extras.util.mini-hipatterns",
+    "lazyvim.plugins.extras.util.project",
+    "lazyvim.plugins.extras.vscode"
   ],
   "news": {
-    "NEWS.md": "2035"
-  }
+    "NEWS.md": "2191"
+  },
+  "version": 2
 }
