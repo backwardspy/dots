@@ -56,4 +56,26 @@ return {
         event = "VeryLazy",
         opts = {},
     },
+    {
+        "ThePrimeagen/harpoon",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        keys = function()
+            local keys = {
+                { "<C-e><C-e>", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Harpoon quick menu" },
+                { "<C-e>a",     function() require("harpoon.mark").add_file() end,          desc = "Harpoon file" },
+                { "<C-e>j",     function() require("harpoon.ui").nav_next() end,          desc = "Harpoon next" },
+                { "<C-e>k",     function() require("harpoon.ui").nav_prev() end,          desc = "Harpoon previous" },
+            }
+
+            for i = 0, 9 do
+                table.insert(keys, {
+                    "<C-e>" .. i,
+                    function() require("harpoon.ui").nav_file(i + 1) end,
+                    desc = "Harpoon file " .. i + 1
+                })
+            end
+
+            return keys
+        end
+    }
 }
