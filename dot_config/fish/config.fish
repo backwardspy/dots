@@ -1,17 +1,22 @@
-set -gx EDITOR nvim
-
 fish_add_path -g /opt/homebrew/bin
 fish_add_path -g /opt/homebrew/opt/python@3.11/libexec/bin
 fish_add_path -g ~/.cargo/bin
 fish_add_path -g ~/.local/bin
+
+set -gx EDITOR nvim
+set -gx LS_COLORS (vivid generate catppuccin-mocha)
+
 fish_vi_key_bindings
 fish_vi_cursor
 
-abbr ls lsd
-abbr la lsd -a
-abbr ll lsd -l
-abbr lla lsd -la
-abbr lt lsd --tree
+function exa --wraps exa
+  command exa --icons --git --group-directories-first $argv
+end
+abbr ls exa
+abbr la exa -a
+abbr ll exa -l
+abbr lla exa -la
+abbr lt exa -T
 
 abbr ga git add
 abbr gb git branch
