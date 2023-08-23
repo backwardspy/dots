@@ -5,6 +5,7 @@ return {
         dependencies = {
             "HallerPatrick/py_lsp.nvim",
             "L3MON4D3/LuaSnip",
+            "aznhe21/actions-preview.nvim",
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/nvim-cmp",
             "neovim/nvim-lspconfig",
@@ -29,7 +30,26 @@ return {
                     vim.keymap.set("n", lhs, rhs, opts)
                 end
 
-                map("<Leader>la", vim.lsp.buf.code_action, { desc = "Code action" })
+                require("actions-preview").setup({
+                    telescope = {
+                        sorting_strategy = "ascending",
+                        layout_strategy = "vertical",
+                        layout_config = {
+                            width = 0.8,
+                            height = 0.9,
+                            prompt_position = "top",
+                            preview_cutoff = 20,
+                            preview_height = function(_, _, max_lines)
+                                return max_lines - 15
+                            end,
+                        },
+                    },
+                })
+                local function code_action()
+                    require("actions-preview").code_actions()
+                end
+
+                map("<Leader>la", code_action, { desc = "Code action" })
                 map("<Leader>lf", vim.lsp.buf.format, { desc = "Format document" })
                 map("<Leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
                 map("<Leader>ls", "<CMD>Telescope lsp_document_symbols<CR>", { desc = "Document symbols" })
