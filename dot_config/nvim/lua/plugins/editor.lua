@@ -7,6 +7,7 @@ return {
             "nvim-treesitter/nvim-treesitter-textobjects",
         },
         event = { "BufReadPost", "BufNewFile" },
+        cmd = { "TSInstall", "TSUpdate" },
         config = function()
             require("nvim-treesitter.configs").setup({
                 ensure_installed = {
