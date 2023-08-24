@@ -1,5 +1,18 @@
 return {
     {
+        "saecki/crates.nvim",
+        event = { "BufRead Cargo.toml" },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "jose-elias-alvarez/null-ls.nvim"
+        },
+        opts = {
+            null_ls = {
+                enabled = true,
+            }
+        }
+    },
+    {
         "VonHeikemen/lsp-zero.nvim",
         branch = "dev-v3",
         dependencies = {
@@ -10,6 +23,7 @@ return {
             "hrsh7th/nvim-cmp",
             "neovim/nvim-lspconfig",
             "ray-x/lsp_signature.nvim",
+            "saecki/crates.nvim",
             "simrat39/rust-tools.nvim",
             "williamboman/mason-lspconfig.nvim",
             "williamboman/mason.nvim",
