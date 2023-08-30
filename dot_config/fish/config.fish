@@ -1,9 +1,34 @@
 fish_add_path -g /opt/homebrew/bin
 fish_add_path -g /opt/homebrew/opt/python@3.11/libexec/bin
-fish_add_path -g ~/.cargo/bin
 fish_add_path -g ~/.local/bin
 
 set -gx EDITOR nvim
+
+### recommendations from xdg-ninja
+set -gx XDG_CACHE_HOME $HOME/.cache
+set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx XDG_DATA_HOME $HOME/.local/share
+set -gx XDG_STATE_HOME $HOME/.local/state
+
+set -gx AZURE_CONFIG_DIR $XDG_DATA_HOME/azure
+
+set -gx CARGO_HOME $XDG_DATA_HOME/cargo
+
+set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
+
+set -gx LESSHISTFILE $XDG_STATE_HOME/less/history
+
+set -gx MYPY_CACHE_DIR $XDG_CACHE_HOME/mypy
+
+set -gx TERMINFO $XDG_DATA_HOME/terminfo
+set -gx TERMINFO_DIRS $XDG_DATA_HOME/terminfo:/usr/share/terminfo
+
+set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
+
+set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
+###
+
+fish_add_path -g $CARGO_HOME/bin
 set -gx LS_COLORS (vivid generate catppuccin-mocha)
 
 fish_vi_key_bindings
