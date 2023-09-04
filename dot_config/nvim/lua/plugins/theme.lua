@@ -2,11 +2,24 @@ return {
     {
         "backwardspy/pigeon.nvim",
         dependencies = { "rktjmp/lush.nvim" },
+    },
+    {
+        "olivercederborg/poimandres.nvim",
+        opts = {},
+    },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        opts = {},
+    },
+    {
+        "nyngwang/nvimgelion",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
         lazy = false,
         priority = 1000,
         config = function()
             vim.opt.background = "dark"
-            vim.cmd.colorscheme("pigeon")
+            vim.cmd.colorscheme("nvimgelion")
 
             local hl = vim.api.nvim_get_hl(0, { name = "Normal" })
             hl.bg = nil
