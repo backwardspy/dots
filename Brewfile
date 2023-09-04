@@ -9,6 +9,8 @@ brew "bat"
 brew "python@3.11"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
+# Modern replacement for 'ls'
+brew "exa"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # User-friendly command-line shell for UNIX-like operating systems
@@ -17,12 +19,12 @@ brew "fish"
 brew "fzf"
 # GitHub command-line tool
 brew "gh"
+# Render markdown on the CLI
+brew "glow"
 # Interactive computing in Python
 brew "ipython"
 # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubectx"
-# Clone of ls with colorful output, file type icons, and more
-brew "lsd"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Platform built on V8 to build network applications
@@ -33,10 +35,20 @@ brew "pipenv"
 brew "poetry"
 # Object-relational database system
 brew "postgresql@15", link: true
+# Messaging broker
+brew "rabbitmq"
+# Persistent key-value database, with built-in net interface
+brew "redis"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Terminal-based client for Spotify
+brew "spotify-tui"
 # Very fast implementation of tldr in Rust
 brew "tealdeer"
+# Generator for LS_COLORS with support for multiple color themes
+brew "vivid"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # A Kubernetes credential (exec) plugin implementing azure authentication
 brew "azure/kubelogin/kubelogin"
 # Enable Windows-like alt-tab
