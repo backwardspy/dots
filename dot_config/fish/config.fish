@@ -1,8 +1,7 @@
 fish_add_path -g /opt/homebrew/bin
 fish_add_path -g /opt/homebrew/opt/python@3.11/libexec/bin
+fish_add_path -g ~/.local/go/bin
 fish_add_path -g ~/.local/bin
-
-set -gx EDITOR nvim
 
 ### recommendations from xdg-ninja
 set -gx XDG_CACHE_HOME $HOME/.cache
@@ -16,6 +15,8 @@ set -gx CARGO_HOME $XDG_DATA_HOME/cargo
 
 set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 
+set -gx GOPATH $XDG_DATA_HOME/go
+
 set -gx LESSHISTFILE $XDG_STATE_HOME/less/history
 
 set -gx MYPY_CACHE_DIR $XDG_CACHE_HOME/mypy
@@ -27,6 +28,9 @@ set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 
 set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
 ###
+
+set -gx EDITOR nvim
+set -gx TERM wezterm
 
 fish_add_path -g $CARGO_HOME/bin
 set -gx LS_COLORS (vivid generate catppuccin-mocha)
