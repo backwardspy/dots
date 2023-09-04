@@ -205,5 +205,13 @@ return {
         opts = {
             enable_on_load = true,
         },
+    },
+    {
+        "chrisgrieser/nvim-spider",
+        keys = {
+            { "w", "<CMD>lua require('spider').motion('w')<CR>", mode = { "n", "o", "x" }, desc = "Spider W" },
+            { "e", "<CMD>lua require('spider').motion('e')<CR>", mode = { "n", "o", "x" }, desc = "Spider E" },
+            { "b", "<CMD>lua require('spider').motion('b')<CR>", mode = { "n", "o", "x" }, desc = "Spider B" },
+        }
     }
 }
