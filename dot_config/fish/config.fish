@@ -1,6 +1,5 @@
 fish_add_path -g /opt/homebrew/bin
 fish_add_path -g /opt/homebrew/opt/python@3.11/libexec/bin
-fish_add_path -g ~/.local/go/bin
 fish_add_path -g ~/.local/bin
 
 ### recommendations from xdg-ninja
@@ -39,6 +38,7 @@ set -gx EDITOR nvim
 set -gx TERM wezterm
 
 fish_add_path -g $CARGO_HOME/bin
+fish_add_path -g $GOPATH/bin
 set -gx LS_COLORS (vivid generate catppuccin-mocha)
 
 fish_vi_key_bindings
