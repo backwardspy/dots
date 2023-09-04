@@ -23,6 +23,8 @@ brew "gh"
 brew "glow"
 # Interactive computing in Python
 brew "ipython"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubectx"
 # Ambitious Vim-fork focused on extensibility and agility
