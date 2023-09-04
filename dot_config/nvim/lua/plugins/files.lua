@@ -67,11 +67,11 @@ return {
                 { "<C-e>k",     function() require("harpoon.ui").nav_prev() end,          desc = "Harpoon previous" },
             }
 
-            for i = 0, 9 do
+            for i = 1, 9 do
                 table.insert(keys, {
                     "<C-e>" .. i,
-                    function() require("harpoon.ui").nav_file(i + 1) end,
-                    desc = "Harpoon file " .. i + 1
+                    function() require("harpoon.ui").nav_file(i) end,
+                    desc = "Harpoon file " .. i
                 })
             end
 
