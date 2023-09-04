@@ -77,3 +77,11 @@ abbr psh poetry shell
 abbr vi nvim
 abbr vim nvim
 abbr neogit nvim +Neogit
+
+abbr dc docker-compose
+abbr dcb docker-compose build
+abbr dcd docker-compose down
+abbr dcu docker-compose up -d
+abbr dcdu 'docker-compose down && docker-compose build && docker-compose up -d'
+
+zoxide init fish | source
