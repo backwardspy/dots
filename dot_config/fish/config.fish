@@ -41,9 +41,6 @@ fish_add_path -g $CARGO_HOME/bin
 fish_add_path -g $GOPATH/bin
 set -gx LS_COLORS (vivid generate catppuccin-mocha)
 
-fish_vi_key_bindings
-fish_vi_cursor
-
 function exa --wraps exa
   command exa --icons --git --group-directories-first $argv
 end
