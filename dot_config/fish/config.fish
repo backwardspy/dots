@@ -34,12 +34,16 @@ set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
 ###
 
-set -gx EDITOR nvim
+set -gx EDITOR hx
 set -gx TERM wezterm
 
 fish_add_path -g $CARGO_HOME/bin
 fish_add_path -g $GOPATH/bin
 set -gx LS_COLORS (vivid generate catppuccin-mocha)
+
+if ! type -q hx && type -q helix
+  alias hx helix
+end
 
 function exa --wraps exa
   command exa --icons --git --group-directories-first $argv
@@ -86,5 +90,9 @@ abbr dcb docker-compose build
 abbr dcd docker-compose down
 abbr dcu docker-compose up -d
 abbr dcdu 'docker-compose down && docker-compose build && docker-compose up -d'
+
+abbr vn python -m venv .venv
+abbr va . .venv/bin/activate.fish
+abbr vd deactivate
 
 zoxide init fish | source
