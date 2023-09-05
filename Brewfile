@@ -3,6 +3,8 @@ tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
+# Microsoft Azure CLI 2.0
+brew "azure-cli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Interpreted, interactive, object-oriented programming language
@@ -21,6 +23,8 @@ brew "fzf"
 brew "gh"
 # Render markdown on the CLI
 brew "glow"
+# Post-modern modal text editor
+brew "helix"
 # Interactive computing in Python
 brew "ipython"
 # Lightweight and flexible command-line JSON processor
@@ -37,12 +41,20 @@ brew "pipenv"
 brew "poetry"
 # Object-relational database system
 brew "postgresql@15", link: true
+# Static type checker for Python
+brew "pyright"
 # Messaging broker
 brew "rabbitmq"
 # Persistent key-value database, with built-in net interface
 brew "redis"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Language Server Protocol implementation for Ruff
+brew "ruff-lsp"
+# Safe, concurrent, practical language
+brew "rust"
+# Format Rust code
+brew "rustfmt"
 # Terminal-based client for Spotify
 brew "spotify-tui"
 # Very fast implementation of tldr in Rust
@@ -77,6 +89,8 @@ cask "insomnia"
 cask "mos"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Replacement for Docker Desktop
+cask "orbstack"
 # Collaboration platform for API development
 cask "postman"
 # Move and resize windows using keyboard shortcuts or snap areas
