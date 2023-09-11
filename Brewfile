@@ -11,8 +11,10 @@ brew "bat"
 brew "python@3.11"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
-# Modern replacement for 'ls'
-brew "exa"
+# Load/unload environment variables based on $PWD
+brew "direnv"
+# Modern, maintained replacement for ls
+brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # User-friendly command-line shell for UNIX-like operating systems
@@ -55,6 +57,8 @@ brew "ruff-lsp"
 brew "rust"
 # Format Rust code
 brew "rustfmt"
+# Used as a compiler wrapper and avoids compilation when possible
+brew "sccache"
 # Terminal-based client for Spotify
 brew "spotify-tui"
 # Very fast implementation of tldr in Rust
