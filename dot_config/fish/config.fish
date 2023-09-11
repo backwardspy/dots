@@ -42,17 +42,19 @@ fish_add_path -g $GOPATH/bin
 set -gx LS_COLORS (vivid generate catppuccin-mocha)
 
 if ! type -q hx && type -q helix
-  alias hx helix
+  function hx --wraps helix
+    helix $argv
+  end
 end
 
-function exa --wraps exa
-  command exa --icons --git --group-directories-first $argv
+function eza --wraps eza
+  command eza --icons --git --group-directories-first --hyperlink $argv
 end
-abbr ls exa
-abbr la exa -a
-abbr ll exa -l
-abbr lla exa -la
-abbr lt exa -T
+abbr ls eza
+abbr la eza -a
+abbr ll eza -l
+abbr lla eza -la
+abbr lt eza -T
 
 abbr ga git add
 abbr gb git branch
@@ -96,3 +98,4 @@ abbr va . .venv/bin/activate.fish
 abbr vd deactivate
 
 zoxide init fish | source
+direnv hook fish | source
