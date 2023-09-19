@@ -63,6 +63,8 @@ brew "sccache"
 brew "spotify-tui"
 # Very fast implementation of tldr in Rust
 brew "tealdeer"
+# Tool to build, change, and version infrastructure
+brew "terraform"
 # Generator for LS_COLORS with support for multiple color themes
 brew "vivid"
 # Shell extension to navigate your filesystem faster
@@ -85,6 +87,8 @@ cask "font-jetbrains-mono"
 cask "font-symbols-only-nerd-font"
 # Game development engine
 cask "godot"
+# Utility to hide menu bar items
+cask "hiddenbar"
 # Free and open-source media player
 cask "iina"
 # HTTP and GraphQL Client
