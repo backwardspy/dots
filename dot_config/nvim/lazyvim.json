@@ -1,0 +1,25 @@
+{
+  "extras": [
+    "coding.codeium",
+    "coding.yanky",
+    "dap.core",
+    "editor.mini-files",
+    "formatting.black",
+    "formatting.prettier",
+    "lang.docker",
+    "lang.go",
+    "lang.json",
+    "lang.python",
+    "lang.rust",
+    "lang.yaml",
+    "lsp.none-ls",
+    "test.core",
+    "util.dot",
+    "util.mini-hipatterns",
+    "util.project",
+    "vscode"
+  ],
+  "news": {
+    "NEWS.md": "2035"
+  }
+}
