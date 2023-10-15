@@ -21,10 +21,10 @@ require("lazy").setup({
     version = false,
   },
   dev = {
-    path = "E:/backwardspy",
+    path = vim.fn.has("win32") ~= 0 and "E:/backwardspy/" or "~/src/backwardspy/",
     patterns = { "backwardspy" },
   },
-  install = { colorscheme = { "catppuccin-neo", "catppuccin", "tokyonight", "habamax" } },
+  install = { colorscheme = { "catppuccin-neo-mocha", "catppuccin-mocha", "tokyonight", "habamax" } },
   checker = { enabled = true },
   performance = {
     rtp = {
