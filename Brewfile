@@ -65,8 +65,12 @@ brew "spotify-tui"
 brew "tealdeer"
 # Tool to build, change, and version infrastructure
 brew "terraform"
+# Modern watch command
+brew "viddy"
 # Generator for LS_COLORS with support for multiple color themes
 brew "vivid"
+# JavaScript package manager
+brew "yarn"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # A Kubernetes credential (exec) plugin implementing azure authentication
@@ -85,6 +89,8 @@ cask "firefox"
 cask "font-jetbrains-mono"
 # Developer targeted fonts with a high number of glyphs
 cask "font-symbols-only-nerd-font"
+# Free and open-source image editor
+cask "gimp"
 # Game development engine
 cask "godot"
 # Utility to hide menu bar items
@@ -101,6 +107,8 @@ cask "obsidian"
 cask "orbstack"
 # Collaboration platform for API development
 cask "postman"
+# IDE for Python programming - Community Edition
+cask "pycharm-ce"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Music streaming service
@@ -111,9 +119,29 @@ cask "syncthing"
 cask "telegram"
 # Unpacks archive files
 cask "the-unarchiver"
-# Code editor
-cask "visual-studio-code-insiders"
+# Open-source code editor
+cask "visual-studio-code"
 # Resources for Wacom tablets
 cask "wacom-tablet"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
+vscode "Catppuccin.catppuccin-vsc"
+vscode "Catppuccin.catppuccin-vsc-icons"
+vscode "catppuccin.catppuccin-vsc-pack"
+vscode "enkia.tokyo-night"
+vscode "GitHub.copilot"
+vscode "GitHub.copilot-chat"
+vscode "GitHub.remotehub"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-dotnettools.csharp"
+vscode "ms-dotnettools.vscode-dotnet-runtime"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode-remote.remote-wsl"
+vscode "ms-vscode-remote.vscode-remote-extensionpack"
+vscode "ms-vscode.remote-explorer"
+vscode "ms-vscode.remote-repositories"
+vscode "ms-vscode.remote-server"
+vscode "redhat.vscode-xml"
+vscode "vscodevim.vim"
