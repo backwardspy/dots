@@ -13,6 +13,7 @@ if (Get-Command eza -errorAction SilentlyContinue) {
     function la { eza -a }
     function ll { eza -l }
     function lla { eza -la }
+    function lt { eza --tree }
 }
 
 if (Get-Command zoxide -errorAction SilentlyContinue) {
