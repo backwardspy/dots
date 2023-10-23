@@ -2,59 +2,60 @@ fish_add_path -g /opt/homebrew/bin
 fish_add_path -g /opt/homebrew/opt/python@3.11/libexec/bin
 fish_add_path -g ~/.local/bin
 
-### recommendations from xdg-ninja
-set -gx XDG_CACHE_HOME $HOME/.cache
-set -gx XDG_CONFIG_HOME $HOME/.config
-set -gx XDG_DATA_HOME $HOME/.local/share
-set -gx XDG_STATE_HOME $HOME/.local/state
-set -gx XDG_RUNTIME_DIR $HOME/.run
+if string match 'Darwin|Linux' (uname)
+    ### recommendations from xdg-ninja
+    set -gx XDG_CACHE_HOME $HOME/.cache
+    set -gx XDG_CONFIG_HOME $HOME/.config
+    set -gx XDG_DATA_HOME $HOME/.local/share
+    set -gx XDG_STATE_HOME $HOME/.local/state
+    set -gx XDG_RUNTIME_DIR $HOME/.run
 
-set -gx AZURE_CONFIG_DIR $XDG_DATA_HOME/azure
+    set -gx AZURE_CONFIG_DIR $XDG_DATA_HOME/azure
 
-set -gx CARGO_HOME $XDG_DATA_HOME/cargo
+    set -gx CARGO_HOME $XDG_DATA_HOME/cargo
 
-set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
+    set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 
-set -gx GEM_HOME $XDG_DATA_HOME/gem
-set -gx GEM_SPEC_CACHE $XDG_CACHE_HOME/gem
+    set -gx GEM_HOME $XDG_DATA_HOME/gem
+    set -gx GEM_SPEC_CACHE $XDG_CACHE_HOME/gem
 
-set -gx GOPATH $XDG_DATA_HOME/go
+    set -gx GOPATH $XDG_DATA_HOME/go
 
-set -gx LESSHISTFILE $XDG_STATE_HOME/less/history
+    set -gx LESSHISTFILE $XDG_STATE_HOME/less/history
 
-set -gx MYPY_CACHE_DIR $XDG_CACHE_HOME/mypy
+    set -gx MYPY_CACHE_DIR $XDG_CACHE_HOME/mypy
 
-set -gx PSQL_HISTORY $XDG_DATA_HOME/psql_history
+    set -gx PSQL_HISTORY $XDG_DATA_HOME/psql_history
 
-set -gx TERMINFO $XDG_DATA_HOME/terminfo
-set -gx TERMINFO_DIRS $XDG_DATA_HOME/terminfo:/usr/share/terminfo
+    set -gx TERMINFO $XDG_DATA_HOME/terminfo
+    set -gx TERMINFO_DIRS $XDG_DATA_HOME/terminfo:/usr/share/terminfo
 
-set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
+    set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 
-set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
-###
+    set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
+    ###
+end
 
 set -gx EDITOR hx
 set -gx TERM wezterm
 
 fish_add_path -g $CARGO_HOME/bin
 fish_add_path -g $GOPATH/bin
-set -gx LS_COLORS (vivid generate catppuccin-mocha)
 
-if ! type -q hx && type -q helix
-  function hx --wraps helix
-    helix $argv
-  end
+if type -q vivid
+    set -gx LS_COLORS (vivid generate catppuccin-mocha)
 end
 
-function eza --wraps eza
-  command eza --icons --git --group-directories-first --hyperlink $argv
+if type -q eza
+    function eza --wraps eza
+        command eza --icons --git --group-directories-first --hyperlink $argv
+    end
+    abbr ls eza
+    abbr la eza -a
+    abbr ll eza -l
+    abbr lla eza -la
+    abbr lt eza -T
 end
-abbr ls eza
-abbr la eza -a
-abbr ll eza -l
-abbr lla eza -la
-abbr lt eza -T
 
 abbr ga git add
 abbr gb git branch
@@ -97,5 +98,14 @@ abbr vn python -m venv .venv
 abbr va . .venv/bin/activate.fish
 abbr vd deactivate
 
-zoxide init fish | source
-direnv hook fish | source
+if type -q zoxide
+    zoxide init fish | source
+end
+
+if type -q direnv
+    direnv hook fish | source
+end
+
+if type -q starship
+    starship init fish | source
+end

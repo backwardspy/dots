@@ -1,0 +1,18 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = "($python$rust\n)$directory$character"
+add_newline = true
+
+[character]
+success_symbol = '[\$](bold green)'
+
+[directory]
+use_os_path_sep = false
+
+[python]
+format = '[python ${version} (\(${virtualenv}\) )]($style)'
+version_format = '${raw}'
+
+[rust]
+format = '[rust ${version} ]($style)'
+version_format = '${raw}'
