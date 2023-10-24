@@ -2,7 +2,7 @@ fish_add_path -g /opt/homebrew/bin
 fish_add_path -g /opt/homebrew/opt/python@3.11/libexec/bin
 fish_add_path -g ~/.local/bin
 
-if string match 'Darwin|Linux' (uname)
+if string match -r 'Darwin|Linux' (uname)
     ### recommendations from xdg-ninja
     set -gx XDG_CACHE_HOME $HOME/.cache
     set -gx XDG_CONFIG_HOME $HOME/.config
@@ -36,7 +36,7 @@ if string match 'Darwin|Linux' (uname)
     ###
 end
 
-set -gx EDITOR hx
+set -gx EDITOR nvim
 set -gx TERM wezterm
 
 fish_add_path -g $CARGO_HOME/bin
@@ -107,5 +107,9 @@ if type -q direnv
 end
 
 if type -q starship
+    function starship_transient_prompt_func
+        starship module character
+    end
     starship init fish | source
+    enable_transience
 end
