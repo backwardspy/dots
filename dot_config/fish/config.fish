@@ -2,7 +2,7 @@ fish_add_path -g /opt/homebrew/bin
 fish_add_path -g /opt/homebrew/opt/python@3.11/libexec/bin
 fish_add_path -g ~/.local/bin
 
-if string match -r 'Darwin|Linux' (uname)
+if string match -qr 'Darwin|Linux' (uname)
     ### recommendations from xdg-ninja
     set -gx XDG_CACHE_HOME $HOME/.cache
     set -gx XDG_CONFIG_HOME $HOME/.config
@@ -37,6 +37,7 @@ if string match -r 'Darwin|Linux' (uname)
 end
 
 set -gx EDITOR nvim
+set -gx MANPAGER 'nvim +Man!'
 set -gx TERM wezterm
 
 fish_add_path -g $CARGO_HOME/bin
@@ -63,6 +64,7 @@ abbr gc git commit
 abbr gcm git checkout main
 abbr gco git checkout
 abbr gd git diff
+abbr gdt git difftool
 abbr gl git pull
 abbr gp git push
 abbr gr git rebase
