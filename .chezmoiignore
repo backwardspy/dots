@@ -11,3 +11,8 @@ unbrew.py
 # exlude macos-specific dots
 Brewfile
 {{- end }}
+
+{{- if ne .chezmoi.os "windows" }}
+# exclude windows-specific dots
+Documents/
+{{- end }}
