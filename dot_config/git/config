@@ -3,6 +3,9 @@
     name = backwardspy
     signingKey = ~/.ssh/id_ed25519.pub
 
+[diff]
+    tool = "vimdiff"
+
 [filter "lfs"]
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
