@@ -1,1 +1,3 @@
-diff.command = "vimdiff"
+[diff]
+command= "nvim"
+args=[ "-d", '{{ "{{ .Destination }}" }}', '{{ "{{ .Target }}" }}' ]
