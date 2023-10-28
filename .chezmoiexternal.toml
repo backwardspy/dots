@@ -1,0 +1,8 @@
+{{- if eq .chezmoi.os "windows" }}
+["AppData/Roaming/bat/themes/catppuccin-mocha.tmTheme"]
+{{- else }}
+[".config/bat/themes/catppuccin-mocha.tmTheme"]
+{{- end }}
+type = "file"
+url = "https://raw.githubusercontent.com/catppuccin/bat/main/Catppuccin-mocha.tmTheme"
+refreshPeriod = "168h"

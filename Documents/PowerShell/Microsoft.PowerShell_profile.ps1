@@ -13,19 +13,19 @@ if (Get-Command eza -errorAction SilentlyContinue)
   Set-Alias l eza
   function la
   { 
-    eza -a 
+    eza -a $args
   }
   function ll
   {
-    eza -l 
+    eza -l $args
   }
   function lla
   { 
-    eza -la 
+    eza -la $args
   }
   function lt
   { 
-    eza --tree 
+    eza --tree $args
   }
 }
 
@@ -45,6 +45,11 @@ if (Get-Command zoxide -errorAction SilentlyContinue)
 {
   Invoke-Expression (& { (zoxide init powershell | Out-String) })
 }
+
+
+
+
+
 
 
 

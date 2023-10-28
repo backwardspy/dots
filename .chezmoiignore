@@ -4,15 +4,15 @@ unbrew.py
 .config/fish/fish_variables
 
 {{- if ne .chezmoi.os "linux" }}
-# exclude linux-specific dots
 {{- end }}
 
 {{- if ne .chezmoi.os "darwin" }}
-# exlude macos-specific dots
 Brewfile
 {{- end }}
 
 {{- if ne .chezmoi.os "windows" }}
-# exclude windows-specific dots
 Documents/
+AppData/
+{{- else }}
+.config/bat
 {{- end }}
