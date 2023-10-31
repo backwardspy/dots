@@ -49,3 +49,4 @@
 [delta]
     line-numbers = true
     hyperlinks = true
+    syntax-theme = catppuccin-mocha

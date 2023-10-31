@@ -70,21 +70,8 @@ M.apply = function(config, wez)
 	config.color_scheme = "Catppuccin Carbon"
 	config.bold_brightens_ansi_colors = false
 
-	config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
-	config.font = wez.font("JetBrains Mono", { weight = "DemiBold" })
-	config.font_size = string.match(wez.target_triple, "darwin") and 16 or 10
-	config.font_rules = {
-		{
-			intensity = "Bold",
-			italic = false,
-			font = wez.font("JetBrains Mono", { weight = "ExtraBold" }),
-		},
-		{
-			intensity = "Bold",
-			italic = true,
-			font = wez.font("JetBrains Mono", { weight = "ExtraBold", italic = true }),
-		},
-	}
+	config.font = wez.font("Hermit")
+	config.font_size = string.match(wez.target_triple, "darwin") and 16 or 11
 
 	config.inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 }
 
