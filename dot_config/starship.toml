@@ -1,13 +1,25 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = "($python$rust\n)$directory$character"
+format = "($git_branch$python$rust\n)$directory$character"
+right_format = "$git_status$git_state"
 add_newline = true
 
 [character]
 success_symbol = '[\$](bold green)'
+error_symbol = '[\$](bold red)'
 
 [directory]
 use_os_path_sep = false
+
+[git_branch]
+format = '[$branch ]($style)'
+truncation_length = 20
+
+[git_status]
+format = '[$all_status$ahead_behind]($style)'
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\)'
 
 [python]
 format = '[python ${version} (\(${virtualenv}\) )]($style)'
