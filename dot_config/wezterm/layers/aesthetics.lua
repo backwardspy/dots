@@ -73,6 +73,8 @@ M.apply = function(config, wez)
 	config.font = wez.font("Hermit")
 	config.font_size = string.match(wez.target_triple, "darwin") and 16 or 11
 
+	config.default_cursor_style = "BlinkingUnderline"
+
 	config.inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 }
 
 	config.window_padding = { top = 0, bottom = 0, left = 0, right = 0 }
