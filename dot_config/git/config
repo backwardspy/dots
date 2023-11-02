@@ -7,7 +7,7 @@
     pager = delta
 
 [interactive]
-    diffFilter = delta ---color-only --features=interactive
+    diffFilter = delta --color-only --features=interactive
 
 [diff]
     tool = nvimdiff
