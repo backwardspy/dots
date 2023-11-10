@@ -1,30 +1,36 @@
 local M = {}
 
 M.apply = function(config, wez)
+  config.leader = { key = "a", mods="CTRL" }
   config.keys = {
     {
       key = "f",
-      mods = "SHIFT|CTRL",
+      mods = "LEADER",
       action = wez.action.ToggleFullScreen,
     },
     {
-      key = "?",
-      mods = "SHIFT|CTRL",
+      key = "z",
+      mods = "LEADER",
+      action = wez.action.TogglePaneZoomState,
+    },
+    {
+      key = "/",
+      mods = "LEADER",
       action = wez.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
     },
     {
-      key = "_",
-      mods = "SHIFT|CTRL",
+      key = "-",
+      mods = "LEADER",
       action = wez.action.SplitVertical({ domain = "CurrentPaneDomain" }),
     },
     {
       key = "w",
-      mods = "SHIFT|CTRL",
+      mods = "LEADER",
       action = wez.action.PaneSelect,
     },
     {
       key = "p",
-      mods = "SHIFT|CTRL",
+      mods = "LEADER",
       action = wez.action.ActivateCommandPalette,
     },
   }
