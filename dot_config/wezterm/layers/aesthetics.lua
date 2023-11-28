@@ -71,7 +71,7 @@ M.apply = function(config, wez)
 	config.bold_brightens_ansi_colors = false
 
 	config.font = wez.font("Hermit")
-	config.font_size = string.match(wez.target_triple, "darwin") and 16 or 11
+	config.font_size = string.match(wez.target_triple, "darwin") and 13 or 11
 
 	config.default_cursor_style = "BlinkingUnderline"
 
