@@ -3,6 +3,8 @@ tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
 # Microsoft Azure CLI 2.0
 brew "azure-cli"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -27,8 +29,6 @@ brew "git-delta"
 brew "glow"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.11"
 # Interactive computing in Python
 brew "ipython"
 # Lightweight and flexible command-line JSON processor
@@ -40,7 +40,7 @@ brew "neovim"
 # Platform built on V8 to build network applications
 brew "node"
 # Python dependency management tool
-brew "pipenv"
+brew "pipenv", link: false
 # Python package management tool
 brew "poetry"
 # Object-relational database system
@@ -79,6 +79,8 @@ cask "arc"
 cask "bitwarden"
 # App to build and share containerized applications and microservices
 cask "docker"
+# Web browser
+cask "firefox"
 # Free and open-source image editor
 cask "gimp"
 # Utility to hide menu bar items
@@ -107,12 +109,15 @@ cask "visual-studio-code"
 cask "wacom-tablet"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
+vscode "alice-rei.alice-carbon-theme"
 vscode "bierner.docs-view"
+vscode "bierner.markdown-mermaid"
 vscode "Catppuccin.catppuccin-vsc"
 vscode "Catppuccin.catppuccin-vsc-icons"
 vscode "catppuccin.catppuccin-vsc-pack"
 vscode "charliermarsh.ruff"
 vscode "donjayamanne.python-environment-manager"
+vscode "drcika.apc-extension"
 vscode "geequlim.godot-tools"
 vscode "GitHub.copilot"
 vscode "GitHub.copilot-chat"
@@ -120,6 +125,8 @@ vscode "GitHub.remotehub"
 vscode "github.vscode-github-actions"
 vscode "GitHub.vscode-pull-request-github"
 vscode "hbenl.vscode-test-explorer"
+vscode "mechatroner.rainbow-csv"
+vscode "mhutchie.git-graph"
 vscode "ms-python.mypy-type-checker"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
