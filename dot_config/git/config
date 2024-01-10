@@ -10,11 +10,7 @@
     diffFilter = delta --color-only --features=interactive
 
 [diff]
-    tool = nvimdiff
     colorMoved = default
-
-[difftool "nvimdiff"]
-    cmd = nvim -d "$LOCAL" "$REMOTE"
 
 [merge]
     conflictstyle = diff3

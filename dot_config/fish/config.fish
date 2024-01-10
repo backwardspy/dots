@@ -1,5 +1,6 @@
 fish_add_path -g /opt/homebrew/bin
-fish_add_path -g /opt/homebrew/opt/python@3.11/libexec/bin
+fish_add_path -g /opt/homebrew/sbin
+fish_add_path -g /opt/homebrew/opt/python@3.12/libexec/bin
 fish_add_path -g ~/.local/bin
 
 if string match -qr 'Darwin|Linux' (uname)
@@ -36,8 +37,7 @@ if string match -qr 'Darwin|Linux' (uname)
     ###
 end
 
-set -gx EDITOR nvim
-set -gx MANPAGER 'nvim +Man!'
+set -gx EDITOR hx
 set -gx TERM wezterm
 
 fish_add_path -g $CARGO_HOME/bin
@@ -85,10 +85,6 @@ abbr pad poetry add --group dev
 abbr pi poetry install
 abbr pr poetry run
 abbr psh poetry shell
-
-abbr vi nvim
-abbr vim nvim
-abbr neogit nvim +Neogit
 
 abbr dc docker-compose
 abbr dcb docker-compose build
