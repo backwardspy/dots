@@ -70,7 +70,10 @@ M.apply = function(config, wez)
 	config.color_scheme = "Catppuccin Carbon"
 	config.bold_brightens_ansi_colors = false
 
-	config.font = wez.font("Hermit")
+	config.font = wez.font({
+          family="Monaspace Neon Var",
+          weight = "Bold",
+        })
 	config.font_size = string.match(wez.target_triple, "darwin") and 13 or 11
 
 	config.default_cursor_style = "BlinkingUnderline"
