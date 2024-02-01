@@ -1,11 +1,38 @@
 $PSReadLineOptions = @{
-  BellStyle = 'None'
-  CompletionQueryItems = 20
   EditMode = 'Emacs'
   PredictionSource = 'HistoryAndPlugin'
-  WordDelimiters = ';:,.[]{}()/\|^&*-=+_''---'
 }
 Set-PSReadLineOption @PSReadLineOptions
+
+Import-Module Catppuccin
+$Flavor = $Catppuccin['Latte']
+function prompt {
+    $(if (Test-Path variable:/PSDebugContext) { "$($Flavor.Red.Foreground())[DBG]: " }
+      else { '' }) + "$($Flavor.Teal.Foreground())PS $($Flavor.Yellow.Foreground())" + $(Get-Location) +
+        "$($Flavor.Green.Foreground())" + $(if ($NestedPromptLevel -ge 1) { '>>' }) + '> ' + $($PSStyle.Reset)
+}
+
+$Colors = @{
+	ContinuationPrompt     = $Flavor.Teal.Foreground()
+	Emphasis               = $Flavor.Red.Foreground()
+	Selection              = $Flavor.Surface0.Background()
+	InlinePrediction       = $Flavor.Overlay0.Foreground()
+	ListPrediction         = $Flavor.Mauve.Foreground()
+	ListPredictionSelected = $Flavor.Surface0.Background()
+	Command                = $Flavor.Blue.Foreground()
+	Comment                = $Flavor.Overlay0.Foreground()
+	Default                = $Flavor.Text.Foreground()
+	Error                  = $Flavor.Red.Foreground()
+	Keyword                = $Flavor.Mauve.Foreground()
+	Member                 = $Flavor.Rosewater.Foreground()
+	Number                 = $Flavor.Peach.Foreground()
+	Operator               = $Flavor.Sky.Foreground()
+	Parameter              = $Flavor.Pink.Foreground()
+	String                 = $Flavor.Green.Foreground()
+	Type                   = $Flavor.Yellow.Foreground()
+	Variable               = $Flavor.Lavender.Foreground()
+}
+Set-PSReadLineOption -Colors $Colors
 
 if (Get-Command eza -errorAction SilentlyContinue)
 {

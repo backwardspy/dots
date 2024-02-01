@@ -1,0 +1,17 @@
+theme = "ayu_light"
+
+[editor]
+shell = {{if eq .chezmoi.os "windows"}}["pwsh", "-NoLogo", "-NoProfile", "-c"]{{else}}["fish", "-c"]{{end}}
+line-number = "relative"
+auto-pairs = false
+
+[editor.lsp]
+display-messages = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "block"
+
+[editor.file-picker]
+hidden = false

@@ -15,4 +15,5 @@ Documents/
 AppData/
 {{- else }}
 .config/bat
+.config/helix
 {{- end }}
