@@ -43,6 +43,10 @@ set -gx TERM wezterm
 fish_add_path -g $CARGO_HOME/bin
 fish_add_path -g $GOPATH/bin
 
+if type -q npm
+    fish_add_path (npm config get prefix)/bin
+end
+
 if type -q vivid
     set -gx LS_COLORS (vivid generate catppuccin-mocha)
 end
