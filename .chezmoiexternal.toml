@@ -6,3 +6,11 @@
 type = "file"
 url = "https://raw.githubusercontent.com/catppuccin/bat/main/Catppuccin-mocha.tmTheme"
 refreshPeriod = "168h"
+
+{{- if eq .chezmoi.os "windows" }}
+["Documents/PowerShell/Modules/Catppuccin"]
+type = "archive"
+url = "https://github.com/catppuccin/powershell/archive/refs/heads/main.zip"
+stripComponents = 1
+refreshPeriod = "168h"
+{{- end }}
