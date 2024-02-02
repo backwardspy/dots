@@ -1,4 +1,4 @@
-theme = "ayu_light"
+theme = "catppuccin_latte"
 
 [editor]
 shell = {{if eq .chezmoi.os "windows"}}["pwsh", "-NoLogo", "-NoProfile", "-c"]{{else}}["fish", "-c"]{{end}}
