@@ -27,25 +27,29 @@ brew "gh"
 brew "git-delta"
 # Render markdown on the CLI
 brew "glow"
-# Open source programming language to build simple/reliable/efficient software
-brew "go"
-# Interactive computing in Python
-brew "ipython"
+# Post-modern modal text editor
+brew "helix"
+# Command-line benchmarking tool
+brew "hyperfine"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Handy way to save and run project-specific commands
+brew "just"
 # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubectx"
-# Ambitious Vim-fork focused on extensibility and agility
-brew "neovim"
 # Platform built on V8 to build network applications
 brew "node"
 # Python dependency management tool
-brew "pipenv", link: false
+brew "pipenv"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
 # Python package management tool
 brew "poetry"
 # Object-relational database system
 brew "postgresql@15", link: true
-# Messaging broker
+# Python Language Server for the Language Server Protocol
+brew "python-lsp-server"
+# Messaging and streaming broker
 brew "rabbitmq"
 # Persistent key-value database, with built-in net interface
 brew "redis"
@@ -55,10 +59,6 @@ brew "ripgrep"
 brew "rust"
 # Format Rust code
 brew "rustfmt"
-# Used as a compiler wrapper and avoids compilation when possible
-brew "sccache"
-# Terminal-based client for Spotify
-brew "spotify-tui"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Very fast implementation of tldr in Rust
@@ -71,16 +71,18 @@ brew "vivid"
 brew "zoxide"
 # A Kubernetes credential (exec) plugin implementing azure authentication
 brew "azure/kubelogin/kubelogin"
+# Command-line interface for 1Password
+cask "1password-cli"
+# Web browser
+cask "alex313031-thorium"
 # Enable Windows-like alt-tab
 cask "alt-tab"
-# Chromium based browser
-cask "arc"
 # Desktop password and login vault
 cask "bitwarden"
+# Universal database tool and SQL client
+cask "dbeaver-community"
 # App to build and share containerized applications and microservices
 cask "docker"
-# Web browser
-cask "firefox"
 # Free and open-source image editor
 cask "gimp"
 # Utility to hide menu bar items
@@ -95,6 +97,8 @@ cask "mos"
 cask "orbstack"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# Share peripherals between computers
+cask "sharemouse"
 # Music streaming service
 cask "spotify"
 # Real time file synchronization software
@@ -140,9 +144,12 @@ vscode "ms-vscode.remote-repositories"
 vscode "ms-vscode.remote-server"
 vscode "ms-vscode.test-adapter-converter"
 vscode "mtxr.sqltools"
+vscode "mtxr.sqltools-driver-pg"
 vscode "mtxr.sqltools-driver-sqlite"
 vscode "Razoric.gdscript-toolkit-formatter"
+vscode "redhat.vscode-yaml"
 vscode "rust-lang.rust-analyzer"
+vscode "semanticdiff.semanticdiff"
 vscode "serayuzgur.crates"
 vscode "Swellaby.rust-pack"
 vscode "Swellaby.vscode-rust-test-adapter"
@@ -151,3 +158,4 @@ vscode "vadimcn.vscode-lldb"
 vscode "VisualStudioExptTeam.intellicode-api-usage-examples"
 vscode "VisualStudioExptTeam.vscodeintellicode"
 vscode "vscodevim.vim"
+vscode "waderyan.gitblame"
