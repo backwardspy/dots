@@ -3,7 +3,6 @@ theme = "catppuccin_latte"
 [editor]
 shell = {{if eq .chezmoi.os "windows"}}["pwsh", "-NoLogo", "-NoProfile", "-c"]{{else}}["fish", "-c"]{{end}}
 line-number = "relative"
-auto-pairs = false
 
 [editor.lsp]
 display-messages = true

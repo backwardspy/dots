@@ -6,11 +6,6 @@ Set-PSReadLineOption @PSReadLineOptions
 
 Import-Module Catppuccin
 $Flavor = $Catppuccin['Latte']
-function prompt {
-    $(if (Test-Path variable:/PSDebugContext) { "$($Flavor.Red.Foreground())[DBG]: " }
-      else { '' }) + "$($Flavor.Teal.Foreground())PS $($Flavor.Yellow.Foreground())" + $(Get-Location) +
-        "$($Flavor.Green.Foreground())" + $(if ($NestedPromptLevel -ge 1) { '>>' }) + '> ' + $($PSStyle.Reset)
-}
 
 $Colors = @{
 	ContinuationPrompt     = $Flavor.Teal.Foreground()
