@@ -13,4 +13,14 @@ type = "archive"
 url = "https://github.com/catppuccin/powershell/archive/refs/heads/main.zip"
 stripComponents = 1
 refreshPeriod = "168h"
+{{- else }}
+[".config/fish/themes/Catppuccin Latte.theme"]
+type = "file"
+url = "https://raw.githubusercontent.com/catppuccin/fish/main/themes/Catppuccin%20Latte.theme"
+refreshPeriod = "168h"
+
+[".config/fish/themes/Catppuccin Mocha.theme"]
+type = "file"
+url = "https://raw.githubusercontent.com/catppuccin/fish/main/themes/Catppuccin%20Mocha.theme"
+refreshPeriod = "168h"
 {{- end }}
