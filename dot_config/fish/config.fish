@@ -44,11 +44,11 @@ fish_add_path -g $CARGO_HOME/bin
 fish_add_path -g $GOPATH/bin
 
 if type -q npm
-    fish_add_path (npm config get prefix)/bin
+    fish_add_path $HOME/.local/share/npm/bin
 end
 
 if type -q vivid
-    set -gx LS_COLORS (vivid generate catppuccin-mocha)
+    set -gx LS_COLORS (vivid generate catppuccin-latte)
 end
 
 if type -q eza
