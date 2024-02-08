@@ -3,12 +3,6 @@
     name = backwardspy
     signingKey = ~/.ssh/id_ed25519.pub
 
-[core]
-    pager = delta
-
-[interactive]
-    diffFilter = delta --color-only --features=interactive
-
 [diff]
     colorMoved = default
 
@@ -41,8 +35,3 @@
 
 [init]
     defaultBranch = main
-
-[delta]
-    line-numbers = true
-    hyperlinks = true
-    syntax-theme = catppuccin-mocha

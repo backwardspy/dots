@@ -23,8 +23,6 @@ brew "fish"
 brew "fzf"
 # GitHub command-line tool
 brew "gh"
-# Syntax-highlighting pager for git and diff output
-brew "git-delta"
 # Render markdown on the CLI
 brew "glow"
 # Post-modern modal text editor
@@ -47,8 +45,6 @@ brew "pipx"
 brew "poetry"
 # Object-relational database system
 brew "postgresql@15", link: true
-# Python Language Server for the Language Server Protocol
-brew "python-lsp-server"
 # Messaging and streaming broker
 brew "rabbitmq"
 # Persistent key-value database, with built-in net interface
