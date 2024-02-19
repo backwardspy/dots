@@ -5,33 +5,37 @@
 
 [diff]
     colorMoved = default
+    algorithm = histogram
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
+
+[rebase]
+    autosquash = true
+    autostash = true
+
+[push]
+    autoSetupRemote = true
+    gpgSign = "if-asked"
+
+[commit]
+    gpgSign = true
+    verbose = true
+
+[tag]
+    gpgSign = true
+
+[init]
+    defaultBranch = main
+
+[rerere]
+    enabled = true
+
+[gpg]
+    format = ssh
 
 [filter "lfs"]
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
     clean = git-lfs clean -- %f
-
-[pull]
-    rebase = true
-
-[push]
-    autoSetupRemote = true
-
-[gpg]
-    format = ssh
-
-[commit]
-    gpgSign = true
-
-[tag]
-    gpgSign = true
-
-[push]
-    gpgSign = "if-asked"
-
-[init]
-    defaultBranch = main
