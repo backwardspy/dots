@@ -1,5 +1,6 @@
 [language-server.rust-analyzer.config]
 check.command = "clippy"
+cargo.allFeatures = true
 
 [language-server.lua-language-server.config.Lua.format]
 enable = true
