@@ -30,6 +30,9 @@ local function color_scheme()
   end
 end
 
+config.font = wezterm.font("Cascadia Code", { weight = "Book" })
+config.font_size = 10.5
+
 config.color_scheme = color_scheme()
 local colors = wezterm.color.get_builtin_schemes()[config.color_scheme]
 
