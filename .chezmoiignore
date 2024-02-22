@@ -12,10 +12,9 @@ Brewfile
 
 {{- if ne .chezmoi.os "windows" }}
 Documents/
-AppData/
 .ipython
 {{- else }}
-.config/bat
-.config/helix
-.config/ipython
+!.config/wezterm/
+.config/*
+.local/
 {{- end }}

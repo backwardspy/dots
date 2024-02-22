@@ -1,16 +1,13 @@
-local wezterm = require 'wezterm'
+local wezterm = require "wezterm"
 local config = wezterm.config_builder()
 
--- use pwsh on windows and start in devdrive
-if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
-  config.launch_menu = {}
-  local pwsh_args = { 'pwsh.exe', '-NoLogo' }
-  config.default_prog = pwsh_args
-  table.insert(config.launch_menu, {
-    label = 'PowerShell',
-    args = pwsh_args,
-  })
-  config.default_cwd = "E:"
+-- use pwsh/wsl on windows
+if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+  config.launch_menu = {{
+    label = "PowerShell",
+    args = { "pwsh.exe", "-NoLogo" },
+  }}
+  config.default_domain = "WSL:Ubuntu"
 end
 
 -- sync colour scheme with os settings
