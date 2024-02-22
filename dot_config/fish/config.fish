@@ -40,7 +40,7 @@ if string match -qr 'Darwin|Linux' (uname)
     ###
 end
 
-set -gx EDITOR hx
+set -gx EDITOR nvim
 set -gx TERM wezterm
 
 fish_add_path -g $CARGO_HOME/bin
