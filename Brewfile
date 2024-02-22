@@ -3,12 +3,12 @@ tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.11"
 # Microsoft Azure CLI 2.0
 brew "azure-cli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Next-generation test runner for Rust
+brew "cargo-nextest"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
 # Load/unload environment variables based on $PWD
@@ -25,8 +25,6 @@ brew "fzf"
 brew "gh"
 # Render markdown on the CLI
 brew "glow"
-# Post-modern modal text editor
-brew "helix"
 # Command-line benchmarking tool
 brew "hyperfine"
 # Lightweight and flexible command-line JSON processor
@@ -35,6 +33,8 @@ brew "jq"
 brew "just"
 # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubectx"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
 # Platform built on V8 to build network applications
 brew "node"
 # Python dependency management tool
@@ -45,6 +45,12 @@ brew "pipx"
 brew "poetry"
 # Object-relational database system
 brew "postgresql@15", link: true
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
 # Messaging and streaming broker
 brew "rabbitmq"
 # Persistent key-value database, with built-in net interface
@@ -77,12 +83,12 @@ cask "alt-tab"
 cask "bitwarden"
 # Universal database tool and SQL client
 cask "dbeaver-community"
-# App to build and share containerized applications and microservices
+# App to build and share containerised applications and microservices
 cask "docker"
+# Monospaced font that includes programming ligatures
+cask "font-cascadia-code"
 # Free and open-source image editor
 cask "gimp"
-# Utility to hide menu bar items
-cask "hiddenbar"
 # Free and open-source media player
 cask "iina"
 # HTTP and GraphQL Client
@@ -97,7 +103,7 @@ cask "rectangle"
 cask "sharemouse"
 # Music streaming service
 cask "spotify"
-# Real time file synchronization software
+# Real time file synchronisation software
 cask "syncthing"
 # Messaging app with a focus on speed and security
 cask "telegram"
