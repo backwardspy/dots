@@ -3,10 +3,18 @@ tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
 # Microsoft Azure CLI 2.0
 brew "azure-cli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Platform built on V8 to build network applications
+brew "node"
+# Secure and free password manager for all of your devices
+brew "bitwarden-cli"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
 # Next-generation test runner for Rust
 brew "cargo-nextest"
 # Manage your dotfiles across multiple diverse machines, securely
@@ -23,6 +31,8 @@ brew "fish"
 brew "fzf"
 # GitHub command-line tool
 brew "gh"
+# Distributed revision control system
+brew "git"
 # Render markdown on the CLI
 brew "glow"
 # Command-line benchmarking tool
@@ -35,8 +45,6 @@ brew "just"
 brew "kubectx"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Platform built on V8 to build network applications
-brew "node"
 # Python dependency management tool
 brew "pipenv"
 # Execute binaries from Python packages in isolated environments
@@ -47,10 +55,6 @@ brew "poetry"
 brew "postgresql@15", link: true
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.11"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.12"
 # Messaging and streaming broker
 brew "rabbitmq"
 # Persistent key-value database, with built-in net interface
