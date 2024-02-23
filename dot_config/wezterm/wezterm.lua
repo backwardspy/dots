@@ -6,6 +6,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
   config.launch_menu = {{
     label = "PowerShell",
     args = { "pwsh.exe", "-NoLogo" },
+    domain = { DomainName = "local" },
   }}
   config.default_domain = "WSL:Ubuntu"
 end
