@@ -9,6 +9,14 @@ brew "python@3.11"
 brew "azure-cli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Platform built on V8 to build network applications
+brew "node"
+# Secure and free password manager for all of your devices
+brew "bitwarden-cli"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
+# Next-generation test runner for Rust
+brew "cargo-nextest"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
 # Load/unload environment variables based on $PWD
@@ -23,10 +31,10 @@ brew "fish"
 brew "fzf"
 # GitHub command-line tool
 brew "gh"
+# Distributed revision control system
+brew "git"
 # Render markdown on the CLI
 brew "glow"
-# Post-modern modal text editor
-brew "helix"
 # Command-line benchmarking tool
 brew "hyperfine"
 # Lightweight and flexible command-line JSON processor
@@ -35,8 +43,8 @@ brew "jq"
 brew "just"
 # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubectx"
-# Platform built on V8 to build network applications
-brew "node"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
 # Python dependency management tool
 brew "pipenv"
 # Execute binaries from Python packages in isolated environments
@@ -45,6 +53,8 @@ brew "pipx"
 brew "poetry"
 # Object-relational database system
 brew "postgresql@15", link: true
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
 # Messaging and streaming broker
 brew "rabbitmq"
 # Persistent key-value database, with built-in net interface
@@ -77,12 +87,12 @@ cask "alt-tab"
 cask "bitwarden"
 # Universal database tool and SQL client
 cask "dbeaver-community"
-# App to build and share containerized applications and microservices
+# App to build and share containerised applications and microservices
 cask "docker"
+# Monospaced font that includes programming ligatures
+cask "font-cascadia-code"
 # Free and open-source image editor
 cask "gimp"
-# Utility to hide menu bar items
-cask "hiddenbar"
 # Free and open-source media player
 cask "iina"
 # HTTP and GraphQL Client
@@ -97,7 +107,7 @@ cask "rectangle"
 cask "sharemouse"
 # Music streaming service
 cask "spotify"
-# Real time file synchronization software
+# Real time file synchronisation software
 cask "syncthing"
 # Messaging app with a focus on speed and security
 cask "telegram"
@@ -109,49 +119,3 @@ cask "visual-studio-code"
 cask "wacom-tablet"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
-vscode "alice-rei.alice-carbon-theme"
-vscode "bierner.docs-view"
-vscode "bierner.markdown-mermaid"
-vscode "Catppuccin.catppuccin-vsc"
-vscode "Catppuccin.catppuccin-vsc-icons"
-vscode "catppuccin.catppuccin-vsc-pack"
-vscode "charliermarsh.ruff"
-vscode "donjayamanne.python-environment-manager"
-vscode "drcika.apc-extension"
-vscode "geequlim.godot-tools"
-vscode "GitHub.copilot"
-vscode "GitHub.copilot-chat"
-vscode "GitHub.remotehub"
-vscode "github.vscode-github-actions"
-vscode "GitHub.vscode-pull-request-github"
-vscode "hbenl.vscode-test-explorer"
-vscode "mechatroner.rainbow-csv"
-vscode "mhutchie.git-graph"
-vscode "ms-python.mypy-type-checker"
-vscode "ms-python.python"
-vscode "ms-python.vscode-pylance"
-vscode "ms-vscode-remote.remote-containers"
-vscode "ms-vscode-remote.remote-ssh"
-vscode "ms-vscode-remote.remote-ssh-edit"
-vscode "ms-vscode-remote.remote-wsl"
-vscode "ms-vscode-remote.vscode-remote-extensionpack"
-vscode "ms-vscode.remote-explorer"
-vscode "ms-vscode.remote-repositories"
-vscode "ms-vscode.remote-server"
-vscode "ms-vscode.test-adapter-converter"
-vscode "mtxr.sqltools"
-vscode "mtxr.sqltools-driver-pg"
-vscode "mtxr.sqltools-driver-sqlite"
-vscode "Razoric.gdscript-toolkit-formatter"
-vscode "redhat.vscode-yaml"
-vscode "rust-lang.rust-analyzer"
-vscode "semanticdiff.semanticdiff"
-vscode "serayuzgur.crates"
-vscode "Swellaby.rust-pack"
-vscode "Swellaby.vscode-rust-test-adapter"
-vscode "tamasfe.even-better-toml"
-vscode "vadimcn.vscode-lldb"
-vscode "VisualStudioExptTeam.intellicode-api-usage-examples"
-vscode "VisualStudioExptTeam.vscodeintellicode"
-vscode "vscodevim.vim"
-vscode "waderyan.gitblame"

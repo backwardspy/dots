@@ -1,6 +1,9 @@
 fish_add_path -g /opt/homebrew/bin
 fish_add_path -g /opt/homebrew/sbin
 fish_add_path -g /opt/homebrew/opt/python@3.12/libexec/bin
+fish_add_path -g /home/linuxbrew/.linuxbrew/bin
+fish_add_path -g /home/linuxbrew/.linuxbrew/sbin
+fish_add_path -g /home/linuxbrew/.linuxbrew/opt/python@3.12/libexec/bin
 fish_add_path -g ~/.local/bin
 
 if string match -qr 'Darwin|Linux' (uname)
@@ -37,7 +40,7 @@ if string match -qr 'Darwin|Linux' (uname)
     ###
 end
 
-set -gx EDITOR hx
+set -gx EDITOR nvim
 set -gx TERM wezterm
 
 fish_add_path -g $CARGO_HOME/bin
