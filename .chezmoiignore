@@ -3,13 +3,6 @@ unbrew.py
 .config/fish/conf.d/
 .config/fish/fish_variables
 
-{{- if ne .chezmoi.os "linux" }}
-{{- end }}
-
-{{- if ne .chezmoi.os "darwin" }}
-Brewfile
-{{- end }}
-
 {{- if ne .chezmoi.os "windows" }}
 Documents/
 .ipython
@@ -17,4 +10,5 @@ Documents/
 !.config/wezterm/
 .config/*
 .local/
+Brewfile
 {{- end }}
