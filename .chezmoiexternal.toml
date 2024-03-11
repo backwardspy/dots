@@ -15,8 +15,13 @@ type = "file"
 url = "https://raw.githubusercontent.com/catppuccin/fish/main/themes/Catppuccin%20Mocha.theme"
 refreshPeriod = "168h"
 
-[".config/bat/themes/catppuccin-mocha.tmTheme"]
+[".config/bat/themes/Catppuccin Latte.tmTheme"]
 type = "file"
-url = "https://raw.githubusercontent.com/catppuccin/bat/main/Catppuccin-mocha.tmTheme"
+url = "https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin%20Latte.tmTheme"
+refreshPeriod = "168h"
+
+[".config/bat/themes/Catppuccin Mocha.tmTheme"]
+type = "file"
+url = "https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin%20Mocha.tmTheme"
 refreshPeriod = "168h"
 {{- end }}
