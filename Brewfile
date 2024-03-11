@@ -7,6 +7,8 @@ tap "homebrew/services"
 brew "python@3.11"
 # Microsoft Azure CLI 2.0
 brew "azure-cli"
+# Background rust code check
+brew "bacon"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Platform built on V8 to build network applications
@@ -15,6 +17,8 @@ brew "node"
 brew "bitwarden-cli"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.12"
+# Binary installation for rust projects
+brew "cargo-binstall"
 # Next-generation test runner for Rust
 brew "cargo-nextest"
 # Manage your dotfiles across multiple diverse machines, securely
@@ -53,6 +57,8 @@ brew "pipx"
 brew "poetry"
 # Object-relational database system
 brew "postgresql@15", link: true
+# Framework for managing multi-language pre-commit hooks
+brew "pre-commit"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
 # Messaging and streaming broker
@@ -61,10 +67,8 @@ brew "rabbitmq"
 brew "redis"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Safe, concurrent, practical language
-brew "rust"
-# Format Rust code
-brew "rustfmt"
+# Rust toolchain installer
+brew "rustup-init"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Very fast implementation of tldr in Rust
@@ -73,6 +77,8 @@ brew "tealdeer"
 brew "viddy"
 # Generator for LS_COLORS with support for multiple color themes
 brew "vivid"
+# CLI to convert between YAML, TOML, JSON and HCL
+brew "yj"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
 # A Kubernetes credential (exec) plugin implementing azure authentication
