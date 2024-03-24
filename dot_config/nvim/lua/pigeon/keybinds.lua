@@ -4,6 +4,7 @@ return {
 
         vim.api.nvim_create_autocmd("LspAttach", {
             desc = "Set LSP keybinds",
+            group = require("pigeon.autocmds").group,
             callback = function(event)
                 local function map(keys, fn, desc, modes, extra_opts)
                     local opts = { buffer = event.buf, desc = "[LSP] " .. desc }

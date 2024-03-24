@@ -36,7 +36,7 @@ return {
         dependencies = { "nvim-lua/plenary.nvim" },
         keys = {
             { "<Leader>f", "<CMD>Telescope find_files<CR>", desc = "Find Files" },
-            { "<Leader>s", "<CMD>Telescope live_grep<CR>", desc = "Search" },
+            { "<Leader>s", "<CMD>Telescope live_grep<CR>",  desc = "Search" },
         },
         cmd = { "Telescope" },
     },
@@ -89,6 +89,10 @@ return {
                     -- `z` key
                     { mode = 'n', keys = 'z' },
                     { mode = 'x', keys = 'z' },
+
+                    -- mini.basics
+                    { mode = "n", keys = [[\]] },
+                    { mode = "x", keys = [[\]] },
 
                     -- mini.bracketed
                     { mode = "n", keys = "[" },
