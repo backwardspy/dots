@@ -18,7 +18,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         dependencies = { "neovim/nvim-lspconfig", "mason.nvim" },
         opts = {
-            ensure_installed = { "lua_ls", "basedpyright", "rust_analyzer" },
+            ensure_installed = { "lua_ls", "ruff_lsp", "basedpyright", "rust_analyzer" },
             automatic_installation = true,
             handlers = {
                 function(server)
@@ -33,12 +33,28 @@ return {
     {
         "nvim-telescope/telescope.nvim",
         branch = "0.1.x",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build = vim.fn.executable("make") == 1 and "make"
+                    or
+                    "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+                enabled = vim.fn.executable("make") == 1 or vim.fn.executable("cmake") == 1,
+            },
+            "nvim-telescope/telescope-ui-select.nvim",
+        },
         keys = {
             { "<Leader>f", "<CMD>Telescope find_files<CR>", desc = "Find Files" },
             { "<Leader>s", "<CMD>Telescope live_grep<CR>",  desc = "Search" },
         },
         cmd = { "Telescope" },
+        event = { "LspAttach" }, -- so we can use ui-select for code actions
+        config = function()
+            local telescope = require("telescope")
+            telescope.load_extension("ui-select")
+            telescope.load_extension("fzf")
+        end,
     },
     {
         "echasnovski/mini.nvim",
