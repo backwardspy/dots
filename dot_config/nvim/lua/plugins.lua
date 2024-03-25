@@ -18,7 +18,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         dependencies = { "neovim/nvim-lspconfig", "mason.nvim" },
         opts = {
-            ensure_installed = { "lua_ls", "pyright", "rust_analyzer" },
+            ensure_installed = { "lua_ls", "basedpyright", "rust_analyzer" },
             automatic_installation = true,
             handlers = {
                 function(server)
@@ -125,5 +125,29 @@ return {
             require("mini.surround").setup()
             require("mini.trailspace").setup()
         end,
-    }
+    },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        lazy = false,
+        priority = 1000,
+        opts = {
+            flavour = "auto",
+            term_colors = true,
+            integrations = {
+                mason = true,
+                mini = {
+                    enabled = true,
+                    indentscope_color = "rosewater",
+                },
+                telescope = {
+                    style = "nvchad",
+                },
+            }
+        },
+        config = function(_, opts)
+            require("catppuccin").setup(opts)
+            vim.cmd.colorscheme("catppuccin")
+        end
+    },
 }
