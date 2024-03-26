@@ -143,6 +143,12 @@ return {
         end,
     },
     {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        opts = {},
+    },
+    {
         "catppuccin/nvim",
         name = "catppuccin",
         lazy = false,
