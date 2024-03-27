@@ -12,13 +12,15 @@ return {
     },
     {
         "williamboman/mason.nvim",
-        opts = {},
+        opts = {
+            ensure_installed = { "prettier" },
+        },
     },
     {
         "williamboman/mason-lspconfig.nvim",
         dependencies = { "neovim/nvim-lspconfig", "mason.nvim" },
         opts = {
-            ensure_installed = { "lua_ls", "ruff_lsp", "basedpyright", "rust_analyzer" },
+            ensure_installed = { "lua_ls", "ruff_lsp", "basedpyright", "rust_analyzer", "yamlls" },
             automatic_installation = true,
             handlers = {
                 function(server)
@@ -29,6 +31,22 @@ return {
                 end
             },
         },
+    },
+    {
+        "stevearc/conform.nvim",
+        opts = {
+            formatters_by_ft = {
+                javascript = { "prettier" },
+                markdown = { "prettier" },
+                typescript = { "prettier" },
+                yaml = { "prettier" },
+            }
+        },
+    },
+    {
+        "zapling/mason-conform.nvim",
+        dependencies = { "mason.nvim", "conform.nvim" },
+        opts = {},
     },
     {
         "nvim-telescope/telescope.nvim",

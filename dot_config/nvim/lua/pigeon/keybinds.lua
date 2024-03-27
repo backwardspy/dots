@@ -1,3 +1,5 @@
+local format = require("pigeon").format
+
 return {
     setup = function()
         vim.keymap.set("n", "gh", vim.diagnostic.open_float, { desc = "[LSP] Open Float" })
@@ -22,7 +24,7 @@ return {
                 map("gr", vim.lsp.buf.references, "Go to References")
                 map("<C-k>", vim.lsp.buf.signature_help, "Signature Help")
                 map("<Leader>r", vim.lsp.buf.rename, "Rename")
-                map("<Leader>cf", function() vim.lsp.buf.format({ async = true }) end, "Format Document")
+                map("<Leader>cf", format, "Format Document")
                 map("<Leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
             end,
         })
