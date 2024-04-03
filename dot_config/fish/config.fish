@@ -1,9 +1,9 @@
 fish_add_path -g /opt/homebrew/bin
 fish_add_path -g /opt/homebrew/sbin
-fish_add_path -g /opt/homebrew/opt/python@3.12/libexec/bin
+fish_add_path -g /opt/homebrew/opt/python3/libexec/bin
 fish_add_path -g /home/linuxbrew/.linuxbrew/bin
 fish_add_path -g /home/linuxbrew/.linuxbrew/sbin
-fish_add_path -g /home/linuxbrew/.linuxbrew/opt/python@3.12/libexec/bin
+fish_add_path -g /home/linuxbrew/.linuxbrew/opt/python3/libexec/bin
 fish_add_path -g ~/.local/bin
 
 if string match -qr 'Darwin|Linux' (uname)

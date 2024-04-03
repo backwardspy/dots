@@ -39,6 +39,8 @@ brew "gh"
 brew "git"
 # Render markdown on the CLI
 brew "glow"
+# Post-modern modal text editor
+brew "helix"
 # Command-line benchmarking tool
 brew "hyperfine"
 # Lightweight and flexible command-line JSON processor
@@ -48,7 +50,7 @@ brew "just"
 # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubectx"
 # Ambitious Vim-fork focused on extensibility and agility
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 # Python dependency management tool
 brew "pipenv"
 # Execute binaries from Python packages in isolated environments
@@ -89,6 +91,8 @@ cask "1password-cli"
 cask "alex313031-thorium"
 # Enable Windows-like alt-tab
 cask "alt-tab"
+# Multi-track audio editor and recorder
+cask "audacity"
 # Desktop password and login vault
 cask "bitwarden"
 # Universal database tool and SQL client
