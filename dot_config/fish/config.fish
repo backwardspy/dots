@@ -35,6 +35,7 @@ if string match -qr 'Darwin|Linux' (uname)
     set -gx TERMINFO_DIRS $XDG_DATA_HOME/terminfo:/usr/share/terminfo
 
     set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
+    set -gx BUN_INSTALL $XDG_DATA_HOME/bun
 
     set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
     ###
@@ -45,6 +46,7 @@ set -gx TERM wezterm
 
 fish_add_path -g $CARGO_HOME/bin
 fish_add_path -g $GOPATH/bin
+fish_add_path -g $BUN_INSTALL/bin
 
 if type -q npm
     fish_add_path $HOME/.local/share/npm/bin
