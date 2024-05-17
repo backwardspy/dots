@@ -42,7 +42,6 @@ if string match -qr 'Darwin|Linux' (uname)
 end
 
 set -gx EDITOR nvim
-set -gx TERM wezterm
 
 fish_add_path -g $CARGO_HOME/bin
 fish_add_path -g $GOPATH/bin

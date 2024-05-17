@@ -1,22 +1,15 @@
-tap "azure/kubelogin"
+tap "catppuccin/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "homebrew/services"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.11"
-# Microsoft Azure CLI 2.0
-brew "azure-cli"
-# Background rust code check
-brew "bacon"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
 # Platform built on V8 to build network applications
 brew "node"
 # Secure and free password manager for all of your devices
 brew "bitwarden-cli"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.12"
 # Binary installation for rust projects
 brew "cargo-binstall"
 # Next-generation test runner for Rust
@@ -39,34 +32,26 @@ brew "gh"
 brew "git"
 # Render markdown on the CLI
 brew "glow"
-# Post-modern modal text editor
-brew "helix"
 # Command-line benchmarking tool
 brew "hyperfine"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Handy way to save and run project-specific commands
 brew "just"
-# Tool that can switch between kubectl contexts easily and create aliases
-brew "kubectx"
 # Ambitious Vim-fork focused on extensibility and agility
-brew "neovim", args: ["HEAD"]
-# Python dependency management tool
-brew "pipenv"
+brew "neovim"
+# Locking and sync for Pip requirements files
+brew "pip-tools"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
 # Python package management tool
 brew "poetry"
-# Object-relational database system
-brew "postgresql@15", link: true
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
-# Messaging and streaming broker
-brew "rabbitmq"
-# Persistent key-value database, with built-in net interface
-brew "redis"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Rust toolchain installer
@@ -77,16 +62,12 @@ brew "starship"
 brew "tealdeer"
 # Modern watch command
 brew "viddy"
-# Generator for LS_COLORS with support for multiple color themes
-brew "vivid"
 # CLI to convert between YAML, TOML, JSON and HCL
 brew "yj"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# A Kubernetes credential (exec) plugin implementing azure authentication
-brew "azure/kubelogin/kubelogin"
-# Command-line interface for 1Password
-cask "1password-cli"
+# Soothing port creation tool for the high-spirited!
+brew "catppuccin/tap/whiskers"
 # Web browser
 cask "alex313031-thorium"
 # Enable Windows-like alt-tab
@@ -95,12 +76,6 @@ cask "alt-tab"
 cask "audacity"
 # Desktop password and login vault
 cask "bitwarden"
-# Universal database tool and SQL client
-cask "dbeaver-community"
-# App to build and share containerised applications and microservices
-cask "docker"
-# Monospaced font that includes programming ligatures
-cask "font-cascadia-code"
 # Free and open-source image editor
 cask "gimp"
 # Free and open-source media player
