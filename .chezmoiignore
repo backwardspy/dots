@@ -2,12 +2,14 @@ unbrew.py
 .config/fish/completions/
 .config/fish/conf.d/
 .config/fish/fish_variables
+.config/nushell/history.txt
 
 {{- if ne .chezmoi.os "windows" }}
 Documents/
 .ipython
 {{- else }}
-!.config/wezterm/
+!.config/nvim/
+!.config/nushell/
 .config/*
 .local/
 Brewfile
