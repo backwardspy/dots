@@ -118,4 +118,9 @@ if type -q starship
     end
     starship init fish | source
     enable_transience
+
+    if string match -q "$TERM_PROGRAM" "vscode"
+        set -e VSCODE_SHELL_INTEGRATION
+        . (code --locate-shell-integration-path fish)
+    end
 end
