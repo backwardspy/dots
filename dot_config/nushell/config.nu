@@ -7,5 +7,5 @@ $env.config = {
   color_config: (catppuccin-theme latte),
 }
 
-# vivid generate THEME | str trim | safe -f ($nu.default-config-dir | path join vivid)
+# vivid generate THEME | str trim | save -f ($nu.default-config-dir | path join vivid)
 $env.LS_COLORS = (cat ($nu.default-config-dir | path join vivid))
