@@ -10,6 +10,7 @@ Documents/
 {{- else }}
 !.config/nvim/
 !.config/nushell/
+!.config/starship.toml
 .config/*
 .local/
 Brewfile
