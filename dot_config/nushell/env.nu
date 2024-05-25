@@ -1,4 +1,4 @@
-$env.PATH = (
+$env.path = (
     [
         ~/.local/bin
         ~/.cargo/bin
