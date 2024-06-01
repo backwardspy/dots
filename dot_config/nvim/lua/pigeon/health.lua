@@ -1,5 +1,6 @@
 local requires = {
     "curl",
+    "gcc",
     "git",
     "tar",
 }
