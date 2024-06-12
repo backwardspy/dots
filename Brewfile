@@ -1,6 +1,5 @@
 tap "catppuccin/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "homebrew/services"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
