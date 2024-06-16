@@ -1,3 +1,4 @@
+# open palette.json | transpose flavor_id flavor | each { |f| {flavor: $f.flavor_id colors: ($in.flavor.colors | transpose color_id color | each { |c| {color: $c.color_id hex: $c.color.hex} }) } }
 export const catppuccin = {
   latte: {
     rosewater: "#dc8a78"

@@ -1,5 +1,4 @@
-use starship.nu
-
+use prompt.nu [left-prompt right-prompt]
 use catppuccin.nu [catppuccin catppuccin-theme]
 
 $env.config = {
@@ -47,3 +46,7 @@ def dcdu [] { docker-compose down ; docker-compose build ; docker-compose up -d 
 alias vn = python -m venv .venv
 # alias va = . .venv/bin/activate.fish
 alias vd = deactivate
+
+$env.PROMPT_COMMAND = { left-prompt }
+$env.PROMPT_COMMAND_RIGHT = { right-prompt }
+$env.PROMPT_INDICATOR = '$ '

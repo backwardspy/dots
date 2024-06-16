@@ -8,7 +8,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
-vim.opt.background = "light"
+vim.opt.termguicolors = false
 
 vim.keymap.set("n", "<C-s>", "<cmd>write<cr>")
 
