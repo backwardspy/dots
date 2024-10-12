@@ -1,0 +1,19 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# TODO: support apk for alpine containers
+if ! command -v apt-get &>/dev/null; then
+    echo "apt-get is required"
+    exit 1
+fi
+
+curl -sSLf https://astral.sh/uv/install.sh |
+    env UV_INSTALL_DIR="$HOME"/.local \
+        INSTALLER_NO_MODIFY_PATH=1 \
+        sh
+
+curl -sSLf https://get.chezmoi.io |
+    sh -s -- -b "$HOME"/.local/bin
+
+"$HOME"/.local/bin/chezmoi apply
