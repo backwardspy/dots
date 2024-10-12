@@ -26,6 +26,7 @@ curl -sSLf https://astral.sh/uv/install.sh |
 curl -sSLf https://get.chezmoi.io |
     sh -s -- -b "$HOME"/.local/bin
 
-curl -sSLf https://starship.rs/install.sh | sh
+curl -sSLf https://starship.rs/install.sh |
+    sh -s -- -b "$HOME"/.local/bin -y
 
 "$HOME"/.local/bin/chezmoi apply
