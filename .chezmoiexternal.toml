@@ -1,28 +1,11 @@
-{{- if eq .chezmoi.os "windows" }}
-["Documents/PowerShell/Modules/Catppuccin"]
-type = "archive"
-url = "https://github.com/catppuccin/powershell/archive/refs/heads/main.zip"
-stripComponents = 1
-refreshPeriod = "168h"
-{{- else }}
 [".config/fish/themes/Catppuccin Latte.theme"]
 type = "file"
 url = "https://raw.githubusercontent.com/catppuccin/fish/main/themes/Catppuccin%20Latte.theme"
 refreshPeriod = "168h"
 
-[".config/fish/themes/Catppuccin Mocha.theme"]
-type = "file"
-url = "https://raw.githubusercontent.com/catppuccin/fish/main/themes/Catppuccin%20Mocha.theme"
-refreshPeriod = "168h"
-
 [".config/bat/themes/Catppuccin Latte.tmTheme"]
 type = "file"
 url = "https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin%20Latte.tmTheme"
-refreshPeriod = "168h"
-
-[".config/bat/themes/Catppuccin Mocha.tmTheme"]
-type = "file"
-url = "https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin%20Mocha.tmTheme"
 refreshPeriod = "168h"
 
 [".local/bin/icat"]

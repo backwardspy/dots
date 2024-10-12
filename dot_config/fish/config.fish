@@ -1,55 +1,25 @@
-fish_add_path -g /opt/homebrew/bin
-fish_add_path -g /opt/homebrew/sbin
-fish_add_path -g /opt/homebrew/opt/python3/libexec/bin
-fish_add_path -g /home/linuxbrew/.linuxbrew/bin
-fish_add_path -g /home/linuxbrew/.linuxbrew/sbin
-fish_add_path -g /home/linuxbrew/.linuxbrew/opt/python3/libexec/bin
-fish_add_path -g ~/.local/bin
+set -gx XDG_CACHE_HOME $HOME/.cache
+set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx XDG_DATA_HOME $HOME/.local/share
+set -gx XDG_STATE_HOME $HOME/.local/state
+set -gx XDG_RUNTIME_DIR $HOME/.run
 
-if string match -qr 'Darwin|Linux' (uname)
-    ### recommendations from xdg-ninja
-    set -gx XDG_CACHE_HOME $HOME/.cache
-    set -gx XDG_CONFIG_HOME $HOME/.config
-    set -gx XDG_DATA_HOME $HOME/.local/share
-    set -gx XDG_STATE_HOME $HOME/.local/state
-    set -gx XDG_RUNTIME_DIR $HOME/.run
-
-    set -gx AZURE_CONFIG_DIR $XDG_DATA_HOME/azure
-
-    set -gx CARGO_HOME $XDG_DATA_HOME/cargo
-
-    set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
-
-    set -gx GEM_HOME $XDG_DATA_HOME/gem
-    set -gx GEM_SPEC_CACHE $XDG_CACHE_HOME/gem
-
-    set -gx GOPATH $XDG_DATA_HOME/go
-
-    set -gx LESSHISTFILE $XDG_STATE_HOME/less/history
-
-    set -gx MYPY_CACHE_DIR $XDG_CACHE_HOME/mypy
-
-    set -gx PSQL_HISTORY $XDG_DATA_HOME/psql_history
-
-    set -gx TERMINFO $XDG_DATA_HOME/terminfo
-    set -gx TERMINFO_DIRS $XDG_DATA_HOME/terminfo:/usr/share/terminfo
-
-    set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
-    set -gx BUN_INSTALL $XDG_DATA_HOME/bun
-
-    set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
-    ###
-end
+set -gx CARGO_HOME $XDG_DATA_HOME/cargo
+set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
+set -gx GOPATH $XDG_DATA_HOME/go
+set -gx LESSHISTFILE $XDG_STATE_HOME/less/history
+set -gx MYPY_CACHE_DIR $XDG_CACHE_HOME/mypy
+set -gx PSQL_HISTORY $XDG_DATA_HOME/psql_history
+set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
+set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
 
 set -gx EDITOR nvim
+set -gx VISUAL code
 
+fish_add_path -g ~/.local/bin
 fish_add_path -g $CARGO_HOME/bin
 fish_add_path -g $GOPATH/bin
-fish_add_path -g $BUN_INSTALL/bin
-
-if type -q npm
-    fish_add_path $HOME/.local/share/npm/bin
-end
+fish_add_path -g $XDG_DATA_HOME/npm/bin
 
 if type -q vivid
     set -gx LS_COLORS (vivid generate catppuccin-latte)

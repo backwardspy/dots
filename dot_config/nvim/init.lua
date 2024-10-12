@@ -26,14 +26,12 @@ later(function()
         source = "nvim-treesitter/nvim-treesitter",
         hooks = { post_checkout = function() vim.cmd.TSUpdate() end },
     })
-    add({ source = "nushell/tree-sitter-nu", })
     require("nvim-treesitter.configs").setup({
         ensure_installed = {
             "lua",
             "vimdoc",
             "python",
             "rust",
-            "nu",
         },
         highlight = { enable = true },
     })
