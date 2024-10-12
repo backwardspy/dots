@@ -8,6 +8,16 @@ if ! command -v apt-get &>/dev/null; then
     exit 1
 fi
 
+sudo apt-get update && sudo apt-get install -y \
+    bat \
+    curl \
+    fish \
+    git \
+    jq \
+    neovim \
+    ripgrep \
+    unzip
+
 curl -sSLf https://astral.sh/uv/install.sh |
     env UV_INSTALL_DIR="$HOME"/.local \
         INSTALLER_NO_MODIFY_PATH=1 \

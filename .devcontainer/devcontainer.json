@@ -8,7 +8,15 @@
 				"tamasfe.even-better-toml",
 				"foxundermoon.shell-format",
 				"timonwong.shellcheck"
-			]
+			],
+			"settings": {
+				"terminal.integrated.profiles.linux": {
+					"fish": {
+						"path": "fish"
+					}
+				},
+				"terminal.integrated.defaultProfile.linux": "fish",
+			}
 		}
 	}
 }

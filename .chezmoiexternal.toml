@@ -13,4 +13,3 @@ type = "file"
 url = "https://raw.githubusercontent.com/nekowinston/icat/main/icat.sh"
 refreshPeriod = "168h"
 executable = true
-{{- end }}
