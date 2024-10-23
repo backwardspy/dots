@@ -1,7 +1,7 @@
 [user]
     email = backwardspy@pigeon.life
     name = backwardspy
-    signingKey = ~/.ssh/id_ed25519.pub
+    signingKey = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINkwQw2NsVT2S1CdDnqWWXlPvbsmF10WiD2kOtLxnLaN backwardspy@pigeon.life"
 
 [diff]
     colorMoved = default
