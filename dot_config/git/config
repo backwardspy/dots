@@ -1,41 +1,67 @@
 [user]
-    email = backwardspy@pigeon.life
     name = backwardspy
+    email = backwardspy@pigeon.life
     signingKey = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINkwQw2NsVT2S1CdDnqWWXlPvbsmF10WiD2kOtLxnLaN"
 
+[core]
+    excludesfile = ~/.gitignore
+    autocrlf = false
+    eol = lf
+
 [diff]
-    colorMoved = default
     algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
 
 [merge]
     conflictstyle = zdiff3
 
 [rebase]
-    autosquash = true
-    autostash = true
+    autoSquash = true
+    autoStash = true
+    updateRefs = true
 
 [push]
+    default = simple
     autoSetupRemote = true
+    followTags = true
     gpgSign = "if-asked"
 
 [commit]
-    gpgSign = true
     verbose = true
+    gpgSign = true
 
 [tag]
+    sort = version:refname
     gpgSign = true
 
 [init]
     defaultBranch = main
 
+[branch]
+    sort = -committerdate
+
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+
 [rerere]
     enabled = true
+    autoupdate = true
+
+[help]
+    autocorrect = prompt
 
 [gpg]
     format = ssh
 
+[column]
+    ui = auto
+
 [filter "lfs"]
+    clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
-    clean = git-lfs clean -- %f
