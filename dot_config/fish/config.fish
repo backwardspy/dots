@@ -14,9 +14,10 @@ set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npm/npmrc
 set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
 
 set -gx EDITOR nvim
-set -gx VISUAL code
+set -gx VISUAL "code --wait"
 
 fish_add_path -g ~/.local/bin
+fish_add_path -g /opt/neovim/bin
 fish_add_path -g $CARGO_HOME/bin
 fish_add_path -g $GOPATH/bin
 fish_add_path -g $XDG_DATA_HOME/npm/bin
